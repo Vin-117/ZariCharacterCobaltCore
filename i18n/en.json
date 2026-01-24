@@ -14,10 +14,9 @@
         }
     },
     "action": {
-        "AGainPonder": {
-            "title": "Gain Ponder",
-            "draw": "Add <c=boldPink>{{Count}}</c> <c=card>Ponder</c>s to your <c=white>draw pile</c>.",
-            "discard": "Add <c=boldPink>{{Count}}</c> <c=card>Ponder</c>s to your <c=white>discard pile</c>."
+        "ADiscardSelect": {
+            "title": "Discard Choice",
+            "desc": "Discard a chosen card from your hand."
         },
         "AOverthink": {
             "title": "Overthink",
@@ -25,8 +24,8 @@
         }
     },
     "card": {
-        "PickAndChoose": {
-            "name": "Pick And Choose"
+        "BurdenOfChoice": {
+            "name": "Burden Of Choice"
         },
     },
     "artifact": {

@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-//using DemoMod.Actions;
+using ZariMod.Actions;
 //using DemoMod.Artifacts;
 using ZariMod.Cards;
 using ZariMod.External;
@@ -45,7 +45,7 @@ internal class ModEntry : SimpleMod
     /// Define card types as static lists
     ///
     private static List<Type> ZariCommonCardTypes = [
-        typeof(PickAndChoose)
+        typeof(BurdenOfChoice)
     ];
     private static List<Type> ZariUncommonCardTypes = [
     ];
@@ -135,7 +135,7 @@ internal class ModEntry : SimpleMod
             {
                 cards =
                 [
-                    new PickAndChoose()
+                    new BurdenOfChoice()
                 ],
             },
             Description = AnyLocalizations.Bind(["character", "desc"]).Localize
@@ -148,6 +148,11 @@ internal class ModEntry : SimpleMod
         ///
         foreach (var type in AllRegisterableTypes)
             AccessTools.DeclaredMethod(type, nameof(IRegisterable.Register))?.Invoke(null, [package, helper]);
+
+
+
+
+        ADiscardSelect.ADiscardSelectSpr = RegisterSprite(package, "assets/Actions/chooseDiscard.png").Sprite;
 
 
 

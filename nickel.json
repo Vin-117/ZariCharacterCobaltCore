@@ -1,10 +1,10 @@
 {
-  "UniqueName": "rft.DemoMod",
+  "UniqueName": "Vintage.ZariMod",
   "Version": "0.2.0",
   "Author": "rft50",
-  "Description": "A mod demonstrating the basics of modding Cobalt Core.",
+  "Description": "A mod which Zari, a new character to Cobalt Core.",
   "RequiredApiVersion": "1.5.7",
-  "EntryPointAssembly": "DemoMod.dll",
+  "EntryPointAssembly": "zariMod.dll",
   "LoadPhase": "AfterDbInit",
   "Dependencies": [
     {

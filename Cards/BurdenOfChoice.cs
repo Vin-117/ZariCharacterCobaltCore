@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using ZariMod.External;
+using ZariMod.Actions;
 using Nanoray.PluginManager;
 using Nickel;
 
 namespace ZariMod.Cards;
 
-public class PickAndChoose : Card, IRegisterable
+public class BurdenOfChoice : Card, IRegisterable
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -21,7 +21,7 @@ public class PickAndChoose : Card, IRegisterable
                 dontOffer = true,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "PickAndChoose", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "BurdenOfChoice", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
         });
     }
@@ -69,8 +69,10 @@ public class PickAndChoose : Card, IRegisterable
                     {
                         new ADrawCard
                         {
-                            count = 3
-                        }
+                            count = 3,
+                            timer = 1.5
+                        },
+                        new ADiscardSelect{},
                     };
                 }
             case Upgrade.A:
