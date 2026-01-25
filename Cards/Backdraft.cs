@@ -43,14 +43,15 @@ public class Backdraft : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 1
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0,
+                        exhaust = true
                     };
                 }
             default:
@@ -83,9 +84,11 @@ public class Backdraft : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AStatus
                         {
-                            count = 1
+                            status = Status.evade,
+                            statusAmount = 1,
+                            targetPlayer = true
                         },
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
@@ -105,9 +108,10 @@ public class Backdraft : Card, IRegisterable
                         new AStatus
                         {
                             status = Status.evade,
-                            statusAmount = 1,
+                            statusAmount = 2,
                             targetPlayer = true
                         },
+
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
                             new AStatus

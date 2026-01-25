@@ -96,7 +96,6 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect{ },
                         new ADrawCard
                         {
                             count = 3

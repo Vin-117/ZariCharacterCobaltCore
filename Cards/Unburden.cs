@@ -106,20 +106,11 @@ public class Unburden : Card, IRegisterable
                         },
                         new AStatus
                         {
-                            status = Status.shield,
-                            statusAmount = 2,
-                            targetPlayer = true
-                        },
-                        new AStatus
-                        {
                             status = Status.tempShield,
-                            statusAmount = 2,
+                            statusAmount = 4,
                             targetPlayer = true
                         },
-                        new ADiscardSelect
-                        {
-                            count = 1
-                        },
+                        new ADiscardFlexSelect{ }
                     };
                 }
             default:

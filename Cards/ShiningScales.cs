@@ -42,8 +42,9 @@ public class ShiningScales : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
-                        exhaust = true
+                        cost = 3,
+                        exhaust = true,
+                        retain = true
                     };
                 }
             case Upgrade.B:
