@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class BurdenOfChoice : Card, IRegisterable
+public class Regenerate : Card, IRegisterable, IHasCustomCardTraits
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -17,14 +17,17 @@ public class BurdenOfChoice : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.ZariDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "BurdenOfChoice", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Regenerate", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
         });
     }
+
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
+        => new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
 
     public override CardData GetData(State state)
     {
@@ -34,21 +37,24 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 1,
+                        exhaust = true
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0,
+                        exhaust = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 1,
+                        exhaust = true
                     };
                 }
             default:
@@ -66,14 +72,10 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AHeal
                         {
-                            count = 3,
-                            timer = 1.5
-                        },
-                        new ADiscardSelect
-                        {
-                            count = 1
+                            healAmount = 1,
+                            targetPlayer = true
                         },
                     };
                 }
@@ -81,14 +83,10 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AHeal
                         {
-                            count = 5,
-                            timer = 1.5
-                        },
-                        new ADiscardSelect
-                        {
-                            count = 1
+                            healAmount = 1,
+                            targetPlayer = true
                         },
                     };
                 }
@@ -96,12 +94,11 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect{ },
-                        new ADrawCard
+                        new AHullMax
                         {
-                            count = 3
+                            amount = 1,
+                            targetPlayer = true
                         },
-                        new ADiscardFlexSelect{ }
                     };
                 }
             default:

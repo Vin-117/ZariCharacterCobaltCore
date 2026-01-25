@@ -44,14 +44,34 @@ internal class ModEntry : SimpleMod
     ///
     /// Define card types as static lists
     ///
-    private static List<Type> ZariCommonCardTypes = [
-        typeof(BurdenOfChoice)
+    private static List<Type> ZariCommonCardTypes = 
+    [
+        typeof(BurdenOfChoice),
+        typeof(ToughScales),
+        typeof(Unburden),
+        typeof(Endure),
+        typeof(Covet),
+        typeof(Amass),
+        typeof(Backdraft),
+        typeof(StretchTheWings),
+        typeof(Acquire)
     ];
-    private static List<Type> ZariUncommonCardTypes = [
+    private static List<Type> ZariUncommonCardTypes = 
+    [
+        typeof(Regenerate),
+        typeof(Replace),
+        typeof(Avarice),
+        typeof(Ambition),
+        typeof(Seek),
+        typeof(Moult)
     ];
-    private static List<Type> ZariRareCardTypes = [
+    private static List<Type> ZariRareCardTypes = 
+    [
+        typeof(ShiningScales)
     ];
-    private static List<Type> ZariSpecialCardTypes = [
+    private static List<Type> ZariSpecialCardTypes = 
+    [
+        typeof(DiscardedScales)
     ];
     private static IEnumerable<Type> ZariCardTypes =
         ZariCommonCardTypes
@@ -135,7 +155,10 @@ internal class ModEntry : SimpleMod
             {
                 cards =
                 [
-                    new BurdenOfChoice()
+                    new BurdenOfChoice(),
+                    new DiscardedScales(),
+                    new Moult()
+                    //new ToughScales()
                 ],
             },
             Description = AnyLocalizations.Bind(["character", "desc"]).Localize
@@ -153,6 +176,7 @@ internal class ModEntry : SimpleMod
 
 
         ADiscardSelect.ADiscardSelectSpr = RegisterSprite(package, "assets/Actions/chooseDiscard.png").Sprite;
+        ADiscardFlexSelect.ADiscardFlexSelectSpr = RegisterSprite(package, "assets/Actions/chooseFlexDiscard.png").Sprite;
 
 
 

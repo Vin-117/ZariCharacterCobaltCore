@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class BurdenOfChoice : Card, IRegisterable
+public class Replace : Card, IRegisterable, IHasCustomCardTraits
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -17,14 +17,17 @@ public class BurdenOfChoice : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.ZariDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "BurdenOfChoice", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Replace", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
         });
     }
+
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
+        => new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
 
     public override CardData GetData(State state)
     {
@@ -34,21 +37,24 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0,
+                        exhaust = true
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0,
+                        exhaust = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0,
+                        exhaust = true
                     };
                 }
             default:
@@ -66,42 +72,65 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AHurt
                         {
-                            count = 3,
-                            timer = 1.5
+                            targetPlayer = true,
+                            hurtAmount = 1
                         },
-                        new ADiscardSelect
+                        new AShieldMax
                         {
-                            count = 1
+                            amount = 1,
+                            targetPlayer = true
                         },
+                        new AStatus
+                        {
+                            targetPlayer = true,
+                            statusAmount = 1,
+                            status = Status.shield
+                        }
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AHurt
                         {
-                            count = 5,
-                            timer = 1.5
+                            targetPlayer = true,
+                            hurtAmount = 1
                         },
-                        new ADiscardSelect
+                        new AShieldMax
                         {
-                            count = 1
+                            amount = 1,
+                            targetPlayer = true
                         },
+                        new AStatus
+                        {
+                            targetPlayer = true,
+                            statusAmount = 3,
+                            status = Status.shield
+                        }
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect{ },
-                        new ADrawCard
+                        new AHurt
                         {
-                            count = 3
+                            targetPlayer = true,
+                            hurtAmount = 1
                         },
-                        new ADiscardFlexSelect{ }
+                        new AShieldMax
+                        {
+                            amount = 1,
+                            targetPlayer = true
+                        },
+                        new AHullMax
+                        {
+                            targetPlayer = true,
+                            amount = 1
+                        }
                     };
                 }
             default:

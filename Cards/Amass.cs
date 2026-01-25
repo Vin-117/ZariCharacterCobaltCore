@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class BurdenOfChoice : Card, IRegisterable
+public class Amass : Card, IRegisterable
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -21,7 +21,7 @@ public class BurdenOfChoice : Card, IRegisterable
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "BurdenOfChoice", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Amass", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
         });
     }
@@ -34,21 +34,21 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 2
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 2
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 3
                     };
                 }
             default:
@@ -66,42 +66,49 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AAttack
                         {
-                            count = 3,
-                            timer = 1.5
+                            damage = GetDmg(s, 2)
                         },
-                        new ADiscardSelect
+                        new AStatus
                         {
-                            count = 1
-                        },
+                            status = Status.drawNextTurn,
+                            statusAmount = 3,
+                            targetPlayer = true
+                        }
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AAttack
                         {
-                            count = 5,
-                            timer = 1.5
+                            damage = GetDmg(s, 3)
                         },
-                        new ADiscardSelect
+                        new AStatus
                         {
-                            count = 1
-                        },
+                            status = Status.drawNextTurn,
+                            statusAmount = 4,
+                            targetPlayer = true
+                        }
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect{ },
-                        new ADrawCard
+                        new AAttack
                         {
-                            count = 3
+                            damage = GetDmg(s, 5),
+                            piercing = true
                         },
-                        new ADiscardFlexSelect{ }
+                        new AStatus
+                        {
+                            status = Status.drawNextTurn,
+                            statusAmount = 5,
+                            targetPlayer = true
+                        }
                     };
                 }
             default:

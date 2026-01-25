@@ -16,16 +16,71 @@
     "action": {
         "ADiscardSelect": {
             "title": "Discard Choice",
-            "desc": "Discard a chosen card from your hand."
+            "desc_single": "Choose <c=boldPink>1</c> card to discard from your hand.",
+            "desc" : "Choose <c=boldPink>{{cnt}}</c> cards to discard from your hand."
         },
-        "AOverthink": {
-            "title": "Overthink",
-            "desc": "Discard a <c=card>Ponder</c> in hand, or in the draw pile."
-        }
+        "ADiscardFlexSelect": {
+            "title": "Flex Discard",
+            "desc_single": "Choose <c=boldPink>any</c> number of cards to discard from your hand, or none at all."
+        },
+
+
+
     },
     "card": {
         "BurdenOfChoice": {
             "name": "Burden Of Choice"
+        },
+        "ToughScales": {
+            "name": "Tough Scales"
+        },
+        "Unburden": {
+            "name": "Unburden"
+        },
+        "Endure": {
+            "name": "Endure"
+        },
+        "Amass": {
+            "name": "Amass"
+        },
+        "Covet": {
+            "name": "Covet"
+        },
+        "Backdraft": {
+            "name": "Backdraft"
+        },
+        "StretchTheWings": {
+            "name": "Wing Flap"
+        },
+        "Acquire": {
+            "name": "Acquire"
+        },
+        "Replace": {
+            "name": "Replace"
+        },
+        "Regenerate": {
+            "name": "Regenerate"
+        },
+        "Avarice": {
+            "name": "Avarice"
+        },
+        "Ambition": {
+            "name": "Ambition"
+        },
+        "Seek": {
+            "name": "Seek",
+            "desc" : "<c=downside>On discard,</c> pick a <c=boldPink>draw pile</c> card to draw.",
+            "descA" : "<c=downside>On discard,</c> pick a <c=boldPink>draw or discard pile</c> card to draw.",
+            "descB" : "<c=downside>On discard,</c> pick a <c=boldPink>draw pile</c> card to draw. Pick a card to discard."
+        },
+        "DiscardedScales": {
+            "name": "Discarded Scales"
+        },
+        "ShiningScales": {
+            "name": "Shining Scales"
+        },
+        "Moult": {
+            "name": "Moult"
         },
     },
     "artifact": {

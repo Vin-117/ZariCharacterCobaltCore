@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class BurdenOfChoice : Card, IRegisterable
+public class Unburden : Card, IRegisterable
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -21,7 +21,7 @@ public class BurdenOfChoice : Card, IRegisterable
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "BurdenOfChoice", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Unburden", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
         });
     }
@@ -34,7 +34,7 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 2
                     };
                 }
             case Upgrade.A:
@@ -48,7 +48,7 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 2
                     };
                 }
             default:
@@ -66,10 +66,11 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AStatus
                         {
-                            count = 3,
-                            timer = 1.5
+                            status = Status.tempShield,
+                            statusAmount = 4,
+                            targetPlayer = true
                         },
                         new ADiscardSelect
                         {
@@ -81,10 +82,11 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AStatus
                         {
-                            count = 5,
-                            timer = 1.5
+                            status = Status.tempShield,
+                            statusAmount = 4,
+                            targetPlayer = true
                         },
                         new ADiscardSelect
                         {
@@ -96,12 +98,28 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect{ },
-                        new ADrawCard
+                        new AStatus
                         {
-                            count = 3
+                            status = Status.evade,
+                            statusAmount = 1,
+                            targetPlayer = true
                         },
-                        new ADiscardFlexSelect{ }
+                        new AStatus
+                        {
+                            status = Status.shield,
+                            statusAmount = 2,
+                            targetPlayer = true
+                        },
+                        new AStatus
+                        {
+                            status = Status.tempShield,
+                            statusAmount = 2,
+                            targetPlayer = true
+                        },
+                        new ADiscardSelect
+                        {
+                            count = 1
+                        },
                     };
                 }
             default:
