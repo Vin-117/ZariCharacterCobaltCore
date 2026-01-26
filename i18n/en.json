@@ -82,6 +82,12 @@
         "Moult": {
             "name": "Moult"
         },
+        "Scorn": {
+            "name": "Scorn",
+            "desc" : "Discard your <c=boldPink>draw pile.</c>",
+            "descA" : "Discard your <c=boldPink>draw pile.</c>",
+            "descB" : "Discard your <c=boldPink>draw pile.</c>"
+        },
     },
     "artifact": {
         "BuriedKnowledge": {

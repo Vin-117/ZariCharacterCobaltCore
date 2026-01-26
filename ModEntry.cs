@@ -67,7 +67,8 @@ internal class ModEntry : SimpleMod
     ];
     private static List<Type> ZariRareCardTypes = 
     [
-        typeof(ShiningScales)
+        typeof(ShiningScales),
+        typeof(Scorn)
     ];
     private static List<Type> ZariSpecialCardTypes = 
     [
@@ -157,7 +158,7 @@ internal class ModEntry : SimpleMod
                 [
                     new BurdenOfChoice(),
                     new DiscardedScales(),
-                    new Moult()
+                    new Scorn()
                     //new ToughScales()
                 ],
             },
