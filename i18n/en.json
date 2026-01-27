@@ -4,14 +4,14 @@
         "desc": ["<c=e8df5f>ZARI</c>", "A greedy dragon. Her cards <c=boldPink>draw</c> and <c=boldPink>discard</c> other cards, and provide lots of <c=boldPink>defensive utility</c>."]
     },
     "status": {
-        "knowledge": {
-            "name": "Knowledge",
-            "desc": "Base limit of 3. When reaching the limit, spend the required <c=status>KNOWLEDGE</c> to gain 1 <c=status>POWERDRIVE</c> and 1 <c=status>LESSON</c>. Excess <c=status>KNOWLEDGE</c> is not lost."
+        "ZariUndyingStatus": {
+            "name": "Undying",
+            "desc": "Gain {0} <c=status>SHIELD</c> every turn."
         },
-        "lesson": {
-            "name": "Lesson",
-            "desc": "Increase the limit of <c=status>KNOWLEDGE</c> by {0}."
-        }
+        "ZariOpportunisticStatus": {
+            "name": "Opportunist",
+            "desc": "At the start of every turn, <c=status>draw</c> {0} and choose {0} to discard."
+        },
     },
     "action": {
         "ADiscardSelect": {
@@ -23,9 +23,6 @@
             "title": "Flex Discard",
             "desc_single": "Choose <c=boldPink>any</c> number of cards to discard from your hand, or none at all."
         },
-
-
-
     },
     "card": {
         "BurdenOfChoice": {
@@ -82,11 +79,14 @@
         "Moult": {
             "name": "Moult"
         },
-        "Scorn": {
-            "name": "Scorn",
-            "desc" : "Discard your <c=boldPink>draw pile.</c>",
-            "descA" : "Discard your <c=boldPink>draw pile.</c>",
-            "descB" : "Discard your <c=boldPink>draw pile.</c>"
+        "Shed": {
+            "name": "Shed",
+        },
+        "Undying": {
+            "name": "Undying",
+        },
+        "Opportunistic": {
+            "name": "Opportunist",
         },
     },
     "artifact": {

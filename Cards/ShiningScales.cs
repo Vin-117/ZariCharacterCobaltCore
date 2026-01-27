@@ -44,14 +44,13 @@ public class ShiningScales : Card, IRegisterable
                     {
                         cost = 3,
                         exhaust = true,
-                        retain = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 3,
+                        cost = 4,
                         exhaust = true
                     };
                 }
@@ -82,6 +81,11 @@ public class ShiningScales : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
+                        new AHeal
+                        {
+                            healAmount = 1,
+                            targetPlayer = true
+                        },
                         new AStatus
                         {
                             status = Status.perfectShield,
@@ -94,15 +98,10 @@ public class ShiningScales : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AHeal
-                        {
-                            healAmount = 1,
-                            targetPlayer = true
-                        },
                         new AStatus
                         {
                             status = Status.perfectShield,
-                            statusAmount = 1,
+                            statusAmount = 2,
                             targetPlayer = true
                         },
                     };

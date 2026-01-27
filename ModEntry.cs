@@ -6,10 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using ZariMod.Features;
 using ZariMod.Actions;
 //using DemoMod.Artifacts;
 using ZariMod.Cards;
 using ZariMod.External;
+using static System.Formats.Asn1.AsnWriter;
 //using DemoMod.Features;
 
 namespace ZariMod;
@@ -63,12 +65,14 @@ internal class ModEntry : SimpleMod
         typeof(Avarice),
         typeof(Ambition),
         typeof(Seek),
-        typeof(Moult)
+        typeof(Moult),
+        typeof(Shed)
     ];
     private static List<Type> ZariRareCardTypes = 
     [
         typeof(ShiningScales),
-        typeof(Scorn)
+        typeof(Undying),
+        typeof(Opportunistic)
     ];
     private static List<Type> ZariSpecialCardTypes = 
     [
@@ -103,6 +107,16 @@ internal class ModEntry : SimpleMod
     /// Construct deck
     ///
     internal IDeckEntry ZariDeck;
+
+
+
+
+
+    ///
+    /// Construct status variables
+    ///
+    internal IStatusEntry ZariUndyingStatus;
+    internal IStatusEntry ZariOpportunisticStatus;
 
 
 
@@ -158,12 +172,50 @@ internal class ModEntry : SimpleMod
                 [
                     new BurdenOfChoice(),
                     new DiscardedScales(),
-                    new Scorn()
+                    new Opportunistic()
                     //new ToughScales()
                 ],
             },
             Description = AnyLocalizations.Bind(["character", "desc"]).Localize
         });
+
+
+
+        ///
+        /// Define status metadata and manager
+        ///
+        ZariUndyingStatus = helper.Content.Statuses.RegisterStatus("ZariUndyingStatus", new StatusConfiguration
+        {
+            Definition = new StatusDef
+            {
+                isGood = true,
+                affectedByTimestop = false,
+                color = new Color("9fd0ff"),
+                icon = RegisterSprite(package, "assets/Status/undying.png").Sprite
+            },
+            Name = AnyLocalizations.Bind(["status", "ZariUndyingStatus", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "ZariUndyingStatus", "desc"]).Localize
+        });
+        _ = new ZariUndyingStatusManager();
+
+        ZariOpportunisticStatus = helper.Content.Statuses.RegisterStatus("ZariOpportunisticStatus", new StatusConfiguration
+        {
+            Definition = new StatusDef
+            {
+                isGood = true,
+                affectedByTimestop = false,
+                color = new Color("3FBFFF"),
+                icon = RegisterSprite(package, "assets/Status/Opportunistic.png").Sprite
+            },
+            Name = AnyLocalizations.Bind(["status", "ZariOpportunisticStatus", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "ZariOpportunisticStatus", "desc"]).Localize
+            //Name = AnyLocalizations.Bind(["status", "ZariUndyingStatus", "name"]).Localize,
+            //Description = AnyLocalizations.Bind(["status", "ZariUndyingStatus", "desc"]).Localize
+        });
+        _ = new ZariOpportunisticStatusManager();
+
+
+
 
 
 

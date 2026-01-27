@@ -72,7 +72,8 @@ public class Covet : Card, IRegisterable
                         },
                         new ADrawCard
                         {
-                            count = 2
+                            count = 2,
+                            timer = 1.5
                         },
                         new ADiscardSelect
                         {
@@ -90,7 +91,8 @@ public class Covet : Card, IRegisterable
                         },
                         new ADrawCard
                         {
-                            count = 3
+                            count = 3,
+                            timer = 1.5
                         },
                         new ADiscardSelect
                         {
@@ -108,7 +110,8 @@ public class Covet : Card, IRegisterable
                         },
                         new ADrawCard
                         {
-                            count = 1
+                            count = 1,
+                            timer = 1.5
                         },
                         new ADiscardSelect
                         {

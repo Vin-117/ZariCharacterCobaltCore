@@ -8,7 +8,7 @@ using static ZariMod.External.IKokoroApi.IV2;
 
 namespace ZariMod.Cards;
 
-public class Backdraft : Card, IRegisterable
+public class Backdraft : Card, IRegisterable, IHasCustomCardTraits
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -27,6 +27,37 @@ public class Backdraft : Card, IRegisterable
         });
     }
 
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state) 
+    {
+        switch (this.upgrade) 
+        {
+            case Upgrade.None:
+            {
+                return new HashSet<ICardTraitEntry> { };
+            }
+            case Upgrade.A:
+            {
+                    return new HashSet<ICardTraitEntry> { };
+            }
+            case Upgrade.B: 
+            {
+                return new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
+                }
+            default:
+            {
+                    return new HashSet<ICardTraitEntry> { };
+            }
+        }
+
+    }
+        //=> new HashSet<ICardTraitEntry>
+        //{
+            
+
+        //    ModEntry.Instance.KokoroApi.Fleeting.Trait
+        //};
+
+
     public override CardData GetData(State state)
     {
         switch (this.upgrade)
@@ -43,7 +74,9 @@ public class Backdraft : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0,
+                        unplayable = true,
+                        retain = true
                     };
                 }
             case Upgrade.B:
@@ -51,7 +84,7 @@ public class Backdraft : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        exhaust = true
+                        unplayable = true
                     };
                 }
             default:
@@ -84,12 +117,6 @@ public class Backdraft : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AStatus
-                        {
-                            status = Status.evade,
-                            statusAmount = 1,
-                            targetPlayer = true
-                        },
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
                             new AStatus
@@ -105,12 +132,15 @@ public class Backdraft : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AStatus
-                        {
-                            status = Status.evade,
-                            statusAmount = 2,
-                            targetPlayer = true
-                        },
+                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
+                        (
+                            new AStatus
+                            {
+                                status = Status.evade,
+                                statusAmount = 2,
+                                targetPlayer = true
+                            }
+                        ).AsCardAction,
 
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
@@ -121,6 +151,7 @@ public class Backdraft : Card, IRegisterable
                                 targetPlayer = true
                             }
                         ).AsCardAction,
+
                     };
                 }
             default:

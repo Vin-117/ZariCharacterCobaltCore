@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class Scorn : Card, IRegisterable
+public class Shed : Card, IRegisterable
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -17,11 +17,11 @@ public class Scorn : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.ZariDeck.Deck,
-                rarity = Rarity.rare,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Scorn", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Shed", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
         });
     }
@@ -34,9 +34,9 @@ public class Scorn : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        exhaust = true,
-                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Scorn", "desc"]))
+                        cost = 0,
+                        exhaust = false,
+                        //description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "TheFavorite", "desc"]))
                     };
                 }
             case Upgrade.A:
@@ -44,18 +44,18 @@ public class Scorn : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        exhaust = true,
-                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Scorn", "desc"]))
+                        exhaust = false,
+                        //description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "TheFavorite", "desc"]))
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 0,
                         exhaust = true,
-                        buoyant = true,
-                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Scorn", "desc"]))
+                        buoyant = true
+                        //description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "TheFavorite", "desc"]))
                     };
                 }
             default:
@@ -73,21 +73,66 @@ public class Scorn : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        
+
+                        new AStatus
+                        {
+                            status = Status.maxShield,
+                            statusAmount = -1,
+                            targetPlayer = true
+                        },
+                        new AStatus
+                        {
+                            status = Status.drawNextTurn,
+                            statusAmount = 3,
+                            targetPlayer = true
+                        },
+
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        
+
+                        new AStatus
+                        {
+                            status = Status.maxShield,
+                            statusAmount = -1,
+                            targetPlayer = true
+                        },
+                        new ADrawCard
+                        {
+                            count = 1
+                        },
+                        new AStatus
+                        {
+                            status = Status.drawNextTurn,
+                            statusAmount = 3,
+                            targetPlayer = true
+                        },
+
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        
+
+                        new AStatus
+                        {
+                            status = Status.maxShield,
+                            statusAmount = -1,
+                            targetPlayer = true
+                        },
+
+
+                        new ADrawCard
+                        {
+                            count = 4
+                        },
+
+
+
                     };
                 }
             default:

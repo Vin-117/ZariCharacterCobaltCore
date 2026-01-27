@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class BurdenOfChoice : Card, IRegisterable
+public class Opportunistic : Card, IRegisterable
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -17,11 +17,11 @@ public class BurdenOfChoice : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.ZariDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.rare,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "BurdenOfChoice", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Opportunistic", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
         });
     }
@@ -34,21 +34,25 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 1,
+                        exhaust = true
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0,
+                        exhaust = true,
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 1,
+                        exhaust = false,
+                        buoyant = true
                     };
                 }
             default:
@@ -66,14 +70,11 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AStatus
                         {
-                            count = 3,
-                            timer = 1.5
-                        },
-                        new ADiscardSelect
-                        {
-                            count = 1
+                            status = ModEntry.Instance.ZariOpportunisticStatus.Status,
+                            statusAmount = 1,
+                            targetPlayer = true
                         },
                     };
                 }
@@ -81,14 +82,11 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AStatus
                         {
-                            count = 5,
-                            timer = 1.5
-                        },
-                        new ADiscardSelect
-                        {
-                            count = 1
+                            status = ModEntry.Instance.ZariOpportunisticStatus.Status,
+                            statusAmount = 1,
+                            targetPlayer = true
                         },
                     };
                 }
@@ -96,12 +94,12 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new AStatus
                         {
-                            count = 3,
-                            timer = 1.5
+                            status = ModEntry.Instance.ZariOpportunisticStatus.Status,
+                            statusAmount = 1,
+                            targetPlayer = true
                         },
-                        new ADiscardFlexSelect{ }
                     };
                 }
             default:
