@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class Replace : Card, IRegisterable//, IHasCustomCardTraits
+public class Replace : Card, IRegisterable, IHasCustomCardTraits
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -26,8 +26,8 @@ public class Replace : Card, IRegisterable//, IHasCustomCardTraits
         });
     }
 
-    //public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
-    //    => new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
+        => new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
 
     public override CardData GetData(State state)
     {
@@ -37,7 +37,7 @@ public class Replace : Card, IRegisterable//, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 0,
+                        cost = 1,
                         exhaust = true
                     };
                 }
@@ -45,7 +45,7 @@ public class Replace : Card, IRegisterable//, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 0,
+                        cost = 1,
                         exhaust = true
                     };
                 }
@@ -53,7 +53,7 @@ public class Replace : Card, IRegisterable//, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 0,
+                        cost = 1,
                         exhaust = true
                     };
                 }
@@ -85,7 +85,7 @@ public class Replace : Card, IRegisterable//, IHasCustomCardTraits
                         new AStatus
                         {
                             targetPlayer = true,
-                            statusAmount = 2,
+                            statusAmount = 1,
                             status = Status.shield
                         }
                     };
@@ -113,7 +113,7 @@ public class Replace : Card, IRegisterable//, IHasCustomCardTraits
                         new AStatus
                         {
                             targetPlayer = true,
-                            statusAmount = 3,
+                            statusAmount = 2,
                             status = Status.shield
                         },
                     };
@@ -125,24 +125,21 @@ public class Replace : Card, IRegisterable//, IHasCustomCardTraits
                         new AHurt
                         {
                             targetPlayer = true,
-                            hurtAmount = 2
+                            hurtAmount = 1
                         },
                         new AShieldMax
                         {
                             amount = 1,
                             targetPlayer = true
                         },
-                        new AHullMax
+                        new AEnergy
                         {
-                            targetPlayer = true,
-                            amount = 1
+                            changeAmount = 1
                         },
-                        new AStatus
+                        new ADrawCard
                         {
-                            targetPlayer = true,
-                            statusAmount = 2,
-                            status = Status.shield
-                        }
+                            count = 2
+                        },
                     };
                 }
             default:
