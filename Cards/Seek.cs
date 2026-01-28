@@ -8,7 +8,7 @@ using static ZariMod.External.IKokoroApi.IV2;
 
 namespace ZariMod.Cards;
 
-public class Seek : Card, IRegisterable
+public class Seek : Card, IRegisterable, IHasCustomCardTraits
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -26,6 +26,34 @@ public class Seek : Card, IRegisterable
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
         });
     }
+
+
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state) 
+    {
+        switch (this.upgrade) 
+        {
+            case Upgrade.None:
+            {
+                return new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
+            }
+            case Upgrade.A:
+            {
+                    return new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
+            }
+            case Upgrade.B: 
+            {
+                return new HashSet<ICardTraitEntry> { };
+                }
+            default:
+            {
+                    return new HashSet<ICardTraitEntry> { };
+            }
+        }
+
+    }
+
+
+    
 
     public override CardData GetData(State state)
     {
@@ -110,13 +138,6 @@ public class Seek : Card, IRegisterable
                                 browseAction = new ChooseCardToPutInHand(),
                                 browseSource = CardBrowse.Source.DrawPile,
                                 filterUUID = uuid
-                            }
-                        ).AsCardAction,
-                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
-                        (
-                            new ADiscardSelect
-                            {
-                                count = 1
                             }
                         ).AsCardAction
                     };
