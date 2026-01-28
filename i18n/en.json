@@ -68,7 +68,7 @@
             "name": "Seek",
             "desc" : "<c=downside>On discard,</c> pick a <c=boldPink>draw pile</c> card to draw.",
             "descA" : "<c=downside>On discard,</c> pick a <c=boldPink>draw or discard pile</c> card to draw.",
-            "descB" : "<c=downside>On discard,</c> pick a <c=boldPink>draw pile</c> card to draw. Pick a card to discard."
+            "descB" : "<c=downside>On discard,</c> pick a <c=boldPink>draw pile</c> card to draw."
         },
         "DiscardedScales": {
             "name": "Discarded Scales"
