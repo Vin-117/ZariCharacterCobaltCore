@@ -68,7 +68,7 @@ public class ShiningScales : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 3,
                         exhaust = true,
                         retain = true
                     };
@@ -108,6 +108,11 @@ public class ShiningScales : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
+                        new AHeal
+                        {
+                            healAmount = 1,
+                            targetPlayer = true
+                        },
                         new AStatus
                         {
                             status = Status.perfectShield,
