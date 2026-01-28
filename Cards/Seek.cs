@@ -18,7 +18,7 @@ public class Seek : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.ZariDeck.Deck,
-                rarity = Rarity.uncommon,
+                rarity = Rarity.rare,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },

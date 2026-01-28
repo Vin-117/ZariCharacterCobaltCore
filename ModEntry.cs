@@ -173,8 +173,7 @@ internal class ModEntry : SimpleMod
                 cards =
                 [
                     new BurdenOfChoice(),
-                    new Peruse()
-                    //new ToughScales()
+                    new ToughScales()
                 ],
             },
             Description = AnyLocalizations.Bind(["character", "desc"]).Localize
