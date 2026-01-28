@@ -20,6 +20,7 @@ public class ADiscardSelect : CardAction
 {
     public required int count;
     public static Spr ADiscardSelectSpr;
+    public CardDestination source = CardDestination.Hand;
     public CardDestination destination = CardDestination.Discard;
     public List<CardAction> actions = [];
 
@@ -32,7 +33,7 @@ public class ADiscardSelect : CardAction
         CardBrowse cardBrowse = new CardBrowse
         {
             mode = CardBrowse.Mode.Browse,
-            browseSource = Source(CardDestination.Hand),
+            browseSource = Source(source),
             browseAction = new AMultiBrowseListActions { actions = actions },
             allowCancel = false
         };
@@ -114,6 +115,7 @@ public class ADiscardSelect : CardAction
             CardDestination.Exhaust => CardBrowse.Source.ExhaustPile,
             CardDestination.Hand => CardBrowse.Source.Hand,
             CardDestination.Deck => CardBrowse.Source.DrawPile,
+            //CardDestination.DrawOrDiscardPile => CardBrowse.Source.DrawOrDiscardPile,
             _ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
         };
     }

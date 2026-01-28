@@ -34,21 +34,21 @@ public class Moult : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 1,
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 0,
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0
                     };
                 }
             default:
@@ -84,14 +84,12 @@ public class Moult : Card, IRegisterable
                             handAmount = GetMoultTotal(s)
                         },
                         new ADiscard(),
-                        new AAddCard()
+                        new AStatus
                         {
-                            card = new DiscardedScales()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            xHint = 1,
-                            amount = GetMoultTotal(s),
+                            status = Status.shield,
+                            targetPlayer = true,
+                            statusAmount = GetMoultTotal(s),
+                            xHint = 1
                         },
                     };
                 }
@@ -106,14 +104,12 @@ public class Moult : Card, IRegisterable
                             handAmount = GetMoultTotal(s)
                         },
                         new ADiscard(),
-                        new AAddCard()
+                        new AStatus
                         {
-                            card = new DiscardedScales()
-                            {
-                            },
-                            destination = CardDestination.Hand,
-                            xHint = 1,
-                            amount = GetMoultTotal(s),
+                            status = Status.shield,
+                            targetPlayer = true,
+                            statusAmount = GetMoultTotal(s),
+                            xHint = 1
                         },
                     };
                 }
@@ -128,15 +124,12 @@ public class Moult : Card, IRegisterable
                             handAmount = GetMoultTotal(s)
                         },
                         new ADiscard(),
-                        new AAddCard()
+                        new AStatus
                         {
-                            card = new DiscardedScales()
-                            {
-                                upgrade = Upgrade.B
-                            },
-                            destination = CardDestination.Hand,
-                            xHint = 1,
-                            amount = GetMoultTotal(s),
+                            status = Status.tempShield,
+                            targetPlayer = true,
+                            statusAmount = GetMoultTotal(s),
+                            xHint = 1
                         },
                     };
                 }

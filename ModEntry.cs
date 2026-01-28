@@ -61,22 +61,24 @@ internal class ModEntry : SimpleMod
     private static List<Type> ZariUncommonCardTypes = 
     [
         typeof(Regenerate),
-        typeof(Replace),
         typeof(Avarice),
         typeof(Ambition),
-        typeof(Seek),
         typeof(Moult),
-        typeof(Shed)
+        typeof(Shed),
+        typeof(Hoard),
+        typeof(Peruse)
     ];
     private static List<Type> ZariRareCardTypes = 
     [
         typeof(ShiningScales),
         typeof(Undying),
-        typeof(Opportunistic)
+        typeof(Opportunistic),
+        typeof(Replace),
+        typeof(Seek)
     ];
     private static List<Type> ZariSpecialCardTypes = 
     [
-        typeof(DiscardedScales)
+        
     ];
     private static IEnumerable<Type> ZariCardTypes =
         ZariCommonCardTypes
@@ -171,8 +173,7 @@ internal class ModEntry : SimpleMod
                 cards =
                 [
                     new BurdenOfChoice(),
-                    new DiscardedScales(),
-                    new Opportunistic()
+                    new Peruse()
                     //new ToughScales()
                 ],
             },

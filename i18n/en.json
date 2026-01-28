@@ -53,7 +53,7 @@
             "name": "Acquire"
         },
         "Replace": {
-            "name": "Replace"
+            "name": "Immolate"
         },
         "Regenerate": {
             "name": "Regenerate"
@@ -87,6 +87,15 @@
         },
         "Opportunistic": {
             "name": "Opportunist",
+        },
+        "Hoard": {
+            "name": "Hoard",
+        },
+        "Peruse": {
+            "name": "Peruse",
+            "desc" : "Gain 2 <c=status>temp shield</c>. Pick a card in your <c=boldPink>draw pile</c> to discard.",
+            "descA" : "Gain 2 <c=status>temp shield</c>. Pick a card in your <c=boldPink>draw or discard pile</c> to discard.",
+            "descB" : "Gain 2 <c=status>shield</c>. Pick a card in your <c=boldPink>draw pile</c> to discard."
         },
     },
     "artifact": {

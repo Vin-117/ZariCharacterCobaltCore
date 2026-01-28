@@ -50,13 +50,6 @@ public class Backdraft : Card, IRegisterable, IHasCustomCardTraits
         }
 
     }
-        //=> new HashSet<ICardTraitEntry>
-        //{
-            
-
-        //    ModEntry.Instance.KokoroApi.Fleeting.Trait
-        //};
-
 
     public override CardData GetData(State state)
     {

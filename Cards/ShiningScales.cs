@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class ShiningScales : Card, IRegisterable
+public class ShiningScales : Card, IRegisterable, IHasCustomCardTraits
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -26,6 +26,31 @@ public class ShiningScales : Card, IRegisterable
         });
     }
 
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
+    {
+        switch (this.upgrade)
+        {
+            case Upgrade.None:
+                {
+                    return new HashSet<ICardTraitEntry> {  };
+                }
+            case Upgrade.A:
+                {
+                    return new HashSet<ICardTraitEntry> { };
+                }
+            case Upgrade.B:
+                {
+                    return new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
+                }
+            default:
+                {
+                    return new HashSet<ICardTraitEntry> { };
+                }
+        }
+
+    }
+
+
     public override CardData GetData(State state)
     {
         switch (this.upgrade)
@@ -35,22 +60,24 @@ public class ShiningScales : Card, IRegisterable
                     return new CardData
                     {
                         cost = 3,
-                        exhaust = true
+                        exhaust = true,
+                        retain = true
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 3,
+                        cost = 2,
                         exhaust = true,
+                        retain = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 4,
+                        cost = 3,
                         exhaust = true
                     };
                 }
@@ -81,11 +108,6 @@ public class ShiningScales : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AHeal
-                        {
-                            healAmount = 1,
-                            targetPlayer = true
-                        },
                         new AStatus
                         {
                             status = Status.perfectShield,
@@ -98,6 +120,11 @@ public class ShiningScales : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
+                        //new AHeal
+                        //{
+                        //    healAmount = 1,
+                        //    targetPlayer = true
+                        //},
                         new AStatus
                         {
                             status = Status.perfectShield,

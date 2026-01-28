@@ -53,6 +53,25 @@ public class ADiscardTargetCardFinal : CardAction
 }
 
 
+public class ADiscardTargetSimple : CardAction
+{
+    public override void Begin(G g, State s, Combat c)
+    {
+        Card? card = selectedCard;
+        if (card != null)
+        {
+            Audio.Play(Event.CardHandling);
+            s.RemoveCardFromWhereverItIs(card.uuid);
+            card.OnDiscard(s, c);
+            c.SendCardToDiscard(s, card);
+            timer = 0.3;
+        }
+    }
+}
+
+
+
+
 
 ///
 /// Function which queues actions for multibrowse
