@@ -41,7 +41,7 @@ public class Backdraft : Card, IRegisterable, IHasCustomCardTraits
             }
             case Upgrade.B: 
             {
-                return new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
+                return new HashSet<ICardTraitEntry> { };
                 }
             default:
             {
@@ -125,23 +125,21 @@ public class Backdraft : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        ModEntry.Instance.KokoroApi.OnExhaust.MakeAction
+                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
                             new AStatus
                             {
                                 status = Status.evade,
-                                statusAmount = 2,
+                                statusAmount = 3,
                                 targetPlayer = true
                             }
                         ).AsCardAction,
 
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
-                            new AStatus
+                            new AExhaustSelf
                             {
-                                status = Status.evade,
-                                statusAmount = 1,
-                                targetPlayer = true
+                                uuid = this.uuid
                             }
                         ).AsCardAction,
 

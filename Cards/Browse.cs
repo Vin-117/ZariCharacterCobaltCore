@@ -1,14 +1,13 @@
-﻿using Nanoray.PluginManager;
-using Nickel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using ZariMod.Actions;
-using static ZariMod.External.IKokoroApi.IV2;
+using Nanoray.PluginManager;
+using Nickel;
 
 namespace ZariMod.Cards;
 
-public class StretchTheWings : Card, IRegisterable
+public class Browse : Card, IRegisterable
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -22,7 +21,7 @@ public class StretchTheWings : Card, IRegisterable
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "StretchTheWings", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Browse", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
         });
     }
@@ -35,23 +34,21 @@ public class StretchTheWings : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 0
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 2,
-                        flippable = true,
+                        cost = 0
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 2,
-                        retain = true
+                        cost = 0
                     };
                 }
             default:
@@ -69,57 +66,42 @@ public class StretchTheWings : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AMove
+                        new ADrawCard
                         {
-                            dir = 3,
-                            targetPlayer = true
+                            count = 1,
+                            timer = 1
                         },
-                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
-                        (
-                            new AMove
-                            {
-                                dir = 3,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction
+                        new ADiscardSelect
+                        {
+                            count = 1
+                        },
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new AMove
+                        new ADrawCard
                         {
-                            dir = 3,
-                            targetPlayer = true
+                            count = 2,
+                            timer = 1
                         },
-                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
-                        (
-                            new AMove
-                            {
-                                dir = 3,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction
+                        new ADiscardSelect
+                        {
+                            count = 2
+                        },
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        new AMove
+                        new ADrawCard
                         {
-                            dir = 3,
-                            targetPlayer = true
+                            count = 1,
+                            timer = 1
                         },
-                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
-                        (
-                            new AMove
-                            {
-                                dir = 3,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction
+                        new ADiscardFlexSelect{},
                     };
                 }
             default:

@@ -51,7 +51,7 @@ public class Opportunistic : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
-                        exhaust = false,
+                        exhaust = true,
                         buoyant = true
                     };
                 }

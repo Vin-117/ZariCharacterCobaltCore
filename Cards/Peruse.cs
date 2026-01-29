@@ -44,16 +44,16 @@ public class Peruse : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
-                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Peruse", "descA"]))
+                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Peruse", "descA"])),
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Peruse", "descB"])),
-                        buoyant = true
+                        cost = 0,
+                        buoyant = true,
+                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Peruse", "descB"]))
                     };
                 }
             default:
@@ -82,6 +82,12 @@ public class Peruse : Card, IRegisterable
                             browseAction = new ADiscardTargetSimple(),
                             browseSource = CardBrowse.Source.DrawPile,
                             filterUUID = uuid
+                        },
+                        new ACardSelect
+                        {
+                            browseAction = new ADiscardTargetSimple(),
+                            browseSource = CardBrowse.Source.DrawPile,
+                            filterUUID = uuid
                         }
                     };
                 }
@@ -99,7 +105,7 @@ public class Peruse : Card, IRegisterable
                         new ACardSelect
                         {
                             browseAction = new ADiscardTargetSimple(),
-                            browseSource = CardBrowse.Source.DrawOrDiscardPile,
+                            browseSource = CardBrowse.Source.DrawPile,
                             filterUUID = uuid
                         }
 
@@ -109,13 +115,6 @@ public class Peruse : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-
-                        new AStatus
-                        {
-                            status = Status.shield,
-                            statusAmount = 2,
-                            targetPlayer = true
-                        },
                         new ACardSelect
                         {
                             browseAction = new ADiscardTargetSimple(),

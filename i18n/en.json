@@ -50,7 +50,13 @@
             "name": "Gale Wind"
         },
         "Acquire": {
-            "name": "Acquire"
+            "name": "Acquire",
+            "desc" : "Choose a card in your <c=boldPink>exhaust pile</c>. Discard it.",
+            "descA" : "Choose two cards in your <c=boldPink>exhaust pile</c>. Discard them.",
+            "descB" : "Choose a card in your <c=boldPink>exhaust pile</c>. Discard it."
+        },
+        "Browse": {
+            "name": "Browse"
         },
         "Replace": {
             "name": "Immolate"
@@ -94,8 +100,8 @@
         "Peruse": {
             "name": "Peruse",
             "desc" : "Gain 2 <c=status>temp shield</c>. Pick a card in your <c=boldPink>draw pile</c> to discard.",
-            "descA" : "Gain 2 <c=status>temp shield</c>. Pick a card in your <c=boldPink>draw or discard pile</c> to discard.",
-            "descB" : "Gain 2 <c=status>shield</c>. Pick a card in your <c=boldPink>draw pile</c> to discard."
+            "descA" : "Gain 2 <c=status>temp shield</c>. Pick two cards in your <c=boldPink>draw pile</c> to discard.",
+            "descB" : "Pick a card in your <c=boldPink>draw pile</c> to discard."
         },
     },
     "artifact": {

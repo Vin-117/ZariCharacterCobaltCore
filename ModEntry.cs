@@ -2,15 +2,16 @@
 using Microsoft.Extensions.Logging;
 using Nanoray.PluginManager;
 using Nickel;
+using Nickel.Common;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using ZariMod.Features;
 using ZariMod.Actions;
 //using DemoMod.Artifacts;
 using ZariMod.Cards;
 using ZariMod.External;
+using ZariMod.Features;
 using static System.Formats.Asn1.AsnWriter;
 //using DemoMod.Features;
 
@@ -56,7 +57,7 @@ internal class ModEntry : SimpleMod
         typeof(Amass),
         typeof(Backdraft),
         typeof(StretchTheWings),
-        typeof(Acquire)
+        typeof(Browse)
     ];
     private static List<Type> ZariUncommonCardTypes = 
     [
@@ -66,7 +67,8 @@ internal class ModEntry : SimpleMod
         typeof(Moult),
         typeof(Shed),
         typeof(Hoard),
-        typeof(Peruse)
+        typeof(Peruse),
+        typeof(Acquire)
     ];
     private static List<Type> ZariRareCardTypes = 
     [
@@ -176,9 +178,57 @@ internal class ModEntry : SimpleMod
                     new ToughScales()
                 ],
             },
+            SoloStarters = new StarterDeck
+            {
+                cards = [
+                    new BurdenOfChoice(),
+                    new ToughScales(),
+                    new Covet(),
+                    new StretchTheWings(),
+                    new CannonColorless(),
+                    new DodgeColorless()
+                ]
+            },
             Description = AnyLocalizations.Bind(["character", "desc"]).Localize
         });
 
+
+
+
+
+        ///
+        /// Define alternate starting cards for the more difficulties mod
+        /// as well as starters for custom run option duos
+        ///
+        helper.ModRegistry.AwaitApi<IMoreDifficultiesApi>(
+            "TheJazMaster.MoreDifficulties",
+            new SemanticVersion(1, 3, 0),
+            api => api.RegisterAltStarters
+            (
+                deck: ZariDeck.Deck,
+                starterDeck: new StarterDeck
+                {
+                    cards = 
+                    [
+                        new Covet(),
+                        new StretchTheWings(),
+                    ]
+                }
+
+            )
+        );
+        helper.ModRegistry.AwaitApi<ICustomRunOptionsApi>("Shockah.CustomRunOptions", cro =>
+        {
+            cro.RegisterPartialDuoDeck(ZariDeck.Deck, new StarterDeck
+            {
+                cards = 
+                [
+                    new BurdenOfChoice(),
+                    new ToughScales(),
+                    new Covet()
+                ]
+            });
+        });
 
 
         ///

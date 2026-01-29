@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Nanoray.PluginManager;
+using Newtonsoft.Json.Linq;
+using Nickel;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using ZariMod.Actions;
-using Nanoray.PluginManager;
-using Nickel;
 
 namespace ZariMod.Cards;
 
@@ -17,7 +18,7 @@ public class Acquire : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.ZariDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -34,21 +35,28 @@ public class Acquire : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 0,
+                        exhaust = true,
+                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Acquire", "desc"]))
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 0,
+                        exhaust = true,
+                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Acquire", "descA"])),
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 0,
+                        retain = true,
+                        exhaust = true,
+                        description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Acquire", "descB"]))
                     };
                 }
             default:
@@ -66,42 +74,44 @@ public class Acquire : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new ACardSelect
                         {
-                            count = 1,
-                            timer = 1
-                        },
-                        new ADiscardSelect
-                        {
-                            count = 1
-                        },
+                            browseAction = new ADiscardTargetSimple(),
+                            browseSource = CardBrowse.Source.ExhaustPile,
+                            ignoreCardType = "Vintage.ZariMod::Acquire"
+                        }
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+                        new ACardSelect
                         {
-                            count = 2,
-                            timer = 1
+                            browseAction = new ADiscardTargetSimple(),
+                            browseSource = CardBrowse.Source.ExhaustPile,
+                            ignoreCardType = "Vintage.ZariMod::Acquire"
                         },
-                        new ADiscardSelect
+                        new ACardSelect
                         {
-                            count = 2
-                        },
+                            browseAction = new ADiscardTargetSimple(),
+                            browseSource = CardBrowse.Source.ExhaustPile,
+                            ignoreCardType = "Vintage.ZariMod::Acquire"
+                        }
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
+
+                        new ACardSelect
                         {
-                            count = 1,
-                            timer = 1
-                        },
-                        new ADiscardFlexSelect{},
+                            browseAction = new ADiscardTargetSimple(),
+                            browseSource = CardBrowse.Source.ExhaustPile,
+                            ignoreCardType = "Vintage.ZariMod::Acquire"
+                        }
+
                     };
                 }
             default:
