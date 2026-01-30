@@ -8,12 +8,12 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using ZariMod.Actions;
-//using DemoMod.Artifacts;
+using ZariMod.Patches;
 using ZariMod.Cards;
 using ZariMod.External;
 using ZariMod.Features;
+using ZariMod.Artifacts;
 using static System.Formats.Asn1.AsnWriter;
-//using DemoMod.Features;
 
 namespace ZariMod;
 
@@ -93,9 +93,12 @@ internal class ModEntry : SimpleMod
     ///
     /// Define artifact types as static lists
     ///
-    private static List<Type> ZariCommonArtifacts = [
+    private static List<Type> ZariCommonArtifacts = 
+    [
     ];
-    private static List<Type> ZariBossArtifacts = [
+    private static List<Type> ZariBossArtifacts = 
+    [
+        typeof(Temperance)
     ];
     private static IEnumerable<Type> ZariArtifactTypes =
         ZariCommonArtifacts
@@ -263,10 +266,6 @@ internal class ModEntry : SimpleMod
             //Description = AnyLocalizations.Bind(["status", "ZariUndyingStatus", "desc"]).Localize
         });
         _ = new ZariOpportunisticStatusManager();
-
-
-
-
 
 
         ///

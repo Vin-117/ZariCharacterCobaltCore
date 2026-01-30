@@ -105,9 +105,9 @@
         },
     },
     "artifact": {
-        "BuriedKnowledge": {
-            "name": "BURIED KNOWLEDGE",
-            "desc": "At the start of combat, add 3 <c=card>Ponder</c>s to the discard pile."
+        "Temperance": {
+            "name": "GOLDEN GOBLET",
+            "desc": "The first time you discard a card during your turn, gain 1 <c=energy>ENERGY</c>."
         },
         "Lexicon": {
             "name": "LEXICON",
