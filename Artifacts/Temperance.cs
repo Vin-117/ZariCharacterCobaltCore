@@ -79,6 +79,22 @@ public class Temperance : Artifact, IRegisterable
         if (card == LastCardPlayed)
             return;
 
+        // TODO: implementing scorn status in this artifact is just like very bad practice. 
+        // TODO: It's only here because I couldn't figure out how to implement it otherwise
+        // TODO: Fix this later
+        Ship ship = s.ship;
+
+        if (ship.Get(ModEntry.Instance.ZariScornStatus.Status) > 0)
+        {
+            __instance.Queue
+            (
+                new AAttack
+                {
+                    damage = Card.GetActualDamage(s, ship.Get(ModEntry.Instance.ZariScornStatus.Status), false)
+                }
+            );
+        };
+
         if (s.EnumerateAllArtifacts().FirstOrDefault(a => a is Temperance) is not { } artifact)
             return;
 

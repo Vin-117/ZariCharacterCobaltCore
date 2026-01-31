@@ -1,7 +1,7 @@
 {
   "UniqueName": "Vintage.ZariMod",
-  "Version": "0.2.0",
-  "Author": "rft50",
+  "Version": "0.7.0",
+  "Author": "Vintage",
   "Description": "A mod which Zari, a new character to Cobalt Core.",
   "RequiredApiVersion": "1.5.7",
   "EntryPointAssembly": "zariMod.dll",

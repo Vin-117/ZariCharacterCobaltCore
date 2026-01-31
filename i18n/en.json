@@ -12,6 +12,12 @@
             "name": "Opportunist",
             "desc": "At the start of every turn, <c=status>draw</c> {0} and choose {0} to discard."
         },
+        "ZariScornStatus": {
+            "name": "Scorn",
+            "desc": "Every time you discard a card during your turn without playing it, fire a {0} damage shot."
+        },
+
+
     },
     "action": {
         "ADiscardSelect": {
@@ -70,11 +76,14 @@
         "Ambition": {
             "name": "Ambition"
         },
+        "Scorn": {
+            "name": "Scorn"
+        },
         "Seek": {
             "name": "Seek",
             "desc" : "<c=downside>On discard,</c> pick a <c=boldPink>draw pile</c> card to draw.",
             "descA" : "<c=downside>On discard,</c> pick a <c=boldPink>draw or discard pile</c> card to draw.",
-            "descB" : "<c=downside>On discard,</c> pick a <c=boldPink>draw pile</c> card to draw."
+            "descB" : "<c=downside>On discard,</c> exhaust and pick an <c=boldPink>exhaust pile</c> card to draw."
         },
         "DiscardedScales": {
             "name": "Discarded Scales"

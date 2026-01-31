@@ -67,7 +67,7 @@ internal class ModEntry : SimpleMod
         typeof(Shed),
         typeof(Hoard),
         typeof(Peruse),
-        typeof(Acquire)
+        typeof(Seek)
     ];
     private static List<Type> ZariRareCardTypes = 
     [
@@ -75,7 +75,7 @@ internal class ModEntry : SimpleMod
         typeof(Undying),
         typeof(Opportunistic),
         typeof(Replace),
-        typeof(Seek)
+        typeof(Scorn)
     ];
     private static List<Type> ZariSpecialCardTypes = 
     [
@@ -127,6 +127,7 @@ internal class ModEntry : SimpleMod
     ///
     internal IStatusEntry ZariUndyingStatus;
     internal IStatusEntry ZariOpportunisticStatus;
+    internal IStatusEntry ZariScornStatus;
 
 
 
@@ -161,7 +162,7 @@ internal class ModEntry : SimpleMod
         ///
         /// Define deck metadata
         ///
-        ZariDeck = helper.Content.Decks.RegisterDeck("Demo", new DeckConfiguration
+        ZariDeck = helper.Content.Decks.RegisterDeck("ZariTheDragon", new DeckConfiguration
         {
             Definition = new DeckDef
             {
@@ -172,7 +173,7 @@ internal class ModEntry : SimpleMod
             BorderSprite = RegisterSprite(package, "assets/card_frame_zari.png").Sprite,
             Name = AnyLocalizations.Bind(["character", "name"]).Localize
         });
-        helper.Content.Characters.V2.RegisterPlayableCharacter("Demo", new PlayableCharacterConfigurationV2
+        helper.Content.Characters.V2.RegisterPlayableCharacter("ZariTheDragon", new PlayableCharacterConfigurationV2
         {
             Deck = ZariDeck.Deck,
             BorderSprite = RegisterSprite(package, "assets/char_frame_zari.png").Sprite,
@@ -265,10 +266,23 @@ internal class ModEntry : SimpleMod
             },
             Name = AnyLocalizations.Bind(["status", "ZariOpportunisticStatus", "name"]).Localize,
             Description = AnyLocalizations.Bind(["status", "ZariOpportunisticStatus", "desc"]).Localize
-            //Name = AnyLocalizations.Bind(["status", "ZariUndyingStatus", "name"]).Localize,
-            //Description = AnyLocalizations.Bind(["status", "ZariUndyingStatus", "desc"]).Localize
         });
         _ = new ZariOpportunisticStatusManager();
+
+        ZariScornStatus = helper.Content.Statuses.RegisterStatus("ZariScornStatus", new StatusConfiguration
+        {
+            Definition = new StatusDef
+            {
+                isGood = true,
+                affectedByTimestop = false,
+                color = new Color("ff3838"),
+                icon = RegisterSprite(package, "assets/Status/Scorn.png").Sprite
+            },
+            Name = AnyLocalizations.Bind(["status", "ZariScornStatus", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "ZariScornStatus", "desc"]).Localize
+        });
+        _ = new ScornOnDiscardManager();
+
 
 
         ///
