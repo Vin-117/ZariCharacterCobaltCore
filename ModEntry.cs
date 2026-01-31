@@ -8,10 +8,10 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using ZariMod.Actions;
+using ZariMod.Artifacts;
 using ZariMod.Cards;
 using ZariMod.External;
 using ZariMod.Features;
-using ZariMod.Artifacts;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace ZariMod;
@@ -65,7 +65,6 @@ internal class ModEntry : SimpleMod
         typeof(Ambition),
         typeof(Moult),
         typeof(Shed),
-        typeof(Hoard),
         typeof(Peruse),
         typeof(Seek)
     ];
@@ -81,11 +80,16 @@ internal class ModEntry : SimpleMod
     [
         typeof(GoldHoard)
     ];
+    private static List<Type> ZariEXECardTypes =
+    [
+        typeof(ZariCatEXE)
+    ];
     private static IEnumerable<Type> ZariCardTypes =
         ZariCommonCardTypes
             .Concat(ZariUncommonCardTypes)
             .Concat(ZariRareCardTypes)
-            .Concat(ZariSpecialCardTypes);
+            .Concat(ZariSpecialCardTypes)
+            .Concat(ZariEXECardTypes);
 
 
     
@@ -196,6 +200,7 @@ internal class ModEntry : SimpleMod
                     new DodgeColorless()
                 ]
             },
+            ExeCardType = typeof(ZariCatEXE),
             Description = AnyLocalizations.Bind(["character", "desc"]).Localize
         });
 
@@ -275,7 +280,7 @@ internal class ModEntry : SimpleMod
             {
                 isGood = true,
                 affectedByTimestop = false,
-                color = new Color("ff3838"),
+                color = new Color("e8df5f"),
                 icon = RegisterSprite(package, "assets/Status/Scorn.png").Sprite
             },
             Name = AnyLocalizations.Bind(["status", "ZariScornStatus", "name"]).Localize,

@@ -48,7 +48,8 @@ public class BurdenOfChoice : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 1,
+                        infinite = true
                     };
                 }
             default:
@@ -101,7 +102,10 @@ public class BurdenOfChoice : Card, IRegisterable
                             count = 3,
                             timer = 1.5
                         },
-                        new ADiscardFlexSelect{ }
+                        new ADiscardSelect
+                        {
+                            count = 1
+                        },
                     };
                 }
             default:

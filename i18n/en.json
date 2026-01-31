@@ -112,6 +112,14 @@
             "descA" : "Gain 2 <c=status>temp shield</c>. Pick two cards in your <c=boldPink>draw pile</c> to discard.",
             "descB" : "Pick a card in your <c=boldPink>draw pile</c> to discard."
         },
+
+        "ZariCatEXE": {
+            "name": "Zari.EXE",
+			"desc": "Add 1 of 3 <c=cardtrait>discount, temp</c> <c=e8df5f>Zari</c> cards to your hand. Discard 1.",
+			"descA": "Add 1 of 3 <c=cardtrait>discount, temp</c> <c=e8df5f>Zari</c> cards to your hand. Discard 1.",
+            "descB": "Add 1 of 5 <c=cardtrait>discount, temp</c> <c=e8df5f>Zari</c> cards to your hand. Discard 1."
+        },
+
         "GoldHoard": {
             "name": "Hoard"
         },

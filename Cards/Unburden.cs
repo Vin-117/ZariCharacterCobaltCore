@@ -66,15 +66,14 @@ public class Unburden : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
+                        new ADiscardFlexSelect
+                        {
+                        },
                         new AStatus
                         {
                             status = Status.tempShield,
-                            statusAmount = 4,
+                            statusAmount = 3,
                             targetPlayer = true
-                        },
-                        new ADiscardSelect
-                        {
-                            count = 1
                         },
                     };
                 }
@@ -82,15 +81,14 @@ public class Unburden : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
+                        new ADiscardFlexSelect
+                        {
+                        },
                         new AStatus
                         {
                             status = Status.tempShield,
-                            statusAmount = 4,
+                            statusAmount = 3,
                             targetPlayer = true
-                        },
-                        new ADiscardSelect
-                        {
-                            count = 1
                         },
                     };
                 }
@@ -98,6 +96,7 @@ public class Unburden : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
+                        new ADiscardFlexSelect{ },
                         new AStatus
                         {
                             status = Status.evade,
@@ -107,10 +106,9 @@ public class Unburden : Card, IRegisterable
                         new AStatus
                         {
                             status = Status.tempShield,
-                            statusAmount = 4,
+                            statusAmount = 3,
                             targetPlayer = true
                         },
-                        new ADiscardFlexSelect{ }
                     };
                 }
             default:
