@@ -11,7 +11,7 @@ using ZariMod.Features;
 
 namespace ZariMod.Artifacts;
 
-public class Temperance : Artifact, IRegisterable
+public class CrownChessPiece : Artifact, IRegisterable
 {
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -20,13 +20,13 @@ public class Temperance : Artifact, IRegisterable
             ArtifactType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new ArtifactMeta
             {
-                pools = [ArtifactPool.Boss],
+                pools = [ArtifactPool.Common],
                 owner = ModEntry.Instance.ZariDeck.Deck,
                 unremovable = true
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "Temperance", "name"]).Localize,
-            Description = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "Temperance", "desc"]).Localize,
-            Sprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Artifacts/RubyRing.png")).Sprite
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "CrownChessPiece", "name"]).Localize,
+            Description = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "CrownChessPiece", "desc"]).Localize,
+            Sprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Artifacts/GoldenChessPiece.png")).Sprite
         });
 
         ModEntry.Instance.Harmony.Patch(
@@ -42,22 +42,13 @@ public class Temperance : Artifact, IRegisterable
 
     }
 
-    public int DiscardCount = 0;
-
-    public override void OnTurnStart(State state, Combat combat)
+    public override int? GetDisplayNumber(State s)
     {
-        DiscardCount = 0;
+        return ChessDiscardCount;
     }
 
-    public override void OnTurnEnd(State state, Combat combat)
-    {
-        DiscardCount = 1;
-    }
 
-    public override void OnCombatEnd(State state)
-    {
-        DiscardCount = 0;
-    }
+    public int ChessDiscardCount = 0;
 
 
     private static Card? LastCardPlayed;
@@ -79,17 +70,20 @@ public class Temperance : Artifact, IRegisterable
         if (card == LastCardPlayed)
             return;
 
-        if (s.EnumerateAllArtifacts().FirstOrDefault(a => a is Temperance) is not { } artifact)
+        if (s.EnumerateAllArtifacts().FirstOrDefault(a => a is CrownChessPiece) is not { } artifact)
             return;
 
-        var temperance = (Temperance)artifact;
+        var crownchesspiece = (CrownChessPiece)artifact;
 
-        // If the player has not discarded a card this turn, give them an energy
-        if (temperance.DiscardCount == 0)
+        if (crownchesspiece.ChessDiscardCount == 3)
         {
-            __instance.Queue(new AEnergy { changeAmount = 1 });
-            temperance.DiscardCount += 1;
+            __instance.Queue(new ADrawCard { count = 1 });
+            crownchesspiece.ChessDiscardCount = 0;
             artifact.Pulse();
+        }
+        else 
+        {
+            crownchesspiece.ChessDiscardCount++;
         }
 
     }

@@ -103,12 +103,32 @@
             "descA" : "Gain 2 <c=status>temp shield</c>. Pick two cards in your <c=boldPink>draw pile</c> to discard.",
             "descB" : "Pick a card in your <c=boldPink>draw pile</c> to discard."
         },
+        "GoldHoard": {
+            "name": "Hoard"
+        },
     },
     "artifact": {
         "Temperance": {
-            "name": "GOLDEN GOBLET",
-            "desc": "The first time you discard a card during your turn, gain 1 <c=energy>ENERGY</c>."
+            "name": "SIMPLE BEAUTY",
+            "desc": "The first time you discard a card during your turn without playing it, gain 1 <c=energy>ENERGY</c>."
         },
+        "OpulantWealth": {
+            "name": "EXCESSIVE WEALTH",
+            "desc": "Draw <c=card>+2 cards</c> every turn. At the start of combat, add 2 <c=card>Hoards</c> to your draw pile."
+        },
+        "CrownChessPiece": {
+            "name": "CROWN CHESS PIECE",
+            "desc": "Every fouth time you discard a card without playing it, draw 1 extra card."
+        },
+        "ShinyShield": {
+            "name": "SHINY SHIELD",
+            "desc": "Gain 2 <c=status>SHIELD</c> and 1 <c=status>TEMP SHIELD</c> on the first turn."
+        },
+        "GoldHullFinish": {
+            "name": "GOLDEN HULL FINISH",
+            "desc": "Every 4th time your ship is hit, draw 1 card."
+        },
+
         "Lexicon": {
             "name": "LEXICON",
             "desc": "Whenever you gain a <c=card>Ponder</c> during combat, it is given the A or B upgrade, alternating."

@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using ZariMod.Actions;
-using ZariMod.Patches;
 using ZariMod.Cards;
 using ZariMod.External;
 using ZariMod.Features;
@@ -80,7 +79,7 @@ internal class ModEntry : SimpleMod
     ];
     private static List<Type> ZariSpecialCardTypes = 
     [
-        
+        typeof(GoldHoard)
     ];
     private static IEnumerable<Type> ZariCardTypes =
         ZariCommonCardTypes
@@ -95,10 +94,14 @@ internal class ModEntry : SimpleMod
     ///
     private static List<Type> ZariCommonArtifacts = 
     [
+        typeof(CrownChessPiece),
+        typeof(ShinyShield),
+        typeof(GoldHullFinish)
     ];
     private static List<Type> ZariBossArtifacts = 
     [
-        typeof(Temperance)
+        typeof(Temperance),
+        typeof(OpulantWealth)
     ];
     private static IEnumerable<Type> ZariArtifactTypes =
         ZariCommonArtifacts
