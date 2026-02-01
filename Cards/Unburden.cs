@@ -41,7 +41,7 @@ public class Unburden : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 2
                     };
                 }
             case Upgrade.B:
@@ -87,7 +87,7 @@ public class Unburden : Card, IRegisterable
                         new AStatus
                         {
                             status = Status.tempShield,
-                            statusAmount = 3,
+                            statusAmount = 5,
                             targetPlayer = true
                         },
                     };

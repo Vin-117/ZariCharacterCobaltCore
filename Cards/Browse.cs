@@ -49,8 +49,7 @@ public class Browse : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        retain = true,
-                        buoyant = true
+                        retain = true
                     };
                 }
             default:
@@ -98,7 +97,15 @@ public class Browse : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect{ }
+                        new ADrawCard
+                        {
+                            count = 1,
+                            timer = 1
+                        },
+                        new ADiscardSelect
+                        {
+                            count = 1
+                        },
                     };
                 }
             default:
