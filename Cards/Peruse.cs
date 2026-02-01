@@ -83,12 +83,6 @@ public class Peruse : Card, IRegisterable
                             browseSource = CardBrowse.Source.DrawPile,
                             filterUUID = uuid
                         },
-                        new ACardSelect
-                        {
-                            browseAction = new ADiscardTargetSimple(),
-                            browseSource = CardBrowse.Source.DrawPile,
-                            filterUUID = uuid
-                        }
                     };
                 }
             case Upgrade.A:
@@ -101,6 +95,12 @@ public class Peruse : Card, IRegisterable
                             status = Status.tempShield,
                             statusAmount = 2,
                             targetPlayer = true
+                        },
+                        new ACardSelect
+                        {
+                            browseAction = new ADiscardTargetSimple(),
+                            browseSource = CardBrowse.Source.DrawPile,
+                            filterUUID = uuid
                         },
                         new ACardSelect
                         {
