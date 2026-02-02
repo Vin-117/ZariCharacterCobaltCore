@@ -42,6 +42,15 @@ public class GoldHoard : Card, IRegisterable
 
     public override List<CardAction> GetActions(State s, Combat c)
     {
-        return new List<CardAction> { };
+        return new List<CardAction>
+        {
+            ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
+            (
+                new AExhaustSelf
+                {
+                    uuid = this.uuid
+                }
+            ).AsCardAction,
+        };
     }
 }

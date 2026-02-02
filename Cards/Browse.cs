@@ -48,8 +48,7 @@ public class Browse : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        retain = true
+                        cost = 0
                     };
                 }
             default:
@@ -82,14 +81,20 @@ public class Browse : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
+                        new AStatus
+                        {
+                            status = Status.drawNextTurn,
+                            statusAmount = 1,
+                            targetPlayer = true
+                        },
                         new ADrawCard
                         {
-                            count = 2,
+                            count = 1,
                             timer = 1
                         },
                         new ADiscardSelect
                         {
-                            count = 2
+                            count = 1
                         },
                     };
                 }
@@ -99,12 +104,12 @@ public class Browse : Card, IRegisterable
                     {
                         new ADrawCard
                         {
-                            count = 1,
+                            count = 2,
                             timer = 1
                         },
                         new ADiscardSelect
                         {
-                            count = 1
+                            count = 2
                         },
                     };
                 }

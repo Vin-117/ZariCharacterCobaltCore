@@ -52,7 +52,7 @@ public class OpulantWealth : Artifact, IRegisterable
             },
             artifactPulse = Key(),
             destination = CardDestination.Deck,
-            amount = 2
+            amount = 3
         });
     }
 

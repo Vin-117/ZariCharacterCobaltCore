@@ -131,7 +131,7 @@
         },
         "OpulantWealth": {
             "name": "EXCESSIVE WEALTH",
-            "desc": "Draw <c=card>+2 cards</c> every turn. At the start of combat, add 2 <c=card>Hoards</c> to your draw pile."
+            "desc": "Draw <c=card>+2 cards</c> every turn. At the start of combat, add 3 <c=card>Hoards</c> to your draw pile."
         },
         "CrownChessPiece": {
             "name": "CROWN CHESS PIECE",
