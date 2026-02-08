@@ -185,7 +185,7 @@ internal class ModEntry : SimpleMod
             {
                 cards =
                 [
-                    new BurdenOfChoice(),
+                    new Covet(),
                     new ToughScales()
                 ],
             },
@@ -222,7 +222,7 @@ internal class ModEntry : SimpleMod
                 {
                     cards = 
                     [
-                        new Covet(),
+                        new BurdenOfChoice(),
                         new StretchTheWings(),
                     ]
                 }

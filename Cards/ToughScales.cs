@@ -109,11 +109,10 @@ public class ToughScales : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-
                         new AStatus
                         {
-                            status = Status.shield,
-                            statusAmount = 1,
+                            status = Status.tempShield,
+                            statusAmount = 2,
                             targetPlayer = true
                         },
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
@@ -121,15 +120,6 @@ public class ToughScales : Card, IRegisterable
                             new AStatus
                             {
                                 status = Status.maxShield,
-                                statusAmount = 1,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction,
-                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
-                        (
-                            new AStatus
-                            {
-                                status = Status.shield,
                                 statusAmount = 2,
                                 targetPlayer = true
                             }
