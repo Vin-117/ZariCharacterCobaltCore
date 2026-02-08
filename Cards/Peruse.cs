@@ -73,8 +73,8 @@ public class Peruse : Card, IRegisterable
                     {
                         new AStatus
                         {
-                            status = Status.tempShield,
-                            statusAmount = 2,
+                            status = Status.shield,
+                            statusAmount = 1,
                             targetPlayer = true
                         },
                         new ACardSelect
@@ -92,8 +92,8 @@ public class Peruse : Card, IRegisterable
 
                         new AStatus
                         {
-                            status = Status.tempShield,
-                            statusAmount = 2,
+                            status = Status.shield,
+                            statusAmount = 1,
                             targetPlayer = true
                         },
                         new ACardSelect

@@ -71,8 +71,14 @@ public class Unburden : Card, IRegisterable
                         },
                         new AStatus
                         {
+                            status = Status.evade,
+                            statusAmount = 1,
+                            targetPlayer = true
+                        },
+                        new AStatus
+                        {
                             status = Status.tempShield,
-                            statusAmount = 3,
+                            statusAmount = 2,
                             targetPlayer = true
                         },
                     };
@@ -86,8 +92,14 @@ public class Unburden : Card, IRegisterable
                         },
                         new AStatus
                         {
+                            status = Status.evade,
+                            statusAmount = 1,
+                            targetPlayer = true
+                        },
+                        new AStatus
+                        {
                             status = Status.tempShield,
-                            statusAmount = 5,
+                            statusAmount = 4,
                             targetPlayer = true
                         },
                     };
@@ -96,17 +108,20 @@ public class Unburden : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect{ },
+                        new ADiscardSelect
+                        {
+                            count = 1
+                        },
                         new AStatus
                         {
                             status = Status.evade,
-                            statusAmount = 1,
+                            statusAmount = 2,
                             targetPlayer = true
                         },
                         new AStatus
                         {
                             status = Status.tempShield,
-                            statusAmount = 3,
+                            statusAmount = 2,
                             targetPlayer = true
                         },
                     };

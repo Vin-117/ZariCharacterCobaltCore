@@ -108,8 +108,8 @@
         },
         "Peruse": {
             "name": "Peruse",
-            "desc" : "Gain 2 <c=status>temp shield</c>. Pick a card in your <c=boldPink>draw pile</c> to discard.",
-            "descA" : "Gain 2 <c=status>temp shield</c>. Pick two cards in your <c=boldPink>draw pile</c> to discard.",
+            "desc" : "Gain 1 <c=status>shield</c>. Pick a card in your <c=boldPink>draw pile</c> to discard.",
+            "descA" : "Gain 1 <c=status>shield</c>. Pick two cards in your <c=boldPink>draw pile</c> to discard.",
             "descB" : "Pick a card in your <c=boldPink>draw pile</c> to discard."
         },
 
