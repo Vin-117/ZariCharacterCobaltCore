@@ -108,11 +108,17 @@ public class ToughScales : Card, IRegisterable
             case Upgrade.B:
                 {
                     return new List<CardAction>
-                    {
+                    { 
                         new AStatus
                         {
                             status = Status.tempShield,
-                            statusAmount = 2,
+                            statusAmount = 1,
+                            targetPlayer = true
+                        },
+                        new AStatus
+                        {
+                            status = Status.shield,
+                            statusAmount = 1,
                             targetPlayer = true
                         },
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
@@ -120,7 +126,7 @@ public class ToughScales : Card, IRegisterable
                             new AStatus
                             {
                                 status = Status.maxShield,
-                                statusAmount = 2,
+                                statusAmount = 1,
                                 targetPlayer = true
                             }
                         ).AsCardAction

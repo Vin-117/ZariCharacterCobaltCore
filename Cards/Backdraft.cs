@@ -42,7 +42,7 @@ public class Backdraft : Card, IRegisterable, IHasCustomCardTraits
             case Upgrade.B: 
             {
                 return new HashSet<ICardTraitEntry> { };
-                }
+            }
             default:
             {
                     return new HashSet<ICardTraitEntry> { };
@@ -67,9 +67,7 @@ public class Backdraft : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        unplayable = true,
-                        retain = true
+                        cost = 1
                     };
                 }
             case Upgrade.B:
@@ -77,7 +75,7 @@ public class Backdraft : Card, IRegisterable, IHasCustomCardTraits
                     return new CardData
                     {
                         cost = 0,
-                        unplayable = true
+                        unplayable = true,
                     };
                 }
             default:
@@ -110,6 +108,14 @@ public class Backdraft : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
+                        new AStatus
+                        {
+                            status = Status.evade,
+                            statusAmount = 1,
+                            targetPlayer = true
+                        },
+
+
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
                             new AStatus
@@ -125,21 +131,23 @@ public class Backdraft : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
+
+                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
+                        (
+                            new AStatus
+                            {
+                                status = Status.energyLessNextTurn,
+                                statusAmount = -1,
+                                targetPlayer = true
+                            }
+                        ).AsCardAction,
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
                             new AStatus
                             {
                                 status = Status.evade,
-                                statusAmount = 3,
+                                statusAmount = 2,
                                 targetPlayer = true
-                            }
-                        ).AsCardAction,
-
-                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
-                        (
-                            new AExhaustSelf
-                            {
-                                uuid = this.uuid
                             }
                         ).AsCardAction,
 

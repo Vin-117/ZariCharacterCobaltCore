@@ -34,7 +34,7 @@ public class Opportunistic : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 3,
                         exhaust = true
                     };
                 }
@@ -42,7 +42,7 @@ public class Opportunistic : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 2,
                         exhaust = true,
                     };
                 }
@@ -50,9 +50,9 @@ public class Opportunistic : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
-                        exhaust = true,
-                        buoyant = true
+                        cost = 3,
+                        buoyant = true,
+                        exhaust = true
                     };
                 }
             default:
@@ -94,7 +94,6 @@ public class Opportunistic : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect{ },
                         new AStatus
                         {
                             status = ModEntry.Instance.ZariOpportunisticStatus.Status,

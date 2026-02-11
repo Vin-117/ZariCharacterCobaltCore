@@ -10,6 +10,10 @@
         },
         "ZariOpportunisticStatus": {
             "name": "Opportunist",
+            "desc": "At the start of every turn, draw {0} extra cards. Then discard any number of cards from your hand."
+        },
+        "OLDZariOpportunisticStatus": {
+            "name": "Opportunist",
             "desc": "At the start of every turn, <c=status>draw</c> {0} and choose {0} to discard."
         },
         "ZariScornStatus": {
@@ -27,7 +31,7 @@
         },
         "ADiscardFlexSelect": {
             "title": "Flex Discard",
-            "desc_single": "Choose <c=boldPink>any</c> number of cards to discard from your hand, or none at all."
+            "desc_single": "Choose <c=boldPink>any</c> number of cards to discard from your hand."
         },
     },
     "card": {

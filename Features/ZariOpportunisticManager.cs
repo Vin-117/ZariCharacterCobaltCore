@@ -71,10 +71,12 @@ public class ZariOpportunisticStatusManager : IKokoroApi.IV2.IStatusLogicApi.IHo
             );
             args.Combat.Queue
             (
-                new ADiscardSelect()
+                new ADiscardFlexSelect()
+                
+                /*new ADiscardSelect()
                 {
                     count = args.Amount
-                }
+                }*/
             );
         }
         return false;

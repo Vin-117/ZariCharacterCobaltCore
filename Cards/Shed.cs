@@ -52,9 +52,7 @@ public class Shed : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        exhaust = true,
-                        buoyant = true
+                        cost = 1,
                         //description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "TheFavorite", "desc"]))
                     };
                 }
@@ -100,9 +98,11 @@ public class Shed : Card, IRegisterable
                             statusAmount = -1,
                             targetPlayer = true
                         },
-                        new ADrawCard
+                        new AStatus
                         {
-                            count = 1
+                            status = Status.shield,
+                            statusAmount = 1,
+                            targetPlayer = true
                         },
                         new AStatus
                         {
@@ -124,15 +124,16 @@ public class Shed : Card, IRegisterable
                             statusAmount = -1,
                             targetPlayer = true
                         },
-
-
                         new ADrawCard
                         {
-                            count = 4
+                            count = 3
                         },
-
-
-
+                        new AStatus
+                        {
+                            status = Status.drawNextTurn,
+                            statusAmount = 3,
+                            targetPlayer = true
+                        }
                     };
                 }
             default:
