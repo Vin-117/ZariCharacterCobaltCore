@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using ZariMod.External;
+using static CardBrowse;
 
 namespace ZariMod.Actions;
 
@@ -21,24 +22,20 @@ public class ADiscardFlexSelect : CardAction
     //public required int count;
     public static Spr ADiscardFlexSelectSpr;
     public CardDestination destination = CardDestination.Discard;
-    public List<CardAction> actions = [];
 
     public override Route? BeginWithRoute(G g, State s, Combat c)
     {
-
-        CardAction selectedAction = new ADiscardTargetCardCheck { };
-        actions.Insert(0, selectedAction);
 
         CardBrowse cardBrowse = new CardBrowse
         {
             mode = CardBrowse.Mode.Browse,
             browseSource = Source(CardDestination.Hand),
-            browseAction = new AMultiBrowseListActions { actions = actions },
-            allowCancel = true
+            browseAction = new AMultiBrowseListActions { },
+            allowCancel = false
         };
         if (cardBrowse.GetCardList(g).Count == 0)
         {
-            timer = 0.0;
+            //timer = 0.0;
             return null;
         }
         //count = Math.Min(count, cardBrowse.GetCardList(g).Count);
@@ -47,6 +44,7 @@ public class ADiscardFlexSelect : CardAction
         multiBrowseRoute.MaxSelected = 99;
         multiBrowseRoute.MinSelected = 0;
 
+        timer = 0.0;
         return multiBrowseRoute.AsRoute;
     }
 
