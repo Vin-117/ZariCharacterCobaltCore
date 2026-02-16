@@ -71,7 +71,7 @@ public class ToughScales : Card, IRegisterable
                         {
                             status = Status.shield,
                             statusAmount = 1,
-                            targetPlayer = true
+                            targetPlayer = true,
                         },
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (

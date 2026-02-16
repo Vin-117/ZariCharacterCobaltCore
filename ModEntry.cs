@@ -12,6 +12,7 @@ using ZariMod.Artifacts;
 using ZariMod.Cards;
 using ZariMod.External;
 using ZariMod.Features;
+using ZariMod.Conversation;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace ZariMod;
@@ -40,6 +41,17 @@ internal class ModEntry : SimpleMod
     ///
     internal ILocalizationProvider<IReadOnlyList<string>> AnyLocalizations { get; }
     internal ILocaleBoundNonNullLocalizationProvider<IReadOnlyList<string>> Localizations { get; }
+
+
+
+
+
+    ///
+    /// This is required for dialogue machine registration
+    ///
+    public LocalDB localDB { get; set; } = null!;
+
+
 
 
 
@@ -93,6 +105,8 @@ internal class ModEntry : SimpleMod
 
 
     
+
+
     ///
     /// Define artifact types as static lists
     ///
@@ -111,9 +125,31 @@ internal class ModEntry : SimpleMod
         ZariCommonArtifacts
             .Concat(ZariBossArtifacts);
 
+
+
+
+
+    ///
+    /// Define dialogue types as static lists
+    ///
+    private static List<Type> ZariModDialogueTypes =
+    [
+        typeof(ZariCombatDialogue),
+    ];
+
+
+
+
+
+    /// <summary>
+    /// Collect all registerable types into one master list
+    /// </summary>
     private static IEnumerable<Type> AllRegisterableTypes =
         ZariCardTypes
-            .Concat(ZariArtifactTypes);
+            .Concat(ZariArtifactTypes)
+            .Concat(ZariModDialogueTypes);
+
+
 
 
 
@@ -121,6 +157,15 @@ internal class ModEntry : SimpleMod
     /// Construct deck
     ///
     internal IDeckEntry ZariDeck;
+
+
+
+
+
+    ///
+    /// This is for missing status registration
+    ///
+    internal static IPlayableCharacterEntryV2 ZariPlayableCharacter { get; private set; } = null!;
 
 
 
@@ -160,6 +205,26 @@ internal class ModEntry : SimpleMod
         (
             new CurrentLocaleOrEnglishLocalizationProvider<IReadOnlyList<string>>(AnyLocalizations)
         );
+
+
+
+        ///
+        /// Setup dialogue machine localdB
+        ///
+        helper.Events.OnModLoadPhaseFinished += (_, phase) =>
+        {
+            if (phase == ModLoadPhase.AfterDbInit)
+            {
+                localDB = new(helper, package);
+            }
+        };
+        helper.Events.OnLoadStringsForLocale += (_, thing) =>
+        {
+            foreach (KeyValuePair<string, string> entry in localDB.GetLocalizationResults(thing.Locale))
+            {
+                thing.Localizations[entry.Key] = entry.Value;
+            }
+        };
 
 
 
@@ -329,8 +394,15 @@ internal class ModEntry : SimpleMod
         ///
         /// Define all other sprites
         ///
-        RegisterAnimation(package, "neutral", "assets/Animation/Neutral/ZariNeutral", 1);
-        RegisterAnimation(package, "squint", "assets/Animation/Squint/ZariSquint", 1);
+        RegisterAnimation(package, "neutral", "assets/Animation/Neutral/ZariNeutral", 5);
+        RegisterAnimation(package, "squint", "assets/Animation/Squint/ZariSquint", 5);
+        RegisterAnimation(package, "resigned", "assets/Animation/Resigned/ZariResigned", 5);
+        RegisterAnimation(package, "arrogant", "assets/Animation/Arrogant/ZariArrogant", 5);
+        RegisterAnimation(package, "annoyed", "assets/Animation/Annoyed/ZariAnnoyed", 5);
+        RegisterAnimation(package, "explains", "assets/Animation/Explains/ZariExplains", 5);
+        RegisterAnimation(package, "crystal", "assets/Animation/Crystal/ZariCrystal", 5);
+        RegisterAnimation(package, "pondering", "assets/Animation/Pondering/ZariPondering", 5);
+        RegisterAnimation(package, "nap", "assets/Animation/Nap/ZariNap", 5);
     }
 
 
