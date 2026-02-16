@@ -135,6 +135,7 @@ internal class ModEntry : SimpleMod
     private static List<Type> ZariModDialogueTypes =
     [
         typeof(ZariCombatDialogue),
+        typeof(ZariEventDialogue)
     ];
 
 
@@ -401,8 +402,12 @@ internal class ModEntry : SimpleMod
         RegisterAnimation(package, "annoyed", "assets/Animation/Annoyed/ZariAnnoyed", 5);
         RegisterAnimation(package, "explains", "assets/Animation/Explains/ZariExplains", 5);
         RegisterAnimation(package, "crystal", "assets/Animation/Crystal/ZariCrystal", 5);
+        RegisterAnimation(package, "greedy", "assets/Animation/Greedy/ZariGreedy", 5);
+        RegisterAnimation(package, "greedyannoyed", "assets/Animation/GreedyAnnoyed/ZariGreedyAnnoyed", 5);
         RegisterAnimation(package, "pondering", "assets/Animation/Pondering/ZariPondering", 5);
         RegisterAnimation(package, "nap", "assets/Animation/Nap/ZariNap", 5);
+        RegisterAnimation(package, "accusing", "assets/Animation/Accusing/ZariAccusing", 5);
+        RegisterAnimation(package, "rebuke", "assets/Animation/Rebuke/ZariRebuke", 5);
     }
 
 

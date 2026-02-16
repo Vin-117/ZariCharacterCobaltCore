@@ -16,6 +16,10 @@ internal class ZariCombatDialogue : IRegisterable
     {
         LocalDB.DumpStoryToLocalLocale("en", new Dictionary<string, DialogueMachine>()
         {
+
+
+
+            //Dialogue for when the enemy gains autododge
             {
                 "Zari_Dialogue_AutoDodgeLeft_0", new()
                 {
@@ -30,7 +34,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_AutoDodgeLeft_1", new()
                 {
@@ -45,7 +48,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_AutoDodgeRight_0", new()
                 {
@@ -60,7 +62,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_AutoDodgeRight_1", new()
                 {
@@ -76,6 +77,9 @@ internal class ZariCombatDialogue : IRegisterable
                 }
             },
 
+
+
+            //Dialogue for when the player misses a shot
             {
                 "Zari_Dialogue_WeMissed_0", new()
                 {
@@ -91,7 +95,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_WeMissed_1", new()
                 {
@@ -107,7 +110,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_WeMissed_2", new()
                 {
@@ -123,7 +125,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_WeMissed_3", new()
                 {
@@ -139,7 +140,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_WeMissed_4", new()
                 {
@@ -155,7 +155,25 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
+            {
+                "Zari_Dialogue_WeMissedButHaveRecalibrator_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    playerShotJustMissed = true,
+                    oncePerCombatTags = ["Zari_WeMissed_Tag"],
+                    hasArtifacts = [ "Recalibrator" ],
+                    oncePerCombat = true,
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "Missing on purpose? Clever...")
+                    ]
+                }
+            },
 
+
+
+            //Dialogue for when the player ship gets hit but takes no damage
             {
                 "Zari_Dialogue_WeGotShotButTookNoDMG_0", new()
                 {
@@ -171,7 +189,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_WeGotShotButTookNoDMG_1", new()
                 {
@@ -187,7 +204,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_WeGotShotButTookNoDMG_2", new()
                 {
@@ -203,7 +219,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_WeGotShotButTookNoDMG_3", new()
                 {
@@ -220,6 +235,9 @@ internal class ZariCombatDialogue : IRegisterable
                 }
             },
 
+
+
+            //Dialogue for when the players ship takes reduced damage due to armor
             {
                 "Zari_Dialogue_ArmorDeflectedDMG_0", new()
                 {
@@ -235,7 +253,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_ArmorDeflectedDMG_1", new()
                 {
@@ -251,7 +268,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_ArmorDeflectedDMG_2", new()
                 {
@@ -267,7 +283,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_ArmorDeflectedDMG_3", new()
                 {
@@ -284,6 +299,8 @@ internal class ZariCombatDialogue : IRegisterable
                 }
             },
 
+
+            //Dialogue for when the enemy and player ship don't overlap
             {
                 "Zari_Dialogue_NoOverlap_0", new()
                 {
@@ -300,7 +317,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_NoOverlap_1", new()
                 {
@@ -317,7 +333,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_NoOverlap_2", new()
                 {
@@ -334,7 +349,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_NoOverlap_3", new()
                 {
@@ -347,11 +361,14 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombatTags = [ "NoOverlapBetweenShips" ],
                     dialogue =
                     [
-                        new(AmZari, "neutral", "Keep flying and eventually they will tire.")
+                        new(AmZari, "explains", "You cannot hit what is not there.")
                     ]
                 }
             },
 
+
+
+            //Dialogue for when the player and enemy ship don't overlap, but there is a seeker
             {
                 "Zari_Dialogue_NoOverlapButSeeker_0", new()
                 {
@@ -369,7 +386,6 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
             {
                 "Zari_Dialogue_NoOverlapButSeeker_1", new()
                 {
@@ -388,6 +404,9 @@ internal class ZariCombatDialogue : IRegisterable
                 }
             },
 
+
+
+            //Dialogue for when the player acquires or loses various artifacts
             {
                 "Zari_Dialogue_WeHaveNoWarpPrep_0", new()
                 {
@@ -404,6 +423,190 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
+            {
+                "Zari_Dialogue_WeGainedGlassCannon_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    oncePerRunTags = [ "GlassCannon" ],
+                    hasArtifacts = [ "GlassCannon" ],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "How does a glass maw make us stronger?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedSimplicity_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    oncePerRunTags = [ "SimplicityShouts" ],
+                    hasArtifacts = [ "Simplicity" ],
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "This 'simple' artifact just reduced our hoard!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedDirtyEngines_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    oncePerRunTags = [ "DirtyEngines" ],
+                    hasArtifacts = [ "DirtyEngines" ],
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "This new furnace smells dirtier than a muddy peasant.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedNanofibers_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    hasArtifacts = [ "NanofiberHull" ],
+                    doesNotHaveArtifacts = [ "HealBooster" ],
+                    dialogue =
+                    [
+                        new(AmZari, "neutral", "A self regenerating flying ship? How handy!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedNanofibersANDHealBooster_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    hasArtifacts = [ "NanofiberHull", "HealBooster" ],
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "This heal trinket is handy with self regeneration, is it not?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_TookHealableChip_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    enemyShotJustHit = true,
+                    hasArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["ZariNanofiberComment"],
+                    oncePerRun = true,
+                    minDamageDealtToPlayerThisTurn = 1,
+                    maxDamageDealtToPlayerThisTurn = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Fret not. Those nanofibers will heal us.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_TookBoostedHealableChip_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    enemyShotJustHit = true,
+                    hasArtifacts = [ "NanofiberHull", "HealBooster" ],
+                    oncePerCombatTags = ["ZariNanofiberComment"],
+                    oncePerRun = true,
+                    minDamageDealtToPlayerThisTurn = 2,
+                    maxDamageDealtToPlayerThisTurn = 2,
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "No fuss. The boosted regeneration will make short work of that.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedEnergyPrep_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "EnergyPrep" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "neutral", "These batteries seem rather handy.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedFractureDetection_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "FractureDetection" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "Where do we believe that brittle spot to be?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedShieldMemory_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "ShieldMemory" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Finally! Now we may properly hoard our shields!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_IonConverterActivated_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "IonConverter" ],
+                    oncePerRunTags = [ "IonConverterTag" ],
+                    lookup = [ "IonConverterTrigger" ],
+                    priority = true,
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Waste not, want not.")
+                    ]
+                }
+            },
+
+
+            //Dialogue related to heat gain, with and without drake
+
+
+
+
+
+
+
 
 
 
