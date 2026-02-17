@@ -24,7 +24,7 @@ public class GoldHoard : Card, IRegisterable
                 upgradesTo = []
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "GoldHoard", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Hoard.png")).Sprite,
         });
     }
 

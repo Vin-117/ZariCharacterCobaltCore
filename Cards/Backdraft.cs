@@ -23,7 +23,7 @@ public class Backdraft : Card, IRegisterable, IHasCustomCardTraits
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Backdraft", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Backdraft.png")).Sprite,
         });
     }
 
