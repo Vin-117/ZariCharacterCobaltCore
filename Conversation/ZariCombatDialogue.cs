@@ -600,7 +600,28 @@ internal class ZariCombatDialogue : IRegisterable
 
 
             //Dialogue related to heat gain, with and without drake
-
+            {
+                "Zari_Dialogue_OverheatGeneric_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    goingToOverheat = true,
+                    oncePerCombatTags = ["OverheatGeneric"],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "Is it a touch warm? I had not noticed.")
+                    ]
+                }
+            },
+            {
+                "WeJustGainedHeatAndDrakeIsHere_Multi_0", new()
+                {
+                    edit = 
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "annoyed", "It is rude to raise the temperature without permission, Eunice."),
+                    ]
+                }
+            }
 
 
 
