@@ -8,9 +8,19 @@ using Nickel;
 namespace ZariMod.Cards;
 
 public class Browse : Card, IRegisterable
-{   
+{
+
+    private static ISpriteEntry NoUpgradeArt = null!;
+    private static ISpriteEntry AUpgradeArt = null!;
+
+
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
+
+        NoUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/BrowseSingle.png"));
+        AUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/BrowseSingleExtended.png"));
+
+
         helper.Content.Cards.RegisterCard(new CardConfiguration
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
@@ -22,7 +32,7 @@ public class Browse : Card, IRegisterable
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Browse", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Browse.png")).Sprite,
+            //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Browse.png")).Sprite,
         });
     }
 
@@ -34,21 +44,24 @@ public class Browse : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 0,
+                        art = NoUpgradeArt.Sprite
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 0,
+                        art = AUpgradeArt.Sprite
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 0,
+                        art = NoUpgradeArt.Sprite
                     };
                 }
             default:
