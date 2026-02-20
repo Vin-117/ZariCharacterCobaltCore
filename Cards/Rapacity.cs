@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class Unburden : Card, IRegisterable
+public class Rapacity : Card, IRegisterable
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -21,8 +21,8 @@ public class Unburden : Card, IRegisterable
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Unburden", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Unburden.png")).Sprite,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Rapacity", "name"]).Localize,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Hoard.png")).Sprite,
         });
     }
 
@@ -48,7 +48,7 @@ public class Unburden : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 3
                     };
                 }
             default:
@@ -66,61 +66,47 @@ public class Unburden : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect
+                        new AAttack
                         {
+                            damage = GetDmg(s, 2)
                         },
                         new AStatus
                         {
-                            status = Status.evade,
-                            statusAmount = 1,
+                            status = Status.drawNextTurn,
+                            statusAmount = 3,
                             targetPlayer = true
-                        },
-                        new AStatus
-                        {
-                            status = Status.tempShield,
-                            statusAmount = 2,
-                            targetPlayer = true
-                        },
+                        }
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect
+                        new AAttack
                         {
+                            damage = GetDmg(s, 3)
                         },
                         new AStatus
                         {
-                            status = Status.evade,
-                            statusAmount = 1,
-                            targetPlayer = true
-                        },
-                        new AStatus
-                        {
-                            status = Status.tempShield,
+                            status = Status.drawNextTurn,
                             statusAmount = 4,
                             targetPlayer = true
-                        },
+                        }
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect
+                        new AAttack
                         {
+                            damage = GetDmg(s, 5),
+                            piercing = true
                         },
                         new AStatus
                         {
-                            status = Status.evade,
-                            statusAmount = 2,
-                            targetPlayer = true
-                        },
-                        new AStatus
-                        {
-                            status = Status.shield,
-                            statusAmount = 2,
+                            status = Status.drawNextTurn,
+                            statusAmount = 5,
                             targetPlayer = true
                         }
                     };

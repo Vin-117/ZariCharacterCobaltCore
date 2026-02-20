@@ -66,7 +66,7 @@ internal class ModEntry : SimpleMod
         typeof(Endure),
         typeof(Covet),
         typeof(Amass),
-        typeof(Backdraft),
+        typeof(Rapacity),
         typeof(StretchTheWings),
         typeof(Browse)
     ];

@@ -125,6 +125,15 @@ public class ToughScales : Card, IRegisterable
                         (
                             new AStatus
                             {
+                                status = Status.tempShield,
+                                statusAmount = 1,
+                                targetPlayer = true
+                            }
+                        ).AsCardAction,
+                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
+                        (
+                            new AStatus
+                            {
                                 status = Status.maxShield,
                                 statusAmount = 1,
                                 targetPlayer = true

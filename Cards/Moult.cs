@@ -42,6 +42,7 @@ public class Moult : Card, IRegisterable
                     return new CardData
                     {
                         cost = 2,
+                        retain = true
                     };
                 }
             case Upgrade.B:
@@ -115,11 +116,6 @@ public class Moult : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        
-                        new ADrawCard
-                        {
-                            count = 2
-                        },
                         new AVariableHint
                         {
                             hand = true,
@@ -130,7 +126,7 @@ public class Moult : Card, IRegisterable
                         {
                             status = Status.tempShield,
                             targetPlayer = true,
-                            statusAmount = GetMoultTotalAUpgrade(s),
+                            statusAmount = GetMoultTotal(s),
                             xHint = 1
                         },
                     };

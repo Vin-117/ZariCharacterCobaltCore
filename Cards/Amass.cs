@@ -34,21 +34,21 @@ public class Amass : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 1
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 1
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 3
+                        cost = 1
                     };
                 }
             default:
@@ -66,14 +66,14 @@ public class Amass : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AAttack
+                        new ADrawCard
                         {
-                            damage = GetDmg(s, 2)
+                            count = 1
                         },
                         new AStatus
                         {
-                            status = Status.drawNextTurn,
-                            statusAmount = 3,
+                            status = Status.maxShield,
+                            statusAmount = 1,
                             targetPlayer = true
                         }
                     };
@@ -82,14 +82,14 @@ public class Amass : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AAttack
+                        new ADrawCard
                         {
-                            damage = GetDmg(s, 3)
+                            count = 3
                         },
                         new AStatus
                         {
-                            status = Status.drawNextTurn,
-                            statusAmount = 4,
+                            status = Status.maxShield,
+                            statusAmount = 1,
                             targetPlayer = true
                         }
                     };
@@ -98,15 +98,14 @@ public class Amass : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AAttack
+                        new ADrawCard
                         {
-                            damage = GetDmg(s, 5),
-                            piercing = true
+                            count = 1
                         },
                         new AStatus
                         {
-                            status = Status.drawNextTurn,
-                            statusAmount = 5,
+                            status = Status.maxShield,
+                            statusAmount = 2,
                             targetPlayer = true
                         }
                     };

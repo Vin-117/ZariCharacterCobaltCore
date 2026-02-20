@@ -94,6 +94,10 @@ public class Opportunistic : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
+                        
+                        new ADiscardFlexSelect
+                        {
+                        },
                         new AStatus
                         {
                             status = ModEntry.Instance.ZariOpportunisticStatus.Status,
