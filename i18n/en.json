@@ -10,7 +10,7 @@
         },
         "ZariOpportunisticStatus": {
             "name": "Opportunist",
-            "desc": "At the start of every turn, draw {0} extra cards. Then discard any number of cards from your hand."
+            "desc": "At the start of every turn, draw {0} extra cards. Then <c=boldPink>Flex Discard</c>."
         },
         "OLDZariOpportunisticStatus": {
             "name": "Opportunist",
@@ -139,7 +139,7 @@
         },
         "CrownChessPiece": {
             "name": "CASTLE CHESS PIECE",
-            "desc": "Every 5 times you discard a card without playing it, gain 1 <c=status>EVADE</c>."
+            "desc": "Every 5 times you discard a card during your turn without playing it, gain 1 <c=status>EVADE</c>."
         },
         "ShinyShield": {
             "name": "SHINY SHIELD",

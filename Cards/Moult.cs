@@ -49,7 +49,7 @@ public class Moult : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 2
                     };
                 }
             default:
@@ -72,24 +72,6 @@ public class Moult : Card, IRegisterable
             return num;
         }
 
-        int GetMoultTotalAUpgrade(State s)
-        {
-            int num = 0;
-            if (s.route is Combat combat)
-            {
-
-                if (combat.hand.Count == 10)
-                {
-                    num = 10;
-                }
-                else 
-                {
-                    num = combat.hand.Count + 1;
-                }
-            }
-            return num;
-        }
-
         switch (this.upgrade)
         {
             case Upgrade.None:
@@ -102,7 +84,6 @@ public class Moult : Card, IRegisterable
                             hand = true,
                             handAmount = GetMoultTotal(s)
                         },
-                        new ADiscard(),
                         new AStatus
                         {
                             status = Status.tempShield,
@@ -110,6 +91,7 @@ public class Moult : Card, IRegisterable
                             statusAmount = GetMoultTotal(s),
                             xHint = 1
                         },
+                        new ADiscard(),
                     };
                 }
             case Upgrade.A:
@@ -119,9 +101,8 @@ public class Moult : Card, IRegisterable
                         new AVariableHint
                         {
                             hand = true,
-                            handAmount = GetMoultTotalAUpgrade(s)
+                            handAmount = GetMoultTotal(s)
                         },
-                        new ADiscard(),
                         new AStatus
                         {
                             status = Status.tempShield,
@@ -129,6 +110,7 @@ public class Moult : Card, IRegisterable
                             statusAmount = GetMoultTotal(s),
                             xHint = 1
                         },
+                        new ADiscard(),
                     };
                 }
             case Upgrade.B:
@@ -141,14 +123,18 @@ public class Moult : Card, IRegisterable
                             hand = true,
                             handAmount = GetMoultTotal(s)
                         },
-                        new ADiscard(),
                         new AStatus
                         {
-                            status = Status.shield,
+                            status = Status.tempShield,
                             targetPlayer = true,
                             statusAmount = GetMoultTotal(s),
                             xHint = 1
                         },
+                        new ADiscard(),
+                        new ADrawCard
+                        {
+                            count = 3
+                        }
                     };
                 }
             default:

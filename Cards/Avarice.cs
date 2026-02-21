@@ -51,7 +51,7 @@ public class Avarice : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0
+                        unplayable = true
                     };
                 }
             default:
@@ -95,15 +95,17 @@ public class Avarice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
-                        {
-                            count = 1
-                        },
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
                             new ADrawCard
                             {
                                 count = 2
+                            }
+                        ).AsCardAction,
+                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
+                        (
+                            new ADiscardFlexSelect
+                            {
                             }
                         ).AsCardAction
                     };

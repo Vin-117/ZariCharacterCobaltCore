@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class Scorn : Card, IRegisterable
+public class Scorn : Card, IRegisterable, IHasCustomCardTraits
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -24,6 +24,30 @@ public class Scorn : Card, IRegisterable
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Scorn", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Scorn.png")).Sprite,
         });
+    }
+
+    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
+    {
+        switch (this.upgrade)
+        {
+            case Upgrade.None:
+                {
+                    return new HashSet<ICardTraitEntry> { };
+                }
+            case Upgrade.A:
+                {
+                    return new HashSet<ICardTraitEntry> { };
+                }
+            case Upgrade.B:
+                {
+                    return new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
+                }
+            default:
+                {
+                    return new HashSet<ICardTraitEntry> { };
+                }
+        }
+
     }
 
     public override CardData GetData(State state)
@@ -50,7 +74,7 @@ public class Scorn : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 4,
+                        cost = 3,
                         exhaust = true
                     };
                 }
