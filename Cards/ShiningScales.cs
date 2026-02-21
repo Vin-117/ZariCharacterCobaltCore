@@ -32,7 +32,7 @@ public class ShiningScales : Card, IRegisterable, IHasCustomCardTraits
         {
             case Upgrade.None:
                 {
-                    return new HashSet<ICardTraitEntry> {  };
+                    return new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
                 }
             case Upgrade.A:
                 {
@@ -59,25 +59,21 @@ public class ShiningScales : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 3,
-                        exhaust = true,
-                        retain = true
+                        cost = 3
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 3,
-                        exhaust = true,
-                        retain = true
+                        cost = 3
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 3,
+                        cost = 4,
                         exhaust = true
                     };
                 }
@@ -108,11 +104,6 @@ public class ShiningScales : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        new AHeal
-                        {
-                            healAmount = 1,
-                            targetPlayer = true
-                        },
                         new AStatus
                         {
                             status = Status.perfectShield,
@@ -125,11 +116,11 @@ public class ShiningScales : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new List<CardAction>
                     {
-                        //new AHeal
-                        //{
-                        //    healAmount = 1,
-                        //    targetPlayer = true
-                        //},
+                        new AHeal
+                        {
+                            healAmount = 2,
+                            targetPlayer = true
+                        },
                         new AStatus
                         {
                             status = Status.perfectShield,

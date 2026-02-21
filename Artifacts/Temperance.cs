@@ -13,8 +13,15 @@ namespace ZariMod.Artifacts;
 
 public class Temperance : Artifact, IRegisterable
 {
+
+    private static Spr UsedUpSpr;
+
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
+
+        UsedUpSpr = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Artifacts/RubyRingUsed.png")).Sprite;
+
+
         helper.Content.Artifacts.RegisterArtifact(new ArtifactConfiguration
         {
             ArtifactType = MethodBase.GetCurrentMethod()!.DeclaringType!,
@@ -44,19 +51,36 @@ public class Temperance : Artifact, IRegisterable
 
     public int DiscardCount = 0;
 
+    public bool RingUsed = false;
+
     public override void OnTurnStart(State state, Combat combat)
     {
         DiscardCount = 0;
+        RingUsed = false;
     }
 
     public override void OnTurnEnd(State state, Combat combat)
     {
         DiscardCount = 1;
+        RingUsed = false;
     }
 
     public override void OnCombatEnd(State state)
     {
         DiscardCount = 0;
+        RingUsed = false;
+    }
+
+    public override Spr GetSprite()
+    {
+        if (RingUsed)
+        {
+            return UsedUpSpr;
+        }
+        else
+        {
+            return base.GetSprite();
+        }
     }
 
 
@@ -106,6 +130,7 @@ public class Temperance : Artifact, IRegisterable
             __instance.Queue(new AEnergy { changeAmount = 1 });
             temperance.DiscardCount += 1;
             artifact.Pulse();
+            temperance.RingUsed = true;
         }
 
     }

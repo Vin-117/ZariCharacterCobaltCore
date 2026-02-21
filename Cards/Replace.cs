@@ -53,7 +53,7 @@ public class Replace : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 0,
                         exhaust = true
                     };
                 }
@@ -132,13 +132,9 @@ public class Replace : Card, IRegisterable, IHasCustomCardTraits
                             amount = 1,
                             targetPlayer = true
                         },
-                        new AEnergy
-                        {
-                            changeAmount = 1
-                        },
                         new ADrawCard
                         {
-                            count = 2
+                            count = 1
                         },
                     };
                 }

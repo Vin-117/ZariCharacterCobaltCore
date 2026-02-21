@@ -48,7 +48,7 @@ public class Unburden : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 1
                     };
                 }
             default:
@@ -114,13 +114,13 @@ public class Unburden : Card, IRegisterable
                         new AStatus
                         {
                             status = Status.evade,
-                            statusAmount = 2,
+                            statusAmount = 1,
                             targetPlayer = true
                         },
                         new AStatus
                         {
-                            status = Status.shield,
-                            statusAmount = 2,
+                            status = Status.tempShield,
+                            statusAmount = 1,
                             targetPlayer = true
                         }
                     };

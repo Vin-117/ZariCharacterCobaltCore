@@ -138,8 +138,8 @@
             "desc": "Draw <c=card>+2 cards</c> every turn. At the start of combat, add 3 <c=card>Hoards</c> to your draw pile."
         },
         "CrownChessPiece": {
-            "name": "CROWN CHESS PIECE",
-            "desc": "Every fouth time you discard a card without playing it, draw 1 extra card."
+            "name": "CASTLE CHESS PIECE",
+            "desc": "Every 5 times you discard a card without playing it, gain 1 <c=status>EVADE</c>."
         },
         "ShinyShield": {
             "name": "SHINY SHIELD",

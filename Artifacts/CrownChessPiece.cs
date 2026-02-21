@@ -47,6 +47,13 @@ public class CrownChessPiece : Artifact, IRegisterable
         return ChessDiscardCount;
     }
 
+    public override List<Tooltip>? GetExtraTooltips()
+    {
+        List<Tooltip> list = new List<Tooltip>();
+        list.Add(new TTGlossary("status.evade"));
+        return list;
+    }
+
 
     public int ChessDiscardCount = 0;
 
@@ -75,9 +82,15 @@ public class CrownChessPiece : Artifact, IRegisterable
 
         var crownchesspiece = (CrownChessPiece)artifact;
 
-        if (crownchesspiece.ChessDiscardCount == 3)
+        if (crownchesspiece.ChessDiscardCount == 4)
         {
-            __instance.Queue(new ADrawCard { count = 1 });
+            __instance.Queue
+                (new AStatus 
+                { 
+                    status = Status.evade,
+                    targetPlayer = true,
+                    statusAmount = 1
+                });
             crownchesspiece.ChessDiscardCount = 0;
             artifact.Pulse();
         }
