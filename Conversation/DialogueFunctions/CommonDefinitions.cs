@@ -41,6 +41,6 @@ static class CommonDefinitions
 
     internal readonly static string AmNibbs = "TheJazMaster.Nibbs::Nibbs";
 
-    internal static Status MissingVic => ModEntry.ZariPlayableCharacter.MissingStatus.Status;
+    internal static Status MissingZari => ModEntry.ZariPlayableCharacter.MissingStatus.Status;
 
 }

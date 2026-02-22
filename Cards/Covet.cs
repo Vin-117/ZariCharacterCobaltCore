@@ -48,7 +48,7 @@ public class Covet : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 1
                     };
                 }
             default:
@@ -106,16 +106,16 @@ public class Covet : Card, IRegisterable
                     {
                         new AAttack
                         {
-                            damage = GetDmg(s, 1)
+                            damage = GetDmg(s, 1),
+                            piercing = true
                         },
                         new ADrawCard
                         {
-                            count = 1,
+                            count = 2,
                             timer = 1.5
                         },
-                        new ADiscardSelect
+                        new ADiscardFlexSelect
                         {
-                            count = 1
                         }
                     };
                 }

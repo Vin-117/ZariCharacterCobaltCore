@@ -173,6 +173,281 @@ internal class ZariCombatDialogue : IRegisterable
 
 
 
+            //Dialogue for hitting the enemy
+            {
+                "Zari_Dialogue_ShotHitGeneric_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    playerShotJustHit = true,
+                    oncePerCombatTags = ["Zari_WeHit_Tag"],
+                    minDamageDealtToEnemyThisAction = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "neutral", "Splendid shot.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_ShotHitGeneric_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    playerShotJustHit = true,
+                    oncePerCombatTags = ["Zari_WeHit_Tag"],
+                    minDamageDealtToEnemyThisAction = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "neutral", "A fine attack, that was.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_ShotHitGeneric_2", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    playerShotJustHit = true,
+                    oncePerCombatTags = ["Zari_WeHit_Tag"],
+                    minDamageDealtToEnemyThisAction = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Is there a hole in their ship? What a shame.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_ShotHitGeneric_3", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    playerShotJustHit = true,
+                    oncePerCombatTags = ["Zari_WeHit_Tag"],
+                    minDamageDealtToEnemyThisAction = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "They are still onto us? Shoot them again.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_ShotHitGeneric_4", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    playerShotJustHit = true,
+                    oncePerCombatTags = ["Zari_WeHit_Tag"],
+                    minDamageDealtToEnemyThisAction = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Just a little prick, my dear.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_ShotHitBigDMG_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    playerShotJustHit = true,
+                    oncePerCombatTags = ["Zari_WeHitBig_Tag"],
+                    minDamageDealtToEnemyThisAction = 5,
+                    dialogue =
+                    [
+                        new(AmZari, "greedy", "Keep shooting. They will be more useful as salvage.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_ShotHitBigDMG_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    playerShotJustHit = true,
+                    oncePerCombatTags = ["Zari_WeHitBig_Tag"],
+                    minDamageDealtToEnemyThisAction = 5,
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Stings, doesn't it?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_ShotHitBigDMG_2", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    playerShotJustHit = true,
+                    oncePerCombatTags = ["Zari_WeHitBig_Tag"],
+                    minDamageDealtToEnemyThisAction = 5,
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Oh my, did that hurt?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_ShotHitBigDMG_3", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    playerShotJustHit = true,
+                    oncePerCombatTags = ["Zari_WeHitBig_Tag"],
+                    minDamageDealtToEnemyThisAction = 5,
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "And here I thought they would learn their lesson.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_ShotHitBigDMG_4", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    playerShotJustHit = true,
+                    oncePerCombatTags = ["Zari_WeHitBig_Tag"],
+                    minDamageDealtToEnemyThisAction = 5,
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "A fitting punishment.")
+                    ]
+                }
+            },
+
+
+
+            //Dialogue for when the player moves around a lot
+            {
+                "Zari_Dialogue_MovingLots_0", new()
+                {
+                    type = NodeType.combat,
+                    minMovesThisTurn = 5,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    oncePerCombatTags = ["Zari_MoveFast_Tag"],
+                    dialogue =
+                    [
+                        new(AmZari, "neutral", "Goodness, we are moving fast!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_MovingLots_1", new()
+                {
+                    type = NodeType.combat,
+                    minMovesThisTurn = 5,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    oncePerCombatTags = ["Zari_MoveFast_Tag"],
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "Slow it down, please. My coins just spilt.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_MovingLots_2", new()
+                {
+                    type = NodeType.combat,
+                    minMovesThisTurn = 5,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    oncePerCombatTags = ["Zari_MoveFast_Tag"],
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "And here I feared we would be too slow to dodge.")
+                    ]
+                }
+            },
+
+
+
+            //Dialogue for when hand is full of garbage or empty
+            {
+                "Zari_Dialogue_HandofGarbage", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    handFullOfTrash = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "This trash is cluttering my hoard!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_HandUnplayable_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    handFullOfUnplayableCards = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "squint", "This lot is worthless.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_HandUnplayable_1", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    handFullOfUnplayableCards = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "I may be to blame for part of this.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_HandEmpty_0", new()
+                {
+                    type = NodeType.combat,
+                    handEmpty = true,
+                    minEnergy = 1,
+                    oncePerCombatTags = [ "ZariHandEmpty" ],
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Did I do that?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_HandEmpty_1", new()
+                {
+                    type = NodeType.combat,
+                    handEmpty = true,
+                    minEnergy = 1,
+                    oncePerCombatTags = [ "ZariHandEmpty" ],
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Do not fret. We will have plenty more soon.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_HandEmpty_2", new()
+                {
+                    type = NodeType.combat,
+                    handEmpty = true,
+                    minEnergy = 1,
+                    oncePerCombatTags = [ "ZariHandEmpty" ],
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Less is more.")
+                    ]
+                }
+            },
+
+
+
             //Dialogue for when the player ship gets hit but takes no damage
             {
                 "Zari_Dialogue_WeGotShotButTookNoDMG_0", new()
@@ -230,7 +505,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmZari, "arrogant", "Still trying to slay me? I could not tell.")
+                        new(AmZari, "arrogant", "Were they trying to slay me? I could not tell.")
                     ]
                 }
             },
@@ -249,7 +524,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmZari, "neutral", "Tough as a knight's armor, I see.")
+                        new(AmZari, "explains", "Tougher than a knight's armor.")
                     ]
                 }
             },
@@ -547,7 +822,7 @@ internal class ZariCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmZari, "neutral", "These batteries seem rather handy.")
+                        new(AmZari, "neutral", "These batteries seem rather useful.")
                     ]
                 }
             },
@@ -621,19 +896,555 @@ internal class ZariCombatDialogue : IRegisterable
                         new(EMod.countFromStart, 1, AmZari, "annoyed", "It is rude to raise the temperature without permission, Eunice."),
                     ]
                 }
-            }
+            },
+
+
+
+            //Dialogue related to taking damage
+            {
+                "Zari_Dialogue_TookChipDMG_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    enemyShotJustHit = true,
+                    doesNotHaveArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["ZariYappedAboutDMG"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    maxDamageDealtToPlayerThisTurn = 2,
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "How dare they sully our ship!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_TookChipDMG_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    enemyShotJustHit = true,
+                    doesNotHaveArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["ZariYappedAboutDMG"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    maxDamageDealtToPlayerThisTurn = 2,
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "And I was just finished polishing the outer hull...")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_TookChipDMG_2", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    enemyShotJustHit = true,
+                    doesNotHaveArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["ZariYappedAboutDMG"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    maxDamageDealtToPlayerThisTurn = 2,
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "Putting a dent in MY ship?! How dare they!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_TookBigDMG_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    enemyShotJustHit = true,
+                    doesNotHaveArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["ZariYappedAboutDMG"],
+                    maxDamageDealtToPlayerThisTurn = 3,
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "And I put so much work into shining the outer hull...")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_TookBigDMG_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    enemyShotJustHit = true,
+                    doesNotHaveArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["ZariYappedAboutDMG"],
+                    maxDamageDealtToPlayerThisTurn = 3,
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "I despise saying this, but that damage is irreparable.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_TookBigDMG_2", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    enemyShotJustHit = true,
+                    doesNotHaveArtifacts = [ "NanofiberHull" ],
+                    oncePerCombatTags = ["ZariYappedAboutDMG"],
+                    maxDamageDealtToPlayerThisTurn = 3,
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "Fixing this is going to cost too much of my hoard.")
+                    ]
+                }
+            },
+
+
+
+            //Missing dialogue
+            {
+                "Zari_Dialogue_BooksMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["booksWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingBooks],
+                    dialogue =
+                    [
+                        new(AmZari, "worried", "Books!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_CatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["CatWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingCat],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "...Something just happened to our computer.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_DizzyMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["dizzyWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingDizzy],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "...Pity. That kobold was useful.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_DrakeMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["drakeWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingDrake],
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "Eunice?! Get back here this instant!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_GoatMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["issacWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingIsaac],
+                    dialogue =
+                    [
+                        new(AmZari, "worried", "That darling goat just vanished before my eyes!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_MaxMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["maxWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingMax],
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "I am sure we can fix these silly little computers without him.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_PeriMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["periWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingPeri],
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Peri is gone? What a shame.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_RiggsMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["riggsWentMissing"],
+                    lastTurnPlayerStatuses = [Status.missingRiggs],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "Did our pilot just disappear? Bother.")
+                    ]
+                }
+            },
+
+
+
+            //Missing dialogue for when Zari specifically is missing
+            {
+                "Riggs_Dialogue_ZariMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmRiggs ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["ZariWentMissing"],
+                    lastTurnPlayerStatuses = [MissingZari],
+                    dialogue =
+                    [
+                        new(AmRiggs, "squint", "Did our ship just get lighter all of a sudden?")
+                    ]
+                }
+            },
+            {
+                "Peri_Dialogue_ZariMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmPeri ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["ZariWentMissing"],
+                    lastTurnPlayerStatuses = [MissingZari],
+                    dialogue =
+                    [
+                        new(AmPeri, "squint", "...Zari disappeared. Along with all her gold.")
+                    ]
+                }
+            },
+            {
+                "Dizzy_Dialogue_ZariMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmDizzy ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["ZariWentMissing"],
+                    lastTurnPlayerStatuses = [MissingZari],
+                    dialogue =
+                    [
+                        new(AmDizzy, "intense", "Zari?")
+                    ]
+                }
+            },
+            {
+                "Max_Dialogue_ZariMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmMax ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["ZariWentMissing"],
+                    lastTurnPlayerStatuses = [MissingZari],
+                    dialogue =
+                    [
+                        new(AmMax, "squint", "Uh...our 50 ft dragon just disappeared.")
+                    ]
+                }
+            },
+            {
+                "Books_Dialogue_ZariMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmBooks ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["ZariWentMissing"],
+                    lastTurnPlayerStatuses = [MissingZari],
+                    dialogue =
+                    [
+                        new(AmBooks, "paws", "Wow! Mrs Zari did a magic trick!")
+                    ]
+                }
+            },
+            {
+                "Cat_Dialogue_ZariMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmCat ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["ZariWentMissing"],
+                    lastTurnPlayerStatuses = [MissingZari],
+                    dialogue =
+                    [
+                        new(AmCat, "intense", "...at least that reduces the weight of our ship.")
+                    ]
+                }
+            },
+            {
+                "Drake_Dialogue_ZariMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmDrake ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["ZariWentMissing"],
+                    lastTurnPlayerStatuses = [MissingZari],
+                    dialogue =
+                    [
+                        new(AmDrake, "sly", "Looks like dearest old aunt just went missing.")
+                    ]
+                }
+            },
+            {
+                "Goat_Dialogue_ZariMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmIsaac ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["ZariWentMissing"],
+                    lastTurnPlayerStatuses = [MissingZari],
+                    dialogue =
+                    [
+                        new(AmIsaac, "shy", "Umm...did Zari go somewhere?")
+                    ]
+                }
+            },
+
+
+
+            //Dialogue related to enemy weakpoints
+            {
+                "Zari_Dialogue_BrittleComment_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    enemyHasBrittlePart = true,
+                    oncePerRunTags = ["yelledAboutBrittle"],
+                    dialogue =
+                    [
+                        new(AmZari, "neutral", "I see a gap in their scales.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeakComment_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    enemyHasWeakPart = true,
+                    oncePerRunTags = ["yelledAboutWeakness"],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "Not all of their ship parts are equally strong.")
+                    ]
+                }
+            },
+
+
+
+            //Dialogue relating to a fight taking a long time.
+            {
+                "Zari_Dialogue_Longfight_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    minTurnsThisCombat = 9,
+                    oncePerCombatTags = ["manyTurns"],
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Good things come to those who wait.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Longfight_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    minTurnsThisCombat = 9,
+                    oncePerCombatTags = ["manyTurns"],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "Seems I will have to delay tea time. Pity.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Longfight_2", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    minTurnsThisCombat = 9,
+                    oncePerCombatTags = ["manyTurns"],
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Patience is a virtue.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Longfight_3", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    minTurnsThisCombat = 9,
+                    oncePerCombatTags = ["manyTurns"],
+                    dialogue =
+                    [
+                        new(AmZari, "neutral", "I never lose the long game.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Longfight_4", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    minTurnsThisCombat = 9,
+                    oncePerCombatTags = ["manyTurns"],
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "After a thousand years, I can outwait anything.")
+                    ]
+                }
+            },
+
+
+
+            //Dialogue related to playing many cards
+            {
+                "Zari_Dialogue_ManyCards_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerCombatTags = ["ZariManyCardsPlayed"],
+                    oncePerCombat = true,
+                    minCardsPlayedThisTurn = 12,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Simply splendid!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_ManyCards_1", new()
+                {
+                    type = NodeType.combat,
+                    oncePerCombatTags = ["ZariManyCardsPlayed"],
+                    oncePerCombat = true,
+                    minCardsPlayedThisTurn = 12,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "neutral", "Wonderful work!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_ManyCards_2", new()
+                {
+                    type = NodeType.combat,
+                    oncePerCombatTags = ["ZariManyCardsPlayed"],
+                    oncePerCombat = true,
+                    minCardsPlayedThisTurn = 12,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "neutral", "Excellent!")
+                    ]
+                }
+            },
 
 
 
 
 
 
+            //Dahlia dialogue
+            {
+                "BanditThreats_Multi_0", new()
+                {
+                    edit = 
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "annoyed", "Excuse me? That is not what I ordered.")
+                    ]
+                }
+            },
+
+            //Crab dialogue
+            {
+                "CrabFacts1_Multi_0", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 2, AmZari, "pondering", "Tell me more about these 'crabs'.")
+                    ]
+                }
+            },
+            {
+                "CrabFacts2_Multi_0", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 2, AmZari, "pondering", "This sounds like nonsense.")
+                    ]
+                }
+            },
+            {
+                "CrabFactsAreOverNow_Multi_0", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "annoyed", "It was mostly drivel, was it not?")
+                    ]
+                }
+            },
 
 
 
-
-
-
+            //Dillian dialogue
+            {
+                "DillianShouts", new()
+                {
+                    edit =
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "annoyed", "And who are you, exactly?")
+                    ]
+                }
+            },
 
 
 

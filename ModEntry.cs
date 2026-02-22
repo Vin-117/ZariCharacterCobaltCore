@@ -10,9 +10,9 @@ using System.Linq;
 using ZariMod.Actions;
 using ZariMod.Artifacts;
 using ZariMod.Cards;
+using ZariMod.Conversation;
 using ZariMod.External;
 using ZariMod.Features;
-using ZariMod.Conversation;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace ZariMod;
@@ -36,11 +36,32 @@ internal class ModEntry : SimpleMod
 
 
 
+
     ///
-    /// Construct localization
+    /// This is for missing status registration
     ///
-    internal ILocalizationProvider<IReadOnlyList<string>> AnyLocalizations { get; }
-    internal ILocaleBoundNonNullLocalizationProvider<IReadOnlyList<string>> Localizations { get; }
+    internal static IPlayableCharacterEntryV2 ZariPlayableCharacter { get; private set; } = null!;
+
+
+
+    ///
+    /// Construct deck
+    ///
+    internal IDeckEntry ZariDeck;
+
+
+
+
+
+
+    ///
+    /// Construct status variables
+    ///
+    internal IStatusEntry ZariUndyingStatus;
+    internal IStatusEntry ZariOpportunisticStatus;
+    internal IStatusEntry ZariScornStatus;
+
+
 
 
 
@@ -50,6 +71,16 @@ internal class ModEntry : SimpleMod
     /// This is required for dialogue machine registration
     ///
     public LocalDB localDB { get; set; } = null!;
+
+
+
+    ///
+    /// Construct localization
+    ///
+    internal ILocalizationProvider<IReadOnlyList<string>> AnyLocalizations { get; }
+    internal ILocaleBoundNonNullLocalizationProvider<IReadOnlyList<string>> Localizations { get; }
+
+
 
 
 
@@ -127,8 +158,6 @@ internal class ModEntry : SimpleMod
 
 
 
-
-
     ///
     /// Define dialogue types as static lists
     ///
@@ -141,7 +170,6 @@ internal class ModEntry : SimpleMod
 
 
 
-
     /// <summary>
     /// Collect all registerable types into one master list
     /// </summary>
@@ -149,35 +177,6 @@ internal class ModEntry : SimpleMod
         ZariCardTypes
             .Concat(ZariArtifactTypes)
             .Concat(ZariModDialogueTypes);
-
-
-
-
-
-    ///
-    /// Construct deck
-    ///
-    internal IDeckEntry ZariDeck;
-
-
-
-
-
-    ///
-    /// This is for missing status registration
-    ///
-    internal static IPlayableCharacterEntryV2 ZariPlayableCharacter { get; private set; } = null!;
-
-
-
-
-
-    ///
-    /// Construct status variables
-    ///
-    internal IStatusEntry ZariUndyingStatus;
-    internal IStatusEntry ZariOpportunisticStatus;
-    internal IStatusEntry ZariScornStatus;
 
 
 
@@ -209,23 +208,8 @@ internal class ModEntry : SimpleMod
 
 
 
-        ///
-        /// Setup dialogue machine localdB
-        ///
-        helper.Events.OnModLoadPhaseFinished += (_, phase) =>
-        {
-            if (phase == ModLoadPhase.AfterDbInit)
-            {
-                localDB = new(helper, package);
-            }
-        };
-        helper.Events.OnLoadStringsForLocale += (_, thing) =>
-        {
-            foreach (KeyValuePair<string, string> entry in localDB.GetLocalizationResults(thing.Locale))
-            {
-                thing.Localizations[entry.Key] = entry.Value;
-            }
-        };
+
+        
 
 
 
@@ -243,7 +227,7 @@ internal class ModEntry : SimpleMod
             BorderSprite = RegisterSprite(package, "assets/card_frame_zari.png").Sprite,
             Name = AnyLocalizations.Bind(["character", "name"]).Localize
         });
-        helper.Content.Characters.V2.RegisterPlayableCharacter("ZariTheDragon", new PlayableCharacterConfigurationV2
+        ZariPlayableCharacter = helper.Content.Characters.V2.RegisterPlayableCharacter("ZariTheDragon", new PlayableCharacterConfigurationV2
         {
             Deck = ZariDeck.Deck,
             BorderSprite = RegisterSprite(package, "assets/char_frame_zari.png").Sprite,
@@ -356,15 +340,6 @@ internal class ModEntry : SimpleMod
 
 
 
-        ///
-        /// Initialize all cards and artifacts defined by static lists
-        ///
-        foreach (var type in AllRegisterableTypes)
-            AccessTools.DeclaredMethod(type, nameof(IRegisterable.Register))?.Invoke(null, [package, helper]);
-
-
-
-
         ADiscardSelect.ADiscardSelectSpr = RegisterSprite(package, "assets/Actions/chooseDiscard.png").Sprite;
         ADiscardFlexSelect.ADiscardFlexSelectSpr = RegisterSprite(package, "assets/Actions/chooseFlexDiscard.png").Sprite;
 
@@ -408,6 +383,43 @@ internal class ModEntry : SimpleMod
         RegisterAnimation(package, "nap", "assets/Animation/Nap/ZariNap", 5);
         RegisterAnimation(package, "accusing", "assets/Animation/Accusing/ZariAccusing", 5);
         RegisterAnimation(package, "rebuke", "assets/Animation/Rebuke/ZariRebuke", 5);
+        RegisterAnimation(package, "worried", "assets/Animation/Worried/ZariWorried", 5);
+
+
+
+
+
+        ///
+        /// Initialize all cards and artifacts defined by static lists
+        /// THIS MUST BE DONE LAST
+        ///
+        foreach (var type in AllRegisterableTypes)
+            AccessTools.DeclaredMethod(type, nameof(IRegisterable.Register))?.Invoke(null, [package, helper]);
+
+
+
+
+        ///
+        /// Setup dialogue machine localdB
+        ///
+        helper.Events.OnModLoadPhaseFinished += (_, phase) =>
+        {
+            if (phase == ModLoadPhase.AfterDbInit)
+            {
+                localDB = new(helper, package);
+            }
+        };
+        helper.Events.OnLoadStringsForLocale += (_, thing) =>
+        {
+            foreach (KeyValuePair<string, string> entry in localDB.GetLocalizationResults(thing.Locale))
+            {
+                thing.Localizations[entry.Key] = entry.Value;
+            }
+        };
+
+
+
+
     }
 
 

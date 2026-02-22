@@ -40,7 +40,7 @@ public class Scorn : Card, IRegisterable, IHasCustomCardTraits
                 }
             case Upgrade.B:
                 {
-                    return new HashSet<ICardTraitEntry> { ModEntry.Instance.KokoroApi.Fleeting.Trait };
+                    return new HashSet<ICardTraitEntry> { };
                 }
             default:
                 {
@@ -74,7 +74,7 @@ public class Scorn : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 3,
+                        cost = 4,
                         exhaust = true
                     };
                 }
