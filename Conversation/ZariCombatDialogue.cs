@@ -957,7 +957,7 @@ internal class ZariCombatDialogue : IRegisterable
                     enemyShotJustHit = true,
                     doesNotHaveArtifacts = [ "NanofiberHull" ],
                     oncePerCombatTags = ["ZariYappedAboutDMG"],
-                    maxDamageDealtToPlayerThisTurn = 3,
+                    minDamageDealtToPlayerThisTurn = 3,
                     dialogue =
                     [
                         new(AmZari, "resigned", "And I put so much work into shining the outer hull...")
@@ -972,7 +972,7 @@ internal class ZariCombatDialogue : IRegisterable
                     enemyShotJustHit = true,
                     doesNotHaveArtifacts = [ "NanofiberHull" ],
                     oncePerCombatTags = ["ZariYappedAboutDMG"],
-                    maxDamageDealtToPlayerThisTurn = 3,
+                    minDamageDealtToPlayerThisTurn = 3,
                     dialogue =
                     [
                         new(AmZari, "pondering", "I despise saying this, but that damage is irreparable.")
@@ -987,7 +987,7 @@ internal class ZariCombatDialogue : IRegisterable
                     enemyShotJustHit = true,
                     doesNotHaveArtifacts = [ "NanofiberHull" ],
                     oncePerCombatTags = ["ZariYappedAboutDMG"],
-                    maxDamageDealtToPlayerThisTurn = 3,
+                    minDamageDealtToPlayerThisTurn = 3,
                     dialogue =
                     [
                         new(AmZari, "resigned", "Fixing this is going to cost too much of my hoard.")
