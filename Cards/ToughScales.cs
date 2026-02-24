@@ -99,7 +99,7 @@ public class ToughScales : Card, IRegisterable
                             new AStatus
                             {
                                 status = Status.shield,
-                                statusAmount = 3,
+                                statusAmount = 2,
                                 targetPlayer = true
                             }
                         ).AsCardAction
@@ -108,34 +108,19 @@ public class ToughScales : Card, IRegisterable
             case Upgrade.B:
                 {
                     return new List<CardAction>
-                    { 
-                        new AStatus
-                        {
-                            status = Status.tempShield,
-                            statusAmount = 1,
-                            targetPlayer = true
-                        },
+                    {
                         new AStatus
                         {
                             status = Status.shield,
                             statusAmount = 1,
-                            targetPlayer = true
+                            targetPlayer = true,
                         },
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
                             new AStatus
                             {
-                                status = Status.tempShield,
-                                statusAmount = 1,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction,
-                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
-                        (
-                            new AStatus
-                            {
-                                status = Status.maxShield,
-                                statusAmount = 1,
+                                status = Status.shield,
+                                statusAmount = 3,
                                 targetPlayer = true
                             }
                         ).AsCardAction
