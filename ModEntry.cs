@@ -242,7 +242,7 @@ internal class ModEntry : SimpleMod
             SoloStarters = new StarterDeck
             {
                 cards = [
-                    new Amass(),
+                    new Rapacity(),
                     new Endure(),
                     new Covet(),
                     new Browse(),
@@ -272,7 +272,7 @@ internal class ModEntry : SimpleMod
                 {
                     cards = 
                     [
-                        new Amass(),
+                        new Rapacity(),
                         new Browse(),
                     ]
                 }
@@ -285,7 +285,7 @@ internal class ModEntry : SimpleMod
             {
                 cards = 
                 [
-                    new Amass(),
+                    new Rapacity(),
                     new Endure(),
                     new Covet()
                 ]
