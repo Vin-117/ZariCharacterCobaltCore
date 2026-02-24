@@ -86,9 +86,57 @@ internal class ZariEventDialogue : IRegisterable
 
 
 
+            //Dialogue for the ephermeral events
+            {
+                $"ChoiceCardRewardOfYourColorChoice_{AmZari}", new()
+                {
+                    type = NodeType.@event,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    bg = "BGBootSequence",
+                    dialogue = 
+                    [
+                        new(AmVoid, "You do not belong here."),
+                        new(AmZari, "squint", "I was well aware.")
+                    ]
+                }
+            },
+            {
+                "ForeignCardOffering_After", new()
+                {
+                    edit = 
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "pondering", "I suppose we can accept this...")
+                    ]
+                }
+            },
+            {
+                "ForeignCardOffering_Refuse", new()
+                {
+                    edit = 
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "squint", "I know an offer with strings when I see one.")
+                    ]
+                }
+            },
 
 
 
+            //Dialogue for picking Zari from the crystal pilot event
+            {
+                $"CrystallizedFriendEvent_{AmZari}", new()
+                {
+                    type = NodeType.@event,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    bg = "BGCrystalizedFriend",
+                    dialogue = 
+                    [
+                        new(new Wait{secs = 1.5}),
+                        new(AmZari, "arrogant", "I see you have chosen correctly.")
+                    ]
+                }
+            },
 
 
 

@@ -212,7 +212,7 @@ internal class ZariCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmZari, "arrogant", "Is there a hole in their ship? What a shame.")
+                        new(AmZari, "arrogant", "Stings, does it not?")
                     ]
                 }
             },
@@ -226,7 +226,7 @@ internal class ZariCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmZari, "annoyed", "They are still onto us? Shoot them again.")
+                        new(AmZari, "neutral", "A firm rebuke.")
                     ]
                 }
             },
@@ -240,7 +240,7 @@ internal class ZariCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 1,
                     dialogue =
                     [
-                        new(AmZari, "explains", "Just a little prick, my dear.")
+                        new(AmZari, "arrogant", "Did that hurt?")
                     ]
                 }
             },
@@ -268,7 +268,7 @@ internal class ZariCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 5,
                     dialogue =
                     [
-                        new(AmZari, "arrogant", "Stings, doesn't it?")
+                        new(AmZari, "explains", "No good deed goes unpunished.")
                     ]
                 }
             },
@@ -296,7 +296,7 @@ internal class ZariCombatDialogue : IRegisterable
                     minDamageDealtToEnemyThisAction = 5,
                     dialogue =
                     [
-                        new(AmZari, "annoyed", "And here I thought they would learn their lesson.")
+                        new(AmZari, "arrogant", "Dear me, we have made quite a mess.")
                     ]
                 }
             },
@@ -827,6 +827,21 @@ internal class ZariCombatDialogue : IRegisterable
                 }
             },
             {
+                "Zari_Dialogue_WeGainedCrosslink_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "Crosslink" ],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "Crosslink? What is that name supposed to mean?")
+                    ]
+                }
+            },
+            {
                 "Zari_Dialogue_WeGainedFractureDetection_0", new()
                 {
                     type = NodeType.combat,
@@ -869,6 +884,73 @@ internal class ZariCombatDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmZari, "explains", "Waste not, want not.")
+                    ]
+                }
+            },
+
+
+            //Dialogue related to the various ships
+            {
+                "Zari_Dialogue_Tiderunner_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "TideRunner" ],
+                    oncePerRunTags = [ "TideRunner" ],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "This ship reminds me of my home.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Gemini_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "GeminiCore" ],
+                    oncePerRunTags = [ "GeminiCore" ],
+                    dialogue =
+                    [
+                        new(AmZari, "squint", "Side swapping? I do not understand this ship.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Ares_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "AresCannon" ],
+                    oncePerRunTags = [ "AresCannon" ],
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "This ship is too small. I can barely fit my tail!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Jupiter_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "JupiterDroneHub" ],
+                    oncePerRunTags = [ "JupiterDroneHub" ],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "Drone cannons? Intriguing...")
                     ]
                 }
             },
@@ -1268,7 +1350,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerRunTags = ["yelledAboutWeakness"],
                     dialogue =
                     [
-                        new(AmZari, "pondering", "Not all of their ship parts are equally strong.")
+                        new(AmZari, "pondering", "Their flying ship contains weakness.")
                     ]
                 }
             },
