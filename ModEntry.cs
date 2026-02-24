@@ -236,16 +236,16 @@ internal class ModEntry : SimpleMod
                 cards =
                 [
                     new Covet(),
-                    new ToughScales()
+                    new Endure()
                 ],
             },
             SoloStarters = new StarterDeck
             {
                 cards = [
-                    new BurdenOfChoice(),
-                    new ToughScales(),
+                    new Amass(),
+                    new Endure(),
                     new Covet(),
-                    new StretchTheWings(),
+                    new Browse(),
                     new CannonColorless(),
                     new DodgeColorless()
                 ]
@@ -272,8 +272,8 @@ internal class ModEntry : SimpleMod
                 {
                     cards = 
                     [
-                        new BurdenOfChoice(),
-                        new StretchTheWings(),
+                        new Amass(),
+                        new Browse(),
                     ]
                 }
 
@@ -285,8 +285,8 @@ internal class ModEntry : SimpleMod
             {
                 cards = 
                 [
-                    new BurdenOfChoice(),
-                    new ToughScales(),
+                    new Amass(),
+                    new Endure(),
                     new Covet()
                 ]
             });
