@@ -119,6 +119,15 @@ internal class ZariEventDialogue : IRegisterable
                     ]
                 }
             },
+            {
+                "EphemeralCardGift", new()
+                {
+                    edit = 
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "squint", "My mind is not yours to read!")
+                    ]
+                }
+            },
 
 
 
@@ -133,20 +142,89 @@ internal class ZariEventDialogue : IRegisterable
                     dialogue = 
                     [
                         new(new Wait{secs = 1.5}),
-                        new(AmZari, "arrogant", "I see you have chosen correctly.")
+                        new(AmZari, "arrogant", "I see you have exquisite taste.")
                     ]
                 }
             },
 
 
 
+            //Dialogue for the forced card remove event
+            {
+                "LoseCharacterCard", new()
+                {
+                    edit = 
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "annoyed", "Is it not your job to prevent this from happening?")
+                    ]
+                }
+            },
+            {
+                $"LoseCharacterCard_{AmZari}", new()
+                {
+                    type = NodeType.@event,
+                    allPresent = [ AmZari ],
+                    oncePerRun = true,
+                    bg = "BGSupernova",
+                    dialogue = 
+                    [
+                        new(AmZari, "resigned", "If I must part with something...very well.")
+                    ]
+                }
+            },
 
+            //Dialogue for dracula
+            {
+                "DraculaTime", new()
+                {
+                    edit = 
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "neutral", "Pleased to make your acquaintance, Dracula.")
+                    ]
+                }
+            },
 
+            //Dialogue for repairing the ship
+            {
+                "AbandonedShipyard_Repaired", new()
+                {
+                    edit = 
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "neutral", "Ah, good. I was meaning to polish the outer hull.")
+                    ]
+                }
+            },
 
+            //Grandma dialogue
+            {
+                "GrandmaShop", new()
+                {
+                    edit = 
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "arrogant", "One roast pig, if you'd please.")
+                    ]
+                }
+            },
 
-
-
-
+            //Soggins.
+            {
+                "SogginsEscape_1", new()
+                {
+                    edit = 
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "annoyed", "Excuse me?")
+                    ]
+                }
+            },
+            {
+                "Soggins_Infinite", new()
+                {
+                    edit = 
+                    [
+                        new(EMod.countFromStart, 1, AmZari, "arrogant", "It would be a shame if we decided to just leave right now, would it not?")
+                    ]
+                }
+            }
         });
     }
 }
