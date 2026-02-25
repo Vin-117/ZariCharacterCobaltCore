@@ -726,7 +726,7 @@ internal class ZariCombatDialogue : IRegisterable
                     hasArtifacts = [ "Simplicity" ],
                     dialogue =
                     [
-                        new(AmZari, "annoyed", "This 'simple' artifact just reduced our hoard!")
+                        new(AmZari, "annoyed", "There is nothing simple about reducing our hoard.")
                     ]
                 }
             },
@@ -742,7 +742,7 @@ internal class ZariCombatDialogue : IRegisterable
                     hasArtifacts = [ "DirtyEngines" ],
                     dialogue =
                     [
-                        new(AmZari, "annoyed", "This new furnace smells dirtier than a muddy peasant.")
+                        new(AmZari, "annoyed", "This furnace smells dirtier than a muddy peasant.")
                     ]
                 }
             },
@@ -758,7 +758,7 @@ internal class ZariCombatDialogue : IRegisterable
                     doesNotHaveArtifacts = [ "HealBooster" ],
                     dialogue =
                     [
-                        new(AmZari, "neutral", "A self regenerating flying ship? How handy!")
+                        new(AmZari, "neutral", "A regenerating flying ship? How handy!")
                     ]
                 }
             },
@@ -773,7 +773,7 @@ internal class ZariCombatDialogue : IRegisterable
                     hasArtifacts = [ "NanofiberHull", "HealBooster" ],
                     dialogue =
                     [
-                        new(AmZari, "explains", "This heal trinket is handy with self regeneration, is it not?")
+                        new(AmZari, "explains", "This heal trinket is handy with regeneration, is it not?")
                     ]
                 }
             },
@@ -887,6 +887,50 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
+
+
+            //for genesis
+            // explains - Well packaged gifts do strike my fancy.
+
+            //for cleo's glasses
+            // Arrogant - I always had my eye on her glasses, you know.
+
+            //warp mastery
+            //pondering - What does it mean to 'master' our warp?
+
+            //Fighting cleo 
+            //Annoyed - I have had enough of you sizing up my hoard.
+
+            //Excessive Wealth
+            //Zari - nap - At long last, a proper hoard.
+
+            //Simple Beauty
+            //Zari - Oh, how I miss him...
+
+            //Castle Chesspiece
+            //Zari - Arrogant - Anyone fancy a game of chess?
+
+            //Prototype 22 
+            // Zari - squint - You built a machine to mimic what I can do?
+            // DIzzy - explains - Think of it as a compliment.
+
+            //Shield Burst
+            //Zari - pondering - Temporary shield on top of shield? How does that work?
+            //Dizzy - Explains - Overclocking the capacitors at the cusp of the EM field spike. Elementary stuff, really.
+
+            //Quickdraw
+            //Riggs - Lots of options
+            //Zari - The more the better!
+
+            //Tridimensional Cockpit
+            //Zari - explains - Finally! Enough room to stretch my wings!
+            //Max - squint - Come to think of it, how did you even fit in the ship before?
+
+            //Rock Collection
+            //Zari - Fantastic rock collection, my dear.
+            //Books - happy - Glad you like it!
+
+            
 
 
             //Dialogue related to the various ships
