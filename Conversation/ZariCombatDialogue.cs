@@ -867,7 +867,7 @@ internal class ZariCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmZari, "explains", "Finally! Now we may properly hoard our shields!")
+                        new(AmZari, "explains", "Finally! Now I may properly hoard the shields!")
                     ]
                 }
             },
@@ -887,51 +887,188 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
-
-
-            //for genesis
-            // explains - Well packaged gifts do strike my fancy.
-
-            //for cleo's glasses
-            // Arrogant - I always had my eye on her glasses, you know.
-
-            //warp mastery
-            //pondering - What does it mean to 'master' our warp?
+            {
+                "Zari_Dialogue_WeGainedGenesis_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "Genesis" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Well packaged gifts do strike my fancy")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedCleoGlasses_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "BrokenGlasses" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "I had my eye on those glasses for a while, you know.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedWarpMastery_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    hasArtifacts = [ "WarpMastery" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "How does one master their warp?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedExcessiveWealth_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    hasArtifactTypes = [typeof(OpulantWealth)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "nap", "At long last, a proper hoard.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedSimpleBeauty_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    hasArtifactTypes = [typeof(Temperance)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "Oh, how I miss him...")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_WeGainedChesspiece_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari ],
+                    nonePresent = [ AmDizzy, AmMax, AmPeri ],
+                    hasArtifactTypes = [typeof(CrownChessPiece)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "chess", "Anyone fancy a game of chess?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_P22_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmDizzy ],
+                    hasArtifacts = [ "Prototype22" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "You built a machine to mimic what I do?"),
+                        new(AmDizzy, "explains", "Take it as a compliment.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_shieldburst_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmDizzy ],
+                    hasArtifacts = [ "ShieldBurst" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "Shield on top of shield? How does that work?"),
+                        new(AmDizzy, "explains", "Overclocking the capacitors at the cusp of the EM field spike. Elementary stuff, really.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_quickdraw_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmRiggs ],
+                    hasArtifacts = [ "Quickdraw" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmRiggs, "Lots of options!"),
+                        new(AmZari, "The more the better!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_tridimensionalcockpit_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmMax ],
+                    hasArtifacts = [ "TridimensionalCockpit" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "This new cockpit finally gives me room to lounge!"),
+                        new(AmMax, "squint", "...How did you even fit in the ship before?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_rockcollection_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmBooks ],
+                    hasArtifacts = [ "RockCollection" ],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "neutral", "Fantastic rock collection, my dear."),
+                        new(AmBooks, "blush", "Thanks mom!")
+                    ]
+                }
+            },
 
             //Fighting cleo 
-            //Annoyed - I have had enough of you sizing up my hoard.
-
-            //Excessive Wealth
-            //Zari - nap - At long last, a proper hoard.
-
-            //Simple Beauty
-            //Zari - Oh, how I miss him...
-
-            //Castle Chesspiece
-            //Zari - Arrogant - Anyone fancy a game of chess?
-
-            //Prototype 22 
-            // Zari - squint - You built a machine to mimic what I can do?
-            // DIzzy - explains - Think of it as a compliment.
-
-            //Shield Burst
-            //Zari - pondering - Temporary shield on top of shield? How does that work?
-            //Dizzy - Explains - Overclocking the capacitors at the cusp of the EM field spike. Elementary stuff, really.
-
-            //Quickdraw
-            //Riggs - Lots of options
-            //Zari - The more the better!
-
-            //Tridimensional Cockpit
-            //Zari - explains - Finally! Enough room to stretch my wings!
-            //Max - squint - Come to think of it, how did you even fit in the ship before?
-
-            //Rock Collection
-            //Zari - Fantastic rock collection, my dear.
-            //Books - happy - Glad you like it!
-
-            
-
+            {
+                "ShopKeepBattleInsult", new()
+                {
+                    edit = 
+                    [
+                        new("66ea84d6", AmZari, "annoyed", "I have had enough of you sizing up my hoard!"),
+                    ]
+                }
+            },
 
             //Dialogue related to the various ships
             {

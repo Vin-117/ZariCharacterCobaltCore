@@ -384,6 +384,7 @@ internal class ModEntry : SimpleMod
         RegisterAnimation(package, "accusing", "assets/Animation/Accusing/ZariAccusing", 5);
         RegisterAnimation(package, "rebuke", "assets/Animation/Rebuke/ZariRebuke", 5);
         RegisterAnimation(package, "worried", "assets/Animation/Worried/ZariWorried", 5);
+        RegisterAnimation(package, "chess", "assets/Animation/Chess/ZariChess", 5);
 
 
 
