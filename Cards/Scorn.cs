@@ -97,7 +97,8 @@ public class Scorn : Card, IRegisterable, IHasCustomCardTraits
                         {
                             status = ModEntry.Instance.ZariScornStatus.Status,
                             statusAmount = 1,
-                            targetPlayer = true
+                            targetPlayer = true,
+                            dialogueSelector = ".ZariScorn"
                         },
                     };
                 }
@@ -109,7 +110,8 @@ public class Scorn : Card, IRegisterable, IHasCustomCardTraits
                         {
                             status = ModEntry.Instance.ZariScornStatus.Status,
                             statusAmount = 1,
-                            targetPlayer = true
+                            targetPlayer = true,
+                            dialogueSelector = ".ZariScorn"
                         },
                     };
                 }
@@ -121,7 +123,8 @@ public class Scorn : Card, IRegisterable, IHasCustomCardTraits
                         {
                             status = ModEntry.Instance.ZariScornStatus.Status,
                             statusAmount = 2,
-                            targetPlayer = true
+                            targetPlayer = true,
+                            dialogueSelector = ".ZariScorn"
                         },
                     };
                 }

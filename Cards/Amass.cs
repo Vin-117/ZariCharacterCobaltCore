@@ -22,7 +22,7 @@ public class Amass : Card, IRegisterable
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Amass", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Hoard.png")).Sprite,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/AmassPlain.png")).Sprite,
         });
     }
 
@@ -66,48 +66,48 @@ public class Amass : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
-                        {
-                            count = 1
-                        },
                         new AStatus
                         {
                             status = Status.maxShield,
                             statusAmount = 1,
                             targetPlayer = true
-                        }
+                        },
+                        new ADrawCard
+                        {
+                            count = 1
+                        },
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
-                        {
-                            count = 3
-                        },
                         new AStatus
                         {
                             status = Status.maxShield,
                             statusAmount = 1,
                             targetPlayer = true
-                        }
+                        },
+                        new ADrawCard
+                        {
+                            count = 3
+                        },
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        new ADrawCard
-                        {
-                            count = 1
-                        },
                         new AStatus
                         {
                             status = Status.maxShield,
                             statusAmount = 2,
                             targetPlayer = true
-                        }
+                        },
+                        new ADrawCard
+                        {
+                            count = 1
+                        },
                     };
                 }
             default:

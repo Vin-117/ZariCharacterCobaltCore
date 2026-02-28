@@ -73,7 +73,8 @@ public class Undying : Card, IRegisterable
                         {
                             status = ModEntry.Instance.ZariUndyingStatus.Status,
                             statusAmount = 1,
-                            targetPlayer = true
+                            targetPlayer = true,
+                            dialogueSelector = ".ZariUndying"
                         },
                     };
                 }
@@ -85,7 +86,8 @@ public class Undying : Card, IRegisterable
                         {
                             status = ModEntry.Instance.ZariUndyingStatus.Status,
                             statusAmount = 1,
-                            targetPlayer = true
+                            targetPlayer = true,
+                            dialogueSelector = ".ZariUndying"
                         },
                     };
                 }
@@ -97,7 +99,8 @@ public class Undying : Card, IRegisterable
                         {
                             status = ModEntry.Instance.ZariUndyingStatus.Status,
                             statusAmount = 1,
-                            targetPlayer = true
+                            targetPlayer = true,
+                            dialogueSelector = ".ZariUndying"
                         },
                     };
                 }

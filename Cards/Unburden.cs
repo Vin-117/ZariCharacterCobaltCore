@@ -79,7 +79,8 @@ public class Unburden : Card, IRegisterable
                         {
                             status = Status.tempShield,
                             statusAmount = 2,
-                            targetPlayer = true
+                            targetPlayer = true,
+                            dialogueSelector = ".ZariUnburden"
                         },
                     };
                 }
@@ -100,7 +101,8 @@ public class Unburden : Card, IRegisterable
                         {
                             status = Status.tempShield,
                             statusAmount = 4,
-                            targetPlayer = true
+                            targetPlayer = true,
+                            dialogueSelector = ".ZariUnburden"
                         },
                     };
                 }
@@ -121,7 +123,8 @@ public class Unburden : Card, IRegisterable
                         {
                             status = Status.tempShield,
                             statusAmount = 1,
-                            targetPlayer = true
+                            targetPlayer = true,
+                            dialogueSelector = ".ZariUnburden"
                         }
                     };
                 }

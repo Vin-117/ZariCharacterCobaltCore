@@ -73,7 +73,8 @@ public class Avarice : Card, IRegisterable
                         (
                             new ADrawCard
                             {
-                                count = 2
+                                count = 2,
+                                dialogueSelector = ".ZariAvarice"
                             }
                         ).AsCardAction
                     };
@@ -86,7 +87,8 @@ public class Avarice : Card, IRegisterable
                         (
                             new ADrawCard
                             {
-                                count = 3
+                                count = 3,
+                                dialogueSelector = ".ZariAvarice"
                             }
                         ).AsCardAction
                     };
@@ -106,6 +108,7 @@ public class Avarice : Card, IRegisterable
                         (
                             new ADiscardFlexSelect
                             {
+                                dialogueSelector = ".ZariAvarice"
                             }
                         ).AsCardAction
                     };

@@ -65,6 +65,13 @@ internal class ModEntry : SimpleMod
 
 
 
+    ///
+    /// Create sound variable
+    ///
+    internal IModSoundEntry ZariHullHit { get; private set; }
+
+
+
 
 
     ///
@@ -164,7 +171,8 @@ internal class ModEntry : SimpleMod
     private static List<Type> ZariModDialogueTypes =
     [
         typeof(ZariCombatDialogue),
-        typeof(ZariEventDialogue)
+        typeof(ZariEventDialogue),
+        typeof(ZariCutsceneDialogue)
     ];
 
 
@@ -208,8 +216,11 @@ internal class ModEntry : SimpleMod
 
 
 
+        ///
+        ///Define hull hit sound
+        ///
+        ZariHullHit = helper.Content.Audio.RegisterSound("vanillahullhitbutvariablepitch", package.PackageRoot.GetRelativeFile("assets/SFX/HitsHurtSeparated.ogg"));
 
-        
 
 
 
@@ -391,8 +402,17 @@ internal class ModEntry : SimpleMod
 
 
         ///
+        ///Define BGs for some cutscene stuff
+        ///
+        DB.backgrounds.Add("BGRunStartZari", typeof(BGRunStartZari));
+
+
+
+
+
+        ///
         /// Initialize all cards and artifacts defined by static lists
-        /// THIS MUST BE DONE LAST
+        /// THIS MUST BE DONE JUST BEFORE DIALOGUE MACHINE, IDEALLY AT THE BOTTOM
         ///
         foreach (var type in AllRegisterableTypes)
             AccessTools.DeclaredMethod(type, nameof(IRegisterable.Register))?.Invoke(null, [package, helper]);

@@ -460,7 +460,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmZari, "neutral", "Excellent defense, that.")
+                        new(AmZari, "neutral", "Splendid defense.")
                     ]
                 }
             },
@@ -475,7 +475,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmZari, "neutral", "Good block.")
+                        new(AmZari, "neutral", "Excellent block.")
                     ]
                 }
             },
@@ -490,22 +490,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmZari, "neutral", "Our scales remain unbroken.")
-                    ]
-                }
-            },
-            {
-                "Zari_Dialogue_WeGotShotButTookNoDMG_3", new()
-                {
-                    type = NodeType.combat,
-                    allPresent = [ AmZari ],
-                    enemyShotJustHit = true,
-                    maxDamageDealtToPlayerThisTurn = 0,
-                    oncePerCombatTags = ["Zari_WeGotShotButTookNoDMG_Tag"],
-                    oncePerCombat = true,
-                    dialogue =
-                    [
-                        new(AmZari, "arrogant", "Were they trying to slay me? I could not tell.")
+                        new(AmZari, "explains", "No damage, of course.")
                     ]
                 }
             },
@@ -1654,6 +1639,368 @@ internal class ZariCombatDialogue : IRegisterable
 
 
 
+
+
+
+
+            //Dialogue for playing certain Zari cards
+            {
+                "Zari_Dialogue_Scorn_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariScorn" ],
+                    oncePerCombatTags = ["ZariScornPlayed"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "squint", "Enough of their insolence. We end this now.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Scorn_1", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariScorn" ],
+                    oncePerCombatTags = ["ZariScornPlayed"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "squint", "My patience wears thin. Kill them, if you would.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Scorn_2", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariScorn" ],
+                    oncePerCombatTags = ["ZariScornPlayed"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "squint", "I tire of this impudence. Finish them.")
+                    ]
+                }
+            },
+
+            {
+                "Zari_Dialogue_Undying_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariUndying" ],
+                    oncePerCombatTags = ["ZariUndyingPlayed"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Slaying a dragon is harder than it looks, you know.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Undying_1", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariUndying" ],
+                    oncePerCombatTags = ["ZariUndyingPlayed"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "greedy", "I wager a ruby they leave not a single scuff.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Undying_2", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariUndying" ],
+                    oncePerCombatTags = ["ZariUndyingPlayed"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Were they trying to kill me? I had not noticed.")
+                    ]
+                }
+            },
+
+            {
+                "Zari_Dialogue_Unburden_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariUnburden" ],
+                    oncePerCombatTags = ["ZariUnburdenPlayed"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "I can move my chest of antique silver coins, if you insist.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Unburden_1", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariUnburden" ],
+                    oncePerCombatTags = ["ZariUnburdenPlayed"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "Good time to toss the scuffed coins, I suppose.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Unburden_2", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariUnburden" ],
+                    oncePerCombatTags = ["ZariUnburdenPlayed"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "Does no one appreciate my curated gem collection?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Unburden_3", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariUnburden" ],
+                    oncePerCombatTags = ["ZariUnburdenPlayed"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "The raw silver can go, but I shalln't part with the polished gold!")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Unburden_4", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariUnburden" ],
+                    oncePerCombatTags = ["ZariUnburdenPlayed"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "Must the platinum ingots be disposed as well?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Avarice_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariAvariceDiscarded"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Why settle for less when you can have more?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Avarice_1", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariAvariceDiscarded"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Clever move, was it not?")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Avarice_2", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariAvariceDiscarded"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "A little ambition can do a lot of good.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Avarice_3", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariAvariceDiscarded"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "greedy", "I will have my gold and spend it too.")
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_Avarice_4", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariAvariceDiscarded"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari ],
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Me? Greedy? What gave you the idea?")
+                    ]
+                }
+            },
+
+
+            //Dialogue when about to die
+            {
+                "Zari_AboutToDieAndLoop_Dizzy_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmDizzy ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    oncePerCombatTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue = 
+                    [
+                        new(AmDizzy, "frown", "This timeline is unsalvageable."),
+                        new(AmZari, "resigned", "I fear you are correct.")
+                    ]
+                }
+            },
+            {
+                "Zari_AboutToDieAndLoop_Peri_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmPeri ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    oncePerCombatTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "They are going to salvage this ship my hoard."),
+                        new(AmPeri, "mad", "Is that all you care about?")
+                    ]
+                }
+            },
+            {
+                "Zari_AboutToDieAndLoop_Riggs_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmRiggs ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    oncePerCombatTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmRiggs, "I'm okay with the events that are unfolding currently."),
+                        new(AmZari, "squint", "We are about to die.")
+                    ]
+                }
+            },
+            {
+                "Zari_AboutToDieAndLoop_Isaac_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmIsaac ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    oncePerCombatTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmIsaac, "squint", "They're going to destroy us and all my drones."),
+                        new(AmZari, "resigned", "And my hoard.")
+                    ]
+                }
+            },
+            {
+                "Zari_AboutToDieAndLoop_Max_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmMax ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    oncePerCombatTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "I just know they will pillage our ship for valuables."),
+                        new(AmMax, "squint", "Like you've been doing with every ship we've destroyed?")
+                    ]
+                }
+            },
+            {
+                "Zari_AboutToDieAndLoop_Drake_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmDrake ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    oncePerCombatTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "This is our end."),
+                        new(AmDrake, "squint", "Don't you know better than to give up? Get a grip."),
+                    ]
+                }
+            },
+            {
+                "Zari_AboutToDieAndLoop_Books_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmBooks ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    oncePerCombatTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmBooks, "stoked", "Uh oh! Do something, auntie!"),
+                        new(AmZari, "resigned", "I am sorry, little one. This may be our end."),
+                    ]
+                }
+            },
+            {
+                "Zari_AboutToDieAndLoop_Comp_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmCat ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    oncePerCombatTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "I am about to lose everything!"),
+                        new(AmCat, "squint", "You'll loop back with it all anyway. Why does it matter? "),
+                    ]
+                }
+            },
 
 
             //Dahlia dialogue

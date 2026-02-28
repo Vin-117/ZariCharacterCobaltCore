@@ -74,7 +74,8 @@ public class Ambition : Card, IRegisterable
                         (
                             new AEnergy
                             {
-                                changeAmount = 1
+                                changeAmount = 1,
+                                dialogueSelector = ".ZariAvarice"
                             }
                         ).AsCardAction
                     };
@@ -87,7 +88,8 @@ public class Ambition : Card, IRegisterable
                         (
                             new AEnergy
                             {
-                                changeAmount = 2
+                                changeAmount = 2,
+                                dialogueSelector = ".ZariAvarice"
                             }
                         ).AsCardAction
                     };
@@ -102,7 +104,8 @@ public class Ambition : Card, IRegisterable
                             {
                                 statusAmount = 3,
                                 status = Status.energyNextTurn,
-                                targetPlayer = true
+                                targetPlayer = true,
+                                dialogueSelector = ".ZariAvarice"
                             }
                         ).AsCardAction
                     };
