@@ -1725,7 +1725,7 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari ],
                     dialogue =
                     [
-                        new(AmZari, "arrogant", "Were they trying to kill me? I had not noticed.")
+                        new(AmZari, "arrogant", "Were they trying to slay me? I had not noticed.")
                     ]
                 }
             },

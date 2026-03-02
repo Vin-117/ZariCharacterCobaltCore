@@ -96,7 +96,7 @@ internal class ZariEventDialogue : IRegisterable
                     bg = "BGBootSequence",
                     dialogue = 
                     [
-                        new(AmVoid, "You do not belong here."),
+                        new(AmVoid, "You do not belong here.", flipped: true),
                         new(AmZari, "squint", "I was well aware.")
                     ]
                 }

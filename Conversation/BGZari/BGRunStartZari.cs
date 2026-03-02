@@ -37,7 +37,7 @@ public class BGRunStartZari : BG
             rumbleTimer -= g.dt;
             if (rumbleTimer <= 0)
             {
-                rumbleTimer = 1.0 + Mutil.NextRand() * 3.0;
+                rumbleTimer = 3.0 + Mutil.NextRand() * 3.0;
                 halfPoint = rumbleTimer / 2;
                 PlayerScreenDamage.OneShot();
                 g.state.shake += 0.5;
@@ -68,6 +68,9 @@ public class BGRunStartZari : BG
         {
             case "rumble_on":
                 rumble = true;
+                break;
+            case "rumble_off":
+                rumble = false;
                 break;
             case "flash_weak":
                 flashTimer = 1;
