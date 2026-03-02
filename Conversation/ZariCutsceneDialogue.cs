@@ -236,36 +236,6 @@ internal class ZariCutsceneDialogue : IRegisterable
                 }
             },
 
-            {
-                "ZariMeetsDrake_Intro_2222", new()
-                {
-                    type = NodeType.@event,
-                    lookup = [ "zone_first" ],
-                    once = false,
-                    allPresent = [ AmZari, AmDrake ],
-                    bg = "BGRunStartZari",
-                    requiredScenes = ["ZariMeetsDrake_Intro_1111"],
-                    dialogue =
-                    [
-                        new(AmDrake, "neutral", "Hey, Aunt?"),
-                        new(AmZari, "neutral", "Yes?", flipped: true),
-                        new(AmDrake, "neutral", "How is grandma doing?"),
-                        new(AmZari, "worried", "My mother? She...", flipped: true),
-                        new(AmZari, "resigned", "Her hoard has dwindled to one singular planet.", flipped: true),
-                        new(AmZari, "resigned", "I fear she may no longer be a multi-trillionaire come the next century.", flipped: true),
-                        new(AmDrake, "sadEyesClosed", "Damn."),
-                        new(AmDrake, "sad", "After owning nearly a dozen star systems..."),
-                        new(AmDrake, "sad", "They really took everything, didn't they?"),
-                        new(AmZari, "resigned", "Yes.", flipped: true),
-                        new(AmZari, "worried", "Eunice?", flipped: true),
-                        new(AmDrake, "sad", "Yeah?"),
-                        new(AmZari, "worried", "After this time loop business is sorted...", flipped: true),
-                        new(AmZari, "arrogant", "Would you like to help me take some more from her?", flipped: true),
-                        new(AmDrake, "sly", "Hell yes."),
-                    ]
-                }
-            },
-
 
 
 
@@ -418,7 +388,6 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
 
-
             {
                 "ZariMeetsMax_Intro_0000", new()
                 {
@@ -430,6 +399,38 @@ internal class ZariCutsceneDialogue : IRegisterable
                     requiredScenes = ["Zari_Intro_00"],
                     dialogue =
                     [
+                        new(AmMax, "squint", "Ugh..."),
+                        new(AmCat, "worried", "Max? Are you okay?", flipped: true),
+                        new(AmMax, "squint", "Just had a bad sleep."),
+                        new(AmMax, "gloves", "A nightmare. Don't usually get those."),
+                        new(AmCat, "worried", "I've started the coffee machine in the kitchen.", flipped: true),
+                        new(AmCat, "worried", "Double espresso?", flipped: true),
+                        new(AmMax, "neutral", "Yeah, that sounds good."),
+                        new(AmMax, "smile", "Thanks. I'll go get that."),
+                        new(AmCat, "smug", "Of course!", flipped: true),
+                        new(new Wait{secs = 3}),
+                        new(new BGAction{action = "flash_weak"}),
+                        new(new Wait{secs = 2}),
+                        new(AmZari, "explains", "Hello there."),
+                        new(AmMax, "squint", "CAT?"),
+                        new(AmCat, "intense", "...Yes?", flipped: true),
+                        new(AmMax, "squint", "I think I'm still dreaming."),
+                        new(AmMax, "squint", "There's a dragon in the kitchen."),
+                    ]
+                }
+            },
+
+            {
+                "ZariMeetsMax_Intro_1111", new()
+                {
+                    type = NodeType.@event,
+                    lookup = [ "zone_first" ],
+                    once = true,
+                    allPresent = [ AmZari, AmMax ],
+                    bg = "BGRunStartZari",
+                    requiredScenes = ["ZariMeetsMax_Intro_0000"],
+                    dialogue =
+                    [
                         new(AmMax, "neutral", "Hey there CAT."),
                         new(AmCat, "peace", "Hi Max!", flipped: true),
                         new(AmCat, "neutral", "Up early this loop?", flipped: true),
@@ -437,9 +438,10 @@ internal class ZariCutsceneDialogue : IRegisterable
                         new(AmMax, "neutral", "Had a weird dream, though."),
                         new(AmCat, "worried", "Anything bad?", flipped: true),
                         new(AmMax, "neutral", "Nah. Just weird."),
-                        new(AmMax, "neutral", "There was a dragon in the cockpit."),
-                        new(AmMax, "squint", "But...the dragon was way bigger than Drake. So big I'm not sure how they even fit on the ship."),
-                        new(AmMax, "squint", "And coloured gold."),
+                        new(AmMax, "neutral", "There was a dragon in the kitchen."),
+                        new(AmMax, "squint", "But...the dragon was way bigger than Drake."),
+                        new(AmMax, "squint", "I'm not even sure how they even fit on the ship."),
+                        new(AmMax, "squint", "They were coloured gold."),
                         new(AmCat, "intense", "...Huh. Interesting.", flipped: true),
                         new(AmMax, "neutral", "I'm sure it's nothing, though."),
                         new(AmMax, "neutral", "I'll be at my terminal."),
@@ -448,9 +450,79 @@ internal class ZariCutsceneDialogue : IRegisterable
                         new(new Wait{secs = 2}),
                         new(AmZari, "explains", "Greetings."),
                         new(AmMax, "intense", "..."),
-                        new(AmMax, "intense", "CAT?"),
-                        new(AmCat, "intense", "Yes?", flipped: true),
-                        new(AmMax, "intense", "Am I dreaming?"),
+                        new(AmMax, "intense", "That wasn't a dream, was it?"),
+                    ]
+                }
+            },
+
+
+
+            {
+                "ZariMeetsRatzo_0000", new()
+                {
+                    type = NodeType.@event,
+                    lookup = [ "before_knight" ],
+                    bg = "BGCastle",
+                    once = true,
+                    priority = true,
+                    allPresent = [ AmZari ],
+                    requiredScenes = ["Knight_1"],
+                    dialogue =
+                    [
+                        new(AmRatzo, "Halt thine astral stallion, vile dragon!", flipped: true),
+                        new(AmZari, "annoyed", "Excuse me?"),
+                        new(AmRatzo, "You heard me!", flipped: true),
+                        new(AmRatzo, "I shall slay ye and rescue thine damsel in distress!", flipped: true),
+                        new(AmZari, "annoyed", "I have not taken any-"),
+                        new(AmRatzo, "Silence!", flipped: true),
+                        new(AmRatzo, "Have at thee, beast!", flipped: true),
+                    ]
+                }
+            },
+
+            {
+                "ZariMeetsRatzo_1111", new()
+                {
+                    type = NodeType.@event,
+                    lookup = [ "before_knight" ],
+                    bg = "BGCastle",
+                    once = true,
+                    priority = true,
+                    allPresent = [ AmZari ],
+                    requiredScenes = ["ZariMeetsRatzo_0000"],
+                    dialogue =
+                    [
+                        new(AmRatzo, "Cruel beast! Give up thy princess, now!", flipped: true),
+                        new(AmZari, "annoyed", "Are you done?"),
+                        new(AmZari, "annoyed", "There is no damsel."),
+                        new(AmZari, "annoyed", "Kidnapping princesses is too old fashioned for my taste."),
+                        new(AmZari, "explains", "Personally? I prefer taking the king directly."),
+                        new(AmZari, "explains", "The ransom money is quite a bit higher."),
+                        new(AmRatzo, "...", flipped: true),
+                        new(AmRatzo, "Thou kidnapped true royalty?!", flipped: true),
+                        new(AmRatzo, "FOR THINE KING I SHALL OPPOSE YE!", flipped: true),
+                    ]
+                }
+            },
+
+            {
+                "ZariMeetsRatzo_2222", new()
+                {
+                    type = NodeType.@event,
+                    lookup = [ "before_knight" ],
+                    bg = "BGCastle",
+                    once = false,
+                    priority = true,
+                    allPresent = [ AmZari ],
+                    requiredScenes = ["ZariMeetsRatzo_1111"],
+                    dialogue =
+                    [
+                        new(AmRatzo, "Evil dragon! Where is thy king?!", flipped: true),
+                        new(AmZari, "annoyed", "There was no king."),
+                        new(AmZari, "annoyed", "I merely stated I preferred kidnapping kings to princesses."),
+                        new(AmRatzo, "...", flipped: true),
+                        new(AmRatzo, "You knave! I will have your head for this!", flipped: true),
+                        new(AmZari, "resigned", "Good grief."),
                     ]
                 }
             },
@@ -458,9 +530,74 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
 
-
-
-
+            {
+                "ZariFightsDrakeInfinite_0", new()
+                {
+                    type = NodeType.@event,
+                    lookup = ["before_pirate"],
+                    once = false,
+                    priority = false,
+                    requireCharsUnlocked = ["eunice"],
+                    requiredScenes = ["pirate_1"],
+                    allPresent = [AmZari],
+                    dialogue =
+                    [
+                        new(AmDrake, "squint", "Still not willing to spare any coins, Aunt?", flipped: true),
+                        new(AmZari, "arrogant", "No."),
+                    ]
+                }
+            },
+            {
+                "ZariFightsDrakeInfinite_1", new()
+                {
+                    type = NodeType.@event,
+                    lookup = ["before_pirate"],
+                    once = false,
+                    priority = false,
+                    requireCharsUnlocked = ["eunice"],
+                    requiredScenes = ["pirate_1"],
+                    allPresent = [AmZari],
+                    dialogue =
+                    [
+                        new(AmDrake, "sly", "Have you written your will yet, Aunt?", flipped: true),
+                        new(AmZari, "annoyed", "I am hardly a thousand years old, you know."),
+                    ]
+                }
+            },
+            {
+                "ZariFightsDrakeInfinite_2", new()
+                {
+                    type = NodeType.@event,
+                    lookup = ["before_pirate"],
+                    once = false,
+                    priority = false,
+                    requireCharsUnlocked = ["eunice"],
+                    requiredScenes = ["pirate_1"],
+                    allPresent = [AmZari],
+                    dialogue =
+                    [
+                        new(AmDrake, "sly", "Sorry Aunt. I'll be taking that gold.", flipped: true),
+                        new(AmZari, "explains", "Don't count your coins before you pillage, Eunice."),
+                    ]
+                }
+            },
+            {
+                "ZariFightsDrakeInfinite_3", new()
+                {
+                    type = NodeType.@event,
+                    lookup = ["before_pirate"],
+                    once = false,
+                    priority = false,
+                    requireCharsUnlocked = ["eunice"],
+                    requiredScenes = ["pirate_1"],
+                    allPresent = [AmZari],
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Hello there, my most despised niece."),
+                        new(AmDrake, "mad", "I forgot how snobbish you were.", flipped: true),
+                    ]
+                }
+            },
 
         });
     }

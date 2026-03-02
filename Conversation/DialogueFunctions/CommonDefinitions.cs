@@ -24,6 +24,7 @@ static class CommonDefinitions
     internal const string AmJumbo = "miner";
     internal const string AmStardog = "wolf";
     internal const string AmSmiff = "batboy";
+    internal const string AmRatzo = "knight";
     internal static string AmDizzy => Deck.dizzy.Key();
     internal static string AmPeri => Deck.peri.Key();
     internal static string AmRiggs => Deck.riggs.Key();
