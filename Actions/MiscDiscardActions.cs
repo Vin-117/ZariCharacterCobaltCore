@@ -24,6 +24,7 @@ public class ADiscardTargetCard : CardAction
 {
     public override void Begin(G g, State s, Combat c)
     {
+        timer = 0.0;
 
         if (selectedCard is null) { return; }
         
@@ -43,6 +44,8 @@ public class ADiscardTargetSimple : CardAction
 {
     public override void Begin(G g, State s, Combat c)
     {
+
+        timer = 0.0;
         Card? card = selectedCard;
         if (card != null)
         {

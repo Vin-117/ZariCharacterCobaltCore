@@ -34,7 +34,7 @@ public class Opportunistic : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 3,
+                        cost = 2,
                         exhaust = true
                     };
                 }
@@ -44,14 +44,14 @@ public class Opportunistic : Card, IRegisterable
                     {
                         cost = 2,
                         exhaust = true,
+                        buoyant = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 3,
-                        buoyant = true,
+                        cost = 1,
                         exhaust = true
                     };
                 }
@@ -94,13 +94,9 @@ public class Opportunistic : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        
-                        new ADiscardFlexSelect
-                        {
-                        },
                         new AStatus
                         {
-                            status = ModEntry.Instance.ZariOpportunisticStatus.Status,
+                            status = ModEntry.Instance.ZariMinimumStatus.Status,
                             statusAmount = 1,
                             targetPlayer = true
                         }

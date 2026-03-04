@@ -60,6 +60,7 @@ internal class ModEntry : SimpleMod
     internal IStatusEntry ZariUndyingStatus;
     internal IStatusEntry ZariOpportunisticStatus;
     internal IStatusEntry ZariScornStatus;
+    internal IStatusEntry ZariMinimumStatus;
 
 
 
@@ -334,6 +335,20 @@ internal class ModEntry : SimpleMod
             Description = AnyLocalizations.Bind(["status", "ZariOpportunisticStatus", "desc"]).Localize
         });
         _ = new ZariOpportunisticStatusManager();
+
+        ZariMinimumStatus = helper.Content.Statuses.RegisterStatus("ZariMinimumStatus", new StatusConfiguration
+        {
+            Definition = new StatusDef
+            {
+                isGood = true,
+                affectedByTimestop = false,
+                color = new Color("3FBFFF"),
+                icon = RegisterSprite(package, "assets/Status/Minimalist.png").Sprite
+            },
+            Name = AnyLocalizations.Bind(["status", "ZariMinimumStatus", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "ZariMinimumStatus", "desc"]).Localize
+        });
+        _ = new ZariMinimumStatusManager();
 
         ZariScornStatus = helper.Content.Statuses.RegisterStatus("ZariScornStatus", new StatusConfiguration
         {

@@ -1880,7 +1880,8 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari, AmDizzy ],
                     enemyShotJustHit = true,
                     maxHull = 2,
-                    oncePerCombatTags = ["aboutToDie"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
                     oncePerRun = true,
                     dialogue = 
                     [
@@ -1896,7 +1897,8 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari, AmPeri ],
                     enemyShotJustHit = true,
                     maxHull = 2,
-                    oncePerCombatTags = ["aboutToDie"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
                     oncePerRun = true,
                     dialogue =
                     [
@@ -1912,7 +1914,8 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari, AmRiggs ],
                     enemyShotJustHit = true,
                     maxHull = 2,
-                    oncePerCombatTags = ["aboutToDie"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
                     oncePerRun = true,
                     dialogue =
                     [
@@ -1928,7 +1931,8 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari, AmIsaac ],
                     enemyShotJustHit = true,
                     maxHull = 2,
-                    oncePerCombatTags = ["aboutToDie"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
                     oncePerRun = true,
                     dialogue =
                     [
@@ -1944,7 +1948,8 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari, AmMax ],
                     enemyShotJustHit = true,
                     maxHull = 2,
-                    oncePerCombatTags = ["aboutToDie"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
                     oncePerRun = true,
                     dialogue =
                     [
@@ -1960,7 +1965,8 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari, AmDrake ],
                     enemyShotJustHit = true,
                     maxHull = 2,
-                    oncePerCombatTags = ["aboutToDie"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
                     oncePerRun = true,
                     dialogue =
                     [
@@ -1976,7 +1982,8 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari, AmBooks ],
                     enemyShotJustHit = true,
                     maxHull = 2,
-                    oncePerCombatTags = ["aboutToDie"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
                     oncePerRun = true,
                     dialogue =
                     [
@@ -1992,7 +1999,8 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari, AmCat ],
                     enemyShotJustHit = true,
                     maxHull = 2,
-                    oncePerCombatTags = ["aboutToDie"],
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
                     oncePerRun = true,
                     dialogue =
                     [

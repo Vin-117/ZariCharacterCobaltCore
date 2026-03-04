@@ -10,11 +10,11 @@
         },
         "ZariOpportunisticStatus": {
             "name": "Opportunist",
-            "desc": "At the start of every turn, draw {0} extra cards. Then <c=boldPink>Flex Discard</c>."
+            "desc": "At the start of every turn, draw {0} and then choose {0} cards to discard."
         },
-        "OLDZariOpportunisticStatus": {
-            "name": "Opportunist",
-            "desc": "At the start of every turn, <c=status>draw</c> {0} and choose {0} to discard."
+        "ZariMinimumStatus": {
+            "name": "Minimalist",
+            "desc": "At the start of every turn, perform a <c=action>flex discard</c>."
         },
         "ZariScornStatus": {
             "name": "Scorn",

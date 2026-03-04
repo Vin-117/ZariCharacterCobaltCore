@@ -18,7 +18,7 @@ internal class ZariCutsceneDialogue : IRegisterable
         {
 
             {
-                "Zari_Intro_00", new()
+                "Zari_Intro_0", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
@@ -51,7 +51,7 @@ internal class ZariCutsceneDialogue : IRegisterable
             },
 
             {
-                "Zari_AfterCrystal_00", new()
+                "Zari_AfterCrystal_0", new()
                 {
                     type = NodeType.@event,
                     lookup = ["after_crystal"],
@@ -59,7 +59,7 @@ internal class ZariCutsceneDialogue : IRegisterable
                     allPresent = [ AmZari ],
                     once = true,
                     priority = true,
-                    requiredScenes = ["Zari_Intro_00"],
+                    requiredScenes = ["Zari_Intro_0"],
                     dialogue =
                     [
                         new(AmZari, "crystal", "Another time crystal. How exquisite."),
@@ -74,7 +74,7 @@ internal class ZariCutsceneDialogue : IRegisterable
             },
 
             {
-                "Zari_BeforeCobalt_00", new()
+                "Zari_BeforeCobalt_0", new()
                 {
                     type = NodeType.@event,
                     lookup = ["before_theCobalt"],
@@ -82,7 +82,7 @@ internal class ZariCutsceneDialogue : IRegisterable
                     allPresent = [ AmZari ],
                     once = true,
                     priority = true,
-                    requiredScenes = ["Zari_Intro_00"],
+                    requiredScenes = ["Zari_Intro_0"],
                     dialogue =
                     [
                         new(AmZari, "pondering", "Ah. Is this the end?"),
@@ -104,14 +104,14 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
             {
-                "ZariMeetsBooks_Intro_00", new()
+                "ZariMeetsBooks_Intro_0", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
                     once = true,
                     allPresent = [ AmZari, AmBooks ],
                     bg = "BGRunStartZari",
-                    requiredScenes = ["Zari_Intro_00"],
+                    requiredScenes = ["Zari_Intro_0"],
                     dialogue =
                     [
                         new(AmCat, "Time to wake up!", flipped: true),
@@ -139,14 +139,14 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
             {
-                "ZariMeetsBooks_Intro_11", new()
+                "ZariMeetsBooks_Intro_1", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
-                    once = false,
+                    once = true,
                     allPresent = [ AmZari, AmBooks ],
                     bg = "BGRunStartZari",
-                    requiredScenes = ["ZariMeetsBooks_Intro_00"],
+                    requiredScenes = ["ZariMeetsBooks_Intro_0"],
                     dialogue =
                     [
                         new(AmBooks, "paws", "Auntie Zari! Auntie Zari!"),
@@ -174,14 +174,14 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
             {
-                "ZariMeetsDrake_Intro_0000", new()
+                "ZariMeetsDrake_Intro_0", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
                     once = true,
                     allPresent = [ AmZari, AmDrake ],
                     bg = "BGRunStartZari",
-                    requiredScenes = ["Zari_Intro_00"],
+                    requiredScenes = ["Zari_Intro_0"],
                     dialogue =
                     [
                         new(AmDrake, "Sup CAT."),
@@ -209,14 +209,14 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
             {
-                "ZariMeetsDrake_Intro_1111", new()
+                "ZariMeetsDrake_Intro_1", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
                     once = true,
                     allPresent = [ AmZari, AmDrake ],
                     bg = "BGRunStartZari",
-                    requiredScenes = ["ZariMeetsDrake_Intro_0000"],
+                    requiredScenes = ["ZariMeetsDrake_Intro_0"],
                     dialogue =
                     [
                         new(AmDrake, "neutral", "C'mon, Aunt. Not even ONE silver coin?"),
@@ -247,14 +247,14 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
             {
-                "ZariMeetsPeri_Intro_0000", new()
+                "ZariMeetsPeri_Intro_0", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
-                    once = false,
+                    once = true,
                     allPresent = [ AmZari, AmPeri ],
                     bg = "BGRunStartZari",
-                    requiredScenes = ["Zari_Intro_00"],
+                    requiredScenes = ["Zari_Intro_0"],
                     dialogue =
                     [
                         new(AmPeri, "squint", "Ugh. Rough wakeup from cryosleep."),
@@ -283,14 +283,14 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
             {
-                "ZariMeetsRiggs_Intro_0000", new()
+                "ZariMeetsRiggs_Intro_0", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
-                    once = false,
+                    once = true,
                     allPresent = [ AmZari, AmRiggs ],
                     bg = "BGRunStartZari",
-                    requiredScenes = ["Zari_Intro_00"],
+                    requiredScenes = ["Zari_Intro_0"],
                     dialogue =
                     [
                         new(AmCat, "neutral", "Hey, Riggs. You're the first to wake up."),
@@ -315,14 +315,14 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
             {
-                "ZariMeetsDizzy_Intro_0000", new()
+                "ZariMeetsDizzy_Intro_0", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
-                    once = false,
+                    once = true,
                     allPresent = [ AmZari, AmDizzy ],
                     bg = "BGRunStartZari",
-                    requiredScenes = ["Zari_Intro_00"],
+                    requiredScenes = ["Zari_Intro_0"],
                     dialogue =
                     [
                         new(AmCat, "neutral", "Time to get up, everyone!"),
@@ -350,14 +350,14 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
             {
-                "ZariMeetsIsaac_Intro_0000", new()
+                "ZariMeetsIsaac_Intro_0", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
-                    once = false,
+                    once = true,
                     allPresent = [ AmZari, AmIsaac ],
                     bg = "BGRunStartZari",
-                    requiredScenes = ["Zari_Intro_00"],
+                    requiredScenes = ["Zari_Intro_0"],
                     dialogue =
                     [
                         new(new Wait{secs = 2}),
@@ -389,14 +389,14 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
             {
-                "ZariMeetsMax_Intro_0000", new()
+                "ZariMeetsMax_Intro_0", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
-                    once = false,
+                    once = true,
                     allPresent = [ AmZari, AmMax ],
                     bg = "BGRunStartZari",
-                    requiredScenes = ["Zari_Intro_00"],
+                    requiredScenes = ["Zari_Intro_0"],
                     dialogue =
                     [
                         new(AmMax, "squint", "Ugh..."),
@@ -421,14 +421,14 @@ internal class ZariCutsceneDialogue : IRegisterable
             },
 
             {
-                "ZariMeetsMax_Intro_1111", new()
+                "ZariMeetsMax_Intro_1", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
                     once = true,
                     allPresent = [ AmZari, AmMax ],
                     bg = "BGRunStartZari",
-                    requiredScenes = ["ZariMeetsMax_Intro_0000"],
+                    requiredScenes = ["ZariMeetsMax_Intro_0"],
                     dialogue =
                     [
                         new(AmMax, "neutral", "Hey there CAT."),
@@ -458,7 +458,7 @@ internal class ZariCutsceneDialogue : IRegisterable
 
 
             {
-                "ZariMeetsRatzo_0000", new()
+                "ZariMeetsRatzo_0", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "before_knight" ],
@@ -481,7 +481,7 @@ internal class ZariCutsceneDialogue : IRegisterable
             },
 
             {
-                "ZariMeetsRatzo_1111", new()
+                "ZariMeetsRatzo_1", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "before_knight" ],
@@ -489,7 +489,7 @@ internal class ZariCutsceneDialogue : IRegisterable
                     once = true,
                     priority = true,
                     allPresent = [ AmZari ],
-                    requiredScenes = ["ZariMeetsRatzo_0000"],
+                    requiredScenes = ["ZariMeetsRatzo_0"],
                     dialogue =
                     [
                         new(AmRatzo, "Cruel beast! Give up thy princess, now!", flipped: true),
@@ -506,15 +506,15 @@ internal class ZariCutsceneDialogue : IRegisterable
             },
 
             {
-                "ZariMeetsRatzo_2222", new()
+                "ZariMeetsRatzo_2", new()
                 {
                     type = NodeType.@event,
                     lookup = [ "before_knight" ],
                     bg = "BGCastle",
-                    once = false,
+                    once = true,
                     priority = true,
                     allPresent = [ AmZari ],
-                    requiredScenes = ["ZariMeetsRatzo_1111"],
+                    requiredScenes = ["ZariMeetsRatzo_1"],
                     dialogue =
                     [
                         new(AmRatzo, "Evil dragon! Where is thy king?!", flipped: true),

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Threading;
 using ZariMod;
 using ZariMod.Actions;
 using ZariMod.External;
@@ -20,7 +21,7 @@ namespace ZariMod.Features;
 ///
 /// Status which makes the player draw and then discard every turn
 /// 
-public class ZariOpportunisticStatusManager : IKokoroApi.IV2.IStatusLogicApi.IHook, IKokoroApi.IV2.IStatusRenderingApi.IHook
+public class ZariMinimumStatusManager : IKokoroApi.IV2.IStatusLogicApi.IHook, IKokoroApi.IV2.IStatusRenderingApi.IHook
 {
 
 
@@ -28,7 +29,7 @@ public class ZariOpportunisticStatusManager : IKokoroApi.IV2.IStatusLogicApi.IHo
     /// 
     /// Register hooks
     /// 
-    public ZariOpportunisticStatusManager() 
+    public ZariMinimumStatusManager() 
     {
         ModEntry.Instance.KokoroApi.StatusLogic.RegisterHook(this, 0);
         ModEntry.Instance.KokoroApi.StatusRendering.RegisterHook(this, 0);
@@ -47,7 +48,7 @@ public class ZariOpportunisticStatusManager : IKokoroApi.IV2.IStatusLogicApi.IHo
         /// Do nothing if either the hook does not detect the status, 
         /// or its not the start of the turn.
         ///
-        if (args.Status != ModEntry.Instance.ZariOpportunisticStatus.Status) 
+        if (args.Status != ModEntry.Instance.ZariMinimumStatus.Status) 
         {
             return false;
         }
@@ -57,23 +58,22 @@ public class ZariOpportunisticStatusManager : IKokoroApi.IV2.IStatusLogicApi.IHo
         }
         ///
         /// Will only get here if its the start of the turn and is the correct status,
-        /// so then draw and discard 1
+        /// so then perform a flex discard
         ///
         if (args.Amount > 0)
         {
+
             args.Combat.QueueImmediate
             (
-                new ADrawCard()
+                new ADelay 
                 {
-                    count = args.Amount,
-                    timer = 1.5
+                    time = 0.15
                 }
             );
             args.Combat.Queue
             (
-                new ADiscardSelect()
+                new ADiscardFlexSelect()
                 {
-                    count = args.Amount
                 }
             );
         }

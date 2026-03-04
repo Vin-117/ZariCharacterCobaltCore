@@ -41,15 +41,15 @@ public class Moult : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
-                        retain = true
+                        cost = 1
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 2,
+                        retain = true
                     };
                 }
             default:
@@ -131,10 +131,6 @@ public class Moult : Card, IRegisterable
                             xHint = 1
                         },
                         new ADiscard(),
-                        new ADrawCard
-                        {
-                            count = 3
-                        }
                     };
                 }
             default:
