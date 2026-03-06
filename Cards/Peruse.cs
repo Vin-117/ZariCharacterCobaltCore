@@ -18,7 +18,7 @@ public class Peruse : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.ZariDeck.Deck,
-                rarity = Rarity.uncommon,
+                rarity = Rarity.common,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -51,8 +51,7 @@ public class Peruse : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        buoyant = true,
+                        cost = 1,
                         description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Peruse", "descB"]))
                     };
                 }
@@ -82,7 +81,7 @@ public class Peruse : Card, IRegisterable
                             browseAction = new ADiscardTargetSimple(),
                             browseSource = CardBrowse.Source.DrawPile,
                             filterUUID = uuid
-                        },
+                        }
                     };
                 }
             case Upgrade.A:
@@ -93,14 +92,8 @@ public class Peruse : Card, IRegisterable
                         new AStatus
                         {
                             status = Status.shield,
-                            statusAmount = 1,
+                            statusAmount = 2,
                             targetPlayer = true
-                        },
-                        new ACardSelect
-                        {
-                            browseAction = new ADiscardTargetSimple(),
-                            browseSource = CardBrowse.Source.DrawPile,
-                            filterUUID = uuid
                         },
                         new ACardSelect
                         {
@@ -115,13 +108,24 @@ public class Peruse : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
+                        new AStatus
+                        {
+                            status = Status.shield,
+                            statusAmount = 2,
+                            targetPlayer = true
+                        },
+                        new ACardSelect
+                        {
+                            browseAction = new ADiscardTargetSimple(),
+                            browseSource = CardBrowse.Source.DrawPile,
+                            filterUUID = uuid
+                        },
                         new ACardSelect
                         {
                             browseAction = new ADiscardTargetSimple(),
                             browseSource = CardBrowse.Source.DrawPile,
                             filterUUID = uuid
                         }
-
                     };
                 }
             default:

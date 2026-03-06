@@ -107,7 +107,8 @@ internal class ModEntry : SimpleMod
         typeof(Amass),
         typeof(Rapacity),
         typeof(StretchTheWings),
-        typeof(Browse)
+        typeof(Peruse)
+
     ];
     private static List<Type> ZariUncommonCardTypes = 
     [
@@ -116,7 +117,7 @@ internal class ModEntry : SimpleMod
         typeof(Ambition),
         typeof(Moult),
         typeof(Shed),
-        typeof(Peruse),
+        typeof(Browse),
         typeof(Seek)
     ];
     private static List<Type> ZariRareCardTypes = 
@@ -257,7 +258,7 @@ internal class ModEntry : SimpleMod
                     new Rapacity(),
                     new Endure(),
                     new Covet(),
-                    new Browse(),
+                    new Peruse(),
                     new CannonColorless(),
                     new DodgeColorless()
                 ]
@@ -285,7 +286,7 @@ internal class ModEntry : SimpleMod
                     cards = 
                     [
                         new Rapacity(),
-                        new Browse(),
+                        new Peruse(),
                     ]
                 }
 

@@ -573,7 +573,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombatTags = [ "NoOverlapBetweenShips" ],
                     dialogue =
                     [
-                        new(AmZari, "arrogant", "Leading them on a wild dragon chase? Excellent idea.")
+                        new(AmZari, "arrogant", "Shall we lead them on a wild dragon chase?")
                     ]
                 }
             },
@@ -589,7 +589,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombatTags = [ "NoOverlapBetweenShips" ],
                     dialogue =
                     [
-                        new(AmZari, "arrogant", "I do fancy a game of dragon and mouse.")
+                        new(AmZari, "arrogant", "Fancy a game of dragon and mouse?")
                     ]
                 }
             },
@@ -743,7 +743,7 @@ internal class ZariCombatDialogue : IRegisterable
                     doesNotHaveArtifacts = [ "HealBooster" ],
                     dialogue =
                     [
-                        new(AmZari, "neutral", "A regenerating flying ship? How handy!")
+                        new(AmZari, "neutral", "A regenerating flying ship? Quaint!")
                     ]
                 }
             },
@@ -883,7 +883,7 @@ internal class ZariCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmZari, "arrogant", "Well packaged gifts do strike my fancy")
+                        new(AmZari, "arrogant", "I do fancy a well packaged gift.")
                     ]
                 }
             },
@@ -1649,7 +1649,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariScorn" ],
-                    oncePerCombatTags = ["ZariScornPlayed"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1663,7 +1663,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariScorn" ],
-                    oncePerCombatTags = ["ZariScornPlayed"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1677,7 +1677,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariScorn" ],
-                    oncePerCombatTags = ["ZariScornPlayed"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1692,7 +1692,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariUndying" ],
-                    oncePerCombatTags = ["ZariUndyingPlayed"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1706,7 +1706,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariUndying" ],
-                    oncePerCombatTags = ["ZariUndyingPlayed"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1720,7 +1720,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariUndying" ],
-                    oncePerCombatTags = ["ZariUndyingPlayed"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1735,7 +1735,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariUnburden" ],
-                    oncePerCombatTags = ["ZariUnburdenPlayed"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1749,7 +1749,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariUnburden" ],
-                    oncePerCombatTags = ["ZariUnburdenPlayed"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1763,7 +1763,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariUnburden" ],
-                    oncePerCombatTags = ["ZariUnburdenPlayed"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1777,7 +1777,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariUnburden" ],
-                    oncePerCombatTags = ["ZariUnburdenPlayed"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1791,7 +1791,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariUnburden" ],
-                    oncePerCombatTags = ["ZariUnburdenPlayed"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1805,7 +1805,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariAvarice" ],
-                    oncePerCombatTags = ["ZariAvariceDiscarded"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1819,7 +1819,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariAvarice" ],
-                    oncePerCombatTags = ["ZariAvariceDiscarded"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1833,7 +1833,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariAvarice" ],
-                    oncePerCombatTags = ["ZariAvariceDiscarded"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1847,7 +1847,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariAvarice" ],
-                    oncePerCombatTags = ["ZariAvariceDiscarded"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
@@ -1861,7 +1861,7 @@ internal class ZariCombatDialogue : IRegisterable
                 {
                     type = NodeType.combat,
                     lookup = [ "ZariAvarice" ],
-                    oncePerCombatTags = ["ZariAvariceDiscarded"],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueOnce"],
                     oncePerCombat = true,
                     allPresent = [ AmZari ],
                     dialogue =
