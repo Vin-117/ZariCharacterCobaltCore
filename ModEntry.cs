@@ -51,6 +51,14 @@ internal class ModEntry : SimpleMod
 
 
 
+    ///
+    /// Define variables for rarity border sprites
+    ///
+    internal readonly ISpriteEntry CommonCardFrame;
+    internal readonly ISpriteEntry UncommonCardFrame;
+    internal readonly ISpriteEntry RareCardFrame;
+
+
 
 
 
@@ -203,6 +211,9 @@ internal class ModEntry : SimpleMod
         KokoroApi = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!.V2;
 
 
+
+
+
         ///
         /// Define localization lists
         ///
@@ -218,10 +229,24 @@ internal class ModEntry : SimpleMod
 
 
 
+
+
         ///
         ///Define hull hit sound
         ///
         ZariHullHit = helper.Content.Audio.RegisterSound("vanillahullhitbutvariablepitch", package.PackageRoot.GetRelativeFile("assets/SFX/HitsHurtSeparated.ogg"));
+
+
+
+
+
+        ///
+        ///Define card frame sprites
+        ///
+        CommonCardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Border_Common.png"));
+        UncommonCardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Border_Uncommon.png"));
+        RareCardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Border_Rare.png"));
+
 
 
 
@@ -236,8 +261,16 @@ internal class ModEntry : SimpleMod
                 color = new Color("e8df5f"),
                 titleColor = new Color("000000")
             },
-            DefaultCardArt = StableSpr.cards_colorless,
+
             BorderSprite = RegisterSprite(package, "assets/card_frame_zari.png").Sprite,
+            ShineColorOverride = _ => Colors.black.fadeAlpha(0),
+            CardFrameOverride = args => GetCardRarity(args.Card.GetType()) switch
+            {
+                Rarity.rare => RareCardFrame.Sprite,
+                Rarity.uncommon => UncommonCardFrame.Sprite,
+                _ => CommonCardFrame.Sprite,
+            },
+            DefaultCardArt = StableSpr.cards_colorless,
             Name = AnyLocalizations.Bind(["character", "name"]).Localize
         });
         ZariPlayableCharacter = helper.Content.Characters.V2.RegisterPlayableCharacter("ZariTheDragon", new PlayableCharacterConfigurationV2
@@ -469,6 +502,24 @@ internal class ModEntry : SimpleMod
     {
         return Instance.Helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile(dir));
     }
+
+
+
+
+
+    /// 
+    /// Define method for determining card rarity type
+    /// 
+    internal static Rarity GetCardRarity(Type type)
+    {
+        if (ZariRareCardTypes.Contains(type))
+            return Rarity.rare;
+        if (ZariUncommonCardTypes.Contains(type))
+            return Rarity.uncommon;
+        return Rarity.common;
+    }
+
+
 
 
 
