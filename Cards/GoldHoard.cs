@@ -18,7 +18,7 @@ public class GoldHoard : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.ZariDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.rare,
                 dontOffer = true,
                 //upgradesTo = [Upgrade.A, Upgrade.B]
                 upgradesTo = []
