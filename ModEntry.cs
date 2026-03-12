@@ -134,11 +134,12 @@ internal class ModEntry : SimpleMod
         typeof(Undying),
         typeof(Opportunistic),
         typeof(Replace),
-        typeof(Scorn)
+        typeof(Scorn),
+        typeof(GoldHoard)
     ];
     private static List<Type> ZariSpecialCardTypes = 
     [
-        typeof(GoldHoard)
+        //typeof(GoldHoard)
     ];
     private static List<Type> ZariEXECardTypes =
     [

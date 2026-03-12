@@ -20,8 +20,7 @@ public class GoldHoard : Card, IRegisterable
                 deck = ModEntry.Instance.ZariDeck.Deck,
                 rarity = Rarity.rare,
                 dontOffer = true,
-                //upgradesTo = [Upgrade.A, Upgrade.B]
-                upgradesTo = []
+                upgradesTo = [Upgrade.A, Upgrade.B]
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "GoldHoard", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Hoard.png")).Sprite,
@@ -31,26 +30,100 @@ public class GoldHoard : Card, IRegisterable
 
     public override CardData GetData(State state)
     {
-
-        return new CardData
+        switch (this.upgrade)
         {
-            cost = 0,
-            unplayable = true,
-            temporary = true
-        };
+            case Upgrade.None:
+                {
+                    return new CardData
+                    {
+                        cost = 0,
+                        unplayable = true,
+                        temporary = true
+                    };
+                }
+            case Upgrade.A:
+                {
+                    return new CardData
+                    {
+                        cost = 0,
+                        unplayable = true,
+                        temporary = false
+                    };
+                }
+            case Upgrade.B:
+                {
+                    return new CardData
+                    {
+                        cost = 0,
+                        unplayable = true,
+                        temporary = true
+                    };
+                }
+            default:
+                {
+                    return new CardData { };
+                }
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 
     public override List<CardAction> GetActions(State s, Combat c)
     {
-        return new List<CardAction>
+
+        switch (this.upgrade)
         {
-            ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
-            (
-                new AExhaustSelf
+            case Upgrade.None:
                 {
-                    uuid = this.uuid
+                    return new List<CardAction>
+                    {
+                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
+                        (
+                            new AExhaustSelf
+                            {
+                                uuid = this.uuid,
+                                timer = 0.0
+                            }
+                        ).AsCardAction,
+                    };
                 }
-            ).AsCardAction,
-        };
+            case Upgrade.A:
+                {
+                    return new List<CardAction>
+                    {
+                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
+                        (
+                            new AExhaustSelf
+                            {
+                                uuid = this.uuid,
+                                timer = 0.0,
+                            }
+                        ).AsCardAction,
+                    };
+                }
+            case Upgrade.B:
+                {
+                    return new List<CardAction>
+                    {
+                    };
+                }
+            default:
+                {
+                    return new List<CardAction> { };
+                }
+        }
+
+
+
+
     }
 }
