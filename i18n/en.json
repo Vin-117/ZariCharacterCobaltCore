@@ -5,7 +5,7 @@
     },
     "status": {
         "ZariUndyingStatus": {
-            "name": "Undying",
+            "name": "Outlast",
             "desc": "Gain {0} <c=status>SHIELD</c> every turn."
         },
         "ZariOpportunisticStatus": {
@@ -95,14 +95,14 @@
         "ShiningScales": {
             "name": "Shining Scales"
         },
+        "ShedScales": {
+            "name": "Shed Scales"
+        },
         "Moult": {
-            "name": "Moult"
+            "name": "Moult",
         },
-        "Shed": {
-            "name": "Shed",
-        },
-        "Undying": {
-            "name": "Undying",
+        "Outlast": {
+            "name": "Outlast",
         },
         "Opportunistic": {
             "name": "Opportunist",

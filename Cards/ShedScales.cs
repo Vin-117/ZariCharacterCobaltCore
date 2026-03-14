@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class Shed : Card, IRegisterable
+public class ShedScales : Card, IRegisterable
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -21,7 +21,7 @@ public class Shed : Card, IRegisterable
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Shed", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "ShedScales", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Moult.png")).Sprite,
         });
     }
@@ -34,26 +34,22 @@ public class Shed : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        exhaust = false,
-                        //description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "TheFavorite", "desc"]))
+                        cost = 2,
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        exhaust = false,
-                        //description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "TheFavorite", "desc"]))
+                        cost = 1
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        //description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "TheFavorite", "desc"]))
+                        cost = 2,
+                        retain = true
                     };
                 }
             default:
@@ -65,6 +61,17 @@ public class Shed : Card, IRegisterable
 
     public override List<CardAction> GetActions(State s, Combat c)
     {
+
+        int GetMoultTotal(State s)
+        {
+            int num = 0;
+            if (s.route is Combat combat)
+            {
+                num = combat.hand.Count - 1;
+            }
+            return num;
+        }
+
         switch (this.upgrade)
         {
             case Upgrade.None:
@@ -72,45 +79,38 @@ public class Shed : Card, IRegisterable
                     return new List<CardAction>
                     {
 
-                        new AStatus
+                        new AVariableHint
                         {
-                            status = Status.maxShield,
-                            statusAmount = -1,
-                            targetPlayer = true
+                            hand = true,
+                            handAmount = GetMoultTotal(s)
                         },
                         new AStatus
                         {
-                            status = Status.drawNextTurn,
-                            statusAmount = 3,
-                            targetPlayer = true
+                            status = Status.tempShield,
+                            targetPlayer = true,
+                            statusAmount = GetMoultTotal(s),
+                            xHint = 1
                         },
-
+                        new ADiscard(),
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-
-                        new AStatus
+                        new AVariableHint
                         {
-                            status = Status.maxShield,
-                            statusAmount = -1,
-                            targetPlayer = true
+                            hand = true,
+                            handAmount = GetMoultTotal(s)
                         },
                         new AStatus
                         {
-                            status = Status.shield,
-                            statusAmount = 1,
-                            targetPlayer = true
+                            status = Status.tempShield,
+                            targetPlayer = true,
+                            statusAmount = GetMoultTotal(s),
+                            xHint = 1
                         },
-                        new AStatus
-                        {
-                            status = Status.drawNextTurn,
-                            statusAmount = 3,
-                            targetPlayer = true
-                        },
-
+                        new ADiscard(),
                     };
                 }
             case Upgrade.B:
@@ -118,22 +118,19 @@ public class Shed : Card, IRegisterable
                     return new List<CardAction>
                     {
 
-                        new AStatus
+                        new AVariableHint
                         {
-                            status = Status.maxShield,
-                            statusAmount = -1,
-                            targetPlayer = true
-                        },
-                        new ADrawCard
-                        {
-                            count = 3
+                            hand = true,
+                            handAmount = GetMoultTotal(s)
                         },
                         new AStatus
                         {
-                            status = Status.drawNextTurn,
-                            statusAmount = 3,
-                            targetPlayer = true
-                        }
+                            status = Status.tempShield,
+                            targetPlayer = true,
+                            statusAmount = GetMoultTotal(s),
+                            xHint = 1
+                        },
+                        new ADiscard(),
                     };
                 }
             default:

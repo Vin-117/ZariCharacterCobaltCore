@@ -123,15 +123,15 @@ internal class ModEntry : SimpleMod
         typeof(Regenerate),
         typeof(Avarice),
         typeof(Ambition),
+        typeof(ShedScales),
         typeof(Moult),
-        typeof(Shed),
         typeof(Browse),
         typeof(Seek)
     ];
     private static List<Type> ZariRareCardTypes = 
     [
         typeof(ShiningScales),
-        typeof(Undying),
+        typeof(Outlast),
         typeof(Opportunistic),
         typeof(Replace),
         typeof(Scorn),
