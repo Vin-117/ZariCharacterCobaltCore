@@ -82,7 +82,7 @@ public class CrownChessPiece : Artifact, IRegisterable
 
         var crownchesspiece = (CrownChessPiece)artifact;
 
-        if (crownchesspiece.ChessDiscardCount == 4)
+        if (crownchesspiece.ChessDiscardCount == 5)
         {
             __instance.Queue
                 (new AStatus 

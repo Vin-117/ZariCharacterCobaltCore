@@ -45,12 +45,12 @@ public class GoldHullFinish : Artifact, IRegisterable
     public override void OnPlayerTakeNormalDamage(State state, Combat combat, int rawAmount, Part? part)
     {
 
-        if (goldhullcount < 4) 
+        if (goldhullcount < 3) 
         {
             goldhullcount++;
         }
 
-        if (goldhullcount == 4) 
+        if (goldhullcount == 3) 
         {
             goldhullcount = 0;
             Pulse();

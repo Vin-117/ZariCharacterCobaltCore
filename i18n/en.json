@@ -139,7 +139,7 @@
         },
         "CrownChessPiece": {
             "name": "CASTLE CHESS PIECE",
-            "desc": "Every 5 times you discard a card during your turn without playing it, gain 1 <c=status>EVADE</c>."
+            "desc": "Every 6 times you discard a card during your turn without playing it, gain 1 <c=status>EVADE</c>."
         },
         "ShinyShield": {
             "name": "SHINY SHIELD",
@@ -147,7 +147,7 @@
         },
         "GoldHullFinish": {
             "name": "GOLDEN HULL FINISH",
-            "desc": "Every 4th time your ship is hit, draw 1 card."
+            "desc": "Every 3rd time your ship is hit, draw 1 card."
         },
 
         "Lexicon": {
