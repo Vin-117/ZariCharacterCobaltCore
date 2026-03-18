@@ -49,8 +49,7 @@ public class ToughScales : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
-                        unplayable = true
+                        cost = 1
                     };
                 }
             default:
@@ -110,15 +109,12 @@ public class ToughScales : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
-                        (
-                            new AStatus
-                            {
-                                status = Status.tempShield,
-                                statusAmount = 1,
-                                targetPlayer = true
-                            }
-                        ).AsCardAction,
+                        new AStatus
+                        {
+                            status = Status.tempShield,
+                            statusAmount = 3,
+                            targetPlayer = true
+                        },
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
                             new AStatus
