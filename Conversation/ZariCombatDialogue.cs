@@ -1068,7 +1068,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerRunTags = [ "TideRunner" ],
                     dialogue =
                     [
-                        new(AmZari, "pondering", "This ship reminds me of my home.")
+                        new(AmZari, "neutral", "This ship reminds me of my home.")
                     ]
                 }
             },
@@ -1902,7 +1902,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerRun = true,
                     dialogue =
                     [
-                        new(AmZari, "resigned", "They are going to salvage this ship my hoard."),
+                        new(AmZari, "resigned", "They are going to salvage this ship for my hoard."),
                         new(AmPeri, "mad", "Is that all you care about?")
                     ]
                 }
@@ -1936,7 +1936,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerRun = true,
                     dialogue =
                     [
-                        new(AmIsaac, "squint", "They're going to destroy us and all my drones."),
+                        new(AmIsaac, "squint", "They're going to destroy the ship and all my drones."),
                         new(AmZari, "resigned", "And my hoard.")
                     ]
                 }
@@ -2005,7 +2005,7 @@ internal class ZariCombatDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmZari, "resigned", "I am about to lose everything!"),
-                        new(AmCat, "squint", "You'll loop back with it all anyway. Why does it matter? "),
+                        new(AmCat, "squint", "You'll loop back with it anyway. Why does it matter?"),
                     ]
                 }
             },
