@@ -51,6 +51,91 @@ internal class ZariGarrusDialogue : IRegisterable
                 }
             },
 
+            {
+                "Zari_AboutToDieAndLoop_Garrus_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmGarrus ],
+                    enemyShotJustHit = true,
+                    maxHull = 2,
+                    minDamageDealtToPlayerThisTurn = 1,
+                    oncePerRunTags = ["aboutToDie"],
+                    oncePerRun = true,
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "They are going to destroy my hoard."),
+                        new(AmGarrus, "doubtful", "I see you have your priorities in order."),
+                    ]
+                }
+            },
+
+            {
+                "Zari_Dialogue_UnburdenGarrus_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariUnburden" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari, AmGarrus ],
+                    dialogue =
+                    [
+                        new(AmZari, "resigned", "Tossing the coins? Must you be so cruel?"),
+                        new(AmGarrus, "annoyed", "This ship is not your dumping ground.")
+                    ]
+                }
+            },
+
+            {
+                "Zari_Dialogue_Avarice_Garrus", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmGarrus ],
+                    dialogue =
+                    [
+                        new(AmGarrus, "observe", "Clever move. I'll give you that.")
+                        new(AmZari, "arrogant", "Jealous, little bird?")
+                    ]
+                }
+            },
+
+            {
+                "ZariGarrus_Dialogue_WeGainedSimplicity_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmZari ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    oncePerCombatTags = ["ZariArtifactSpecificDialogueCrewOnce"],
+                    hasArtifacts = [ "Simplicity" ],
+                    dialogue =
+                    [
+                        new(AmGarrus, "neutral", "Better to keep things simple."),
+                        new(AmZari, "annoyed", "You toss half my hoard and call that 'simplicity'?!")
+                    ]
+                }
+            },
+
+            {
+                "ZariGarrus_Dialogue_WeGainedExcessiveWealth_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmGarrus ],
+                    hasArtifactTypes = [typeof(OpulantWealth)],
+                    oncePerCombatTags = ["ZariArtifactSpecificDialogueCrewOnce"],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmGarrus, "annoyed", "Who's decision was it to let Zari bring more garbage onto the ship?")
+                        new(AmZari, "greedycrystal", "Jealous?")
+                    ]
+                }
+            }
 
         });
     }
