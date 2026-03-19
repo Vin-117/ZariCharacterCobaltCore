@@ -17,9 +17,6 @@ internal class ZariGarrusDialogue : IRegisterable
         LocalDB.DumpStoryToLocalLocale("en", "Vintage.VicCharacter", new Dictionary<string, DialogueMachine>()
         {
 
-
-
-
             {
                 "ZariMeetsGarrus_Intro_0", new()
                 {
@@ -31,7 +28,25 @@ internal class ZariGarrusDialogue : IRegisterable
                     requiredScenes = ["Zari_Intro_0"],
                     dialogue =
                     [
-                        new(AmGarrus, "pda", "Missiles storage check...")
+                        new(AmGarrus, "pda", "Missile storage?"),
+                        new(AmCat, "Fully loaded."),
+                        new(AmGarrus, "pda", "Good. FTL canisters?"),
+                        new(AmCat, "Cooled and ready to job."),
+                        new(AmGarrus, "pda", "Excellent. That is all for the manifest check."),
+                        new(AmGarrus, "pdapressured", "Except...what's this?"),
+                        new(AmGarrus, "pdapressured", "Seven tons of gold coins?"),
+                        new(new BGAction{action = "flash_weak"}),
+                        new(new Wait{secs = 1}),
+                        new(AmGarrus, "observe", "What the hell was that? CAT! Status report!)
+                        new(AmZari, "arrogant", "No need, little bird."),
+                        new(AmZari, "explains", "That bang was a mere announcement of my arrival."),
+                        new(AmGarrus, "pressuredneutral", "A dragon? Who are you?"),
+                        new(AmZari, "explains", "I am Zari."),
+                        new(AmZari, "neutral", "I shall be joining you for your little hero adventure."),
+                        new(AmGarrus, "annoyed", "'Hero adventure'?"),
+                        new(AmGarrus, "annoyed", "This isn't a game."),
+                        new(AmZari, "arrogant", "Both blind and a bird? What a curious little thing you are."),
+                        new(AmGarrus, "doubtful", "I can see we're already getting along well.")
                     ]
                 }
             },
