@@ -314,6 +314,22 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
+            {
+                "Zari_Dialogue_ShotHitDrake_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmDrake ],
+                    playerShotJustHit = true,
+                    oncePerRun = true,
+                    minDamageDealtToEnemyThisAction = 4,
+                    whoDidThat = Deck.eunice,
+                    dialogue =
+                    [
+                        new(AmZari, "annoyed", "You are a brute, Eunice."),
+                        new(AmDrake, "sly", "You're just jealous that you can't hit as hard.")
+                    ]
+                }
+            },
 
 
 
@@ -491,6 +507,54 @@ internal class ZariCombatDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmZari, "explains", "No damage, of course.")
+                    ]
+                }
+            },
+            {
+                "ZariDizzy_Dialogue_WeGotShotButTookNoDMG_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmDizzy ],
+                    enemyShotJustHit = true,
+                    maxDamageDealtToPlayerThisTurn = 0,
+                    oncePerCombatTags = ["Zari_WeGotShotButTookNoDMG_Tag"],
+                    oncePerCombat = true,
+                    dialogue =
+                    [
+                        new(AmDizzy, "explains", "No damage.")
+                        new(AmZari, "explains", "Indeed.")
+                    ]
+                }
+            },
+            {
+                "ZariIsaac_Dialogue_WeGotShotButTookNoDMG_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmIsaac ],
+                    enemyShotJustHit = true,
+                    maxDamageDealtToPlayerThisTurn = 0,
+                    oncePerCombatTags = ["Zari_WeGotShotButTookNoDMG_Tag"],
+                    oncePerCombat = true,
+                    dialogue =
+                    [
+                        new(AmIsaac, "shy", "Huh...we're pretty hard to kill.")
+                        new(AmZari, "explains", "After a thousand attempts, you get used to it.")
+                    ]
+                }
+            },
+            {
+                "ZariDrake_Dialogue_WeGotShotButTookNoDMG_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmDrake ],
+                    enemyShotJustHit = true,
+                    maxDamageDealtToPlayerThisTurn = 0,
+                    oncePerCombatTags = ["Zari_WeGotShotButTookNoDMG_Tag"],
+                    oncePerCombat = true,
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "No damage, of course."),
+                        new(AmDrake, "squint", "You're so boring, you know that?")
                     ]
                 }
             },
@@ -924,6 +988,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerRun = true,
                     allPresent = [ AmZari ],
                     hasArtifactTypes = [typeof(OpulantWealth)],
+                    oncePerRunTags = ["ZariWealthComment"],
                     turnStart = true,
                     maxTurnsThisCombat = 1,
                     dialogue =
@@ -932,6 +997,152 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
+            {
+                "ZariPeri_Dialogue_WeGainedExcessiveWealth_0", new()
+                {
+                    type = NodeType.combat,
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerRunTags = ["ZariWealthComment"],
+                    allPresent = [ AmZari, AmPeri ],
+                    hasArtifactTypes = [typeof(OpulantWealth)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmPeri, "squint", "Zari, I'm going to need you to clear some of this gold.")
+                        new(AmZari, "arrogant", "Make me.")
+                    ]
+                }
+            },
+            {
+                "ZariRiggs_Dialogue_WeGainedExcessiveWealth_0", new()
+                {
+                    type = NodeType.combat,
+                    priority = true,
+                    oncePerRunTags = ["ZariWealthComment"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmRiggs ],
+                    hasArtifactTypes = [typeof(OpulantWealth)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmRiggs, "squint", "Where did all this gold come from?")
+                        new(AmZari, "arrogant", "Nowhere.")
+                    ]
+                }
+            },
+            {
+                "ZariDizzy_Dialogue_WeGainedExcessiveWealth_0", new()
+                {
+                    type = NodeType.combat,
+                    priority = true,
+                    oncePerRunTags = ["ZariWealthComment"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmDizzy ],
+                    hasArtifactTypes = [typeof(OpulantWealth)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmDizzy, "intense", "I didn't think you had THAT much wealth...")
+                        new(AmZari, "arrogant", "Impressed?")
+                    ]
+                }
+            },
+            {
+                "ZariIsaac_Dialogue_WeGainedExcessiveWealth_0", new()
+                {
+                    type = NodeType.combat,
+                    priority = true,
+                    oncePerRunTags = ["ZariWealthComment"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmIsaac ],
+                    hasArtifactTypes = [typeof(OpulantWealth)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmIsaac, "shy", "I'm having trouble moving with all this gold in the cockpit.")
+                    ]
+                }
+            },
+            {
+                "ZariMax_Dialogue_WeGainedExcessiveWealth_0", new()
+                {
+                    type = NodeType.combat,
+                    priority = true,
+                    oncePerRunTags = ["ZariWealthComment"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmMax ],
+                    hasArtifactTypes = [typeof(OpulantWealth)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmMax, "squint", "I don't think anyone needs this much money."),
+                        new(AmZari, "annoyed", "What are you getting at?")
+                    ]
+                }
+            },
+            {
+                "ZariDrake_Dialogue_WeGainedExcessiveWealth_0", new()
+                {
+                    type = NodeType.combat,
+                    priority = true,
+                    oncePerRunTags = ["ZariWealthComment"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmDrake ],
+                    hasArtifactTypes = [typeof(OpulantWealth)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmDrake, "sly", "Thanks for the donation, Aunt."),
+                        new(AmZari, "annoyed", "Why you...give that gold back! Or else!")
+                    ]
+                }
+            },
+            {
+                "ZariBooks_Dialogue_WeGainedExcessiveWealth_0", new()
+                {
+                    type = NodeType.combat,
+                    priority = true,
+                    oncePerRunTags = ["ZariWealthComment"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmBooks ],
+                    hasArtifactTypes = [typeof(OpulantWealth)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmBooks, "paws", "Wow! So much gold!"),
+                        new(AmZari, "explains", "I've been putting that lead-to-gold recipe to good use.")
+                    ]
+                }
+            },
+            {
+                "ZariCat_Dialogue_WeGainedExcessiveWealth_0", new()
+                {
+                    type = NodeType.combat,
+                    priority = true,
+                    oncePerRunTags = ["ZariWealthComment"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmCat ],
+                    hasArtifactTypes = [typeof(OpulantWealth)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmCat, "grumpy", "This gold is adding too much weight to the ship."),
+                        new(AmZari, "annoyed", "And? We are not throwing it out.")
+                    ]
+                }
+            },
+
+
+            
             {
                 "Zari_Dialogue_WeGainedSimpleBeauty_0", new()
                 {
@@ -960,6 +1171,22 @@ internal class ZariCombatDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmZari, "chess", "Anyone fancy a game of chess?")
+                    ]
+                }
+            },
+             {
+                "Zari_Dialogue_WeGainedChesspiece_0", new()
+                {
+                    type = NodeType.combat,
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmDizzy ],
+                    hasArtifactTypes = [typeof(CrownChessPiece)],
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    dialogue =
+                    [
+                        new(AmZari, "chess", "Anyone fancy a game of chess?"),
+                        new(AmDizzy, "squint", "What kind?")
                     ]
                 }
             },
@@ -1867,6 +2094,98 @@ internal class ZariCombatDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmZari, "arrogant", "Me? Greedy? What gave you the idea?")
+                    ]
+                }
+            },
+
+            //Avarice Dialogue with other characters
+            {
+                "ZariDrake_Dialogue_Avarice_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari, AmDrake ],
+                    dialogue =
+                    [
+                        new(AmDrake, "squint", "You think you're so smart, don't you.")
+                        new(AmZari, "explains", "Simple wisdom, my dear niece.")
+                    ]
+                }
+            },
+            {
+                "ZariDizzy_Dialogue_Avarice_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari, AmDizzy ],
+                    dialogue =
+                    [
+                        new(AmDizzy, "intense", "How did you do that?")
+                        new(AmZari, "explains", "Live a thousand years and you learn some things.")
+                    ]
+                }
+            },
+            {
+                "ZariBooks_Dialogue_Avarice_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari, AmBooks ],
+                    dialogue =
+                    [
+                        new(AmBooks, "paws", "Wow! Was that a magic trick?")
+                        new(AmZari, "explains", "Of sorts.")
+                    ]
+                }
+            },
+            {
+                "ZariIsaac_Dialogue_Avarice_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari, AmIsaac ],
+                    dialogue =
+                    [
+                        new(AmZari, "pondering", "Some finesse will be required for this..."),
+                        new(AmIsaac, "shy", "Are all dragons this crafty?")
+                    ]
+                }
+            },
+            {
+                "ZariMax_Dialogue_Avarice_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari, AmMax ],
+                    dialogue =
+                    [
+                        new(AmMax, "Smooth move there."),
+                        new(AmZari, "explains", "Why thank you.")
+                    ]
+                }
+            },
+            {
+                "ZariPeri_Dialogue_Avarice_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariAvarice" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerCombat = true,
+                    allPresent = [ AmZari, AmPeri ],
+                    dialogue =
+                    [
+                        new(AmPeri, "squint", "What other tricks are you hiding?"),
+                        new(AmZari, "arrogant", "I prefer to show rather than tell.")
                     ]
                 }
             },
