@@ -77,7 +77,7 @@ internal class ZariGarrusDialogue : IRegisterable
                     allPresent = [ AmZari ],
                     enemyShotJustHit = true,
                     maxDamageDealtToPlayerThisTurn = 0,
-                    oncePerCombatTags = ["Zari_WeGotShotButTookNoDMG_CrewTag"],
+                    oncePerCombatTags = ["Zari_WeGotShotButTookNoDMG_Tag"],
                     oncePerCombat = true,
                     dialogue =
                     [
