@@ -42,6 +42,8 @@ static class CommonDefinitions
 
     internal readonly static string AmNibbs = "TheJazMaster.Nibbs::Nibbs";
 
+    internal readonly static string AmGarrus = "Vintage.VicCharacter::VicCharacterFullMod";
+
     internal static Status MissingZari => ModEntry.ZariPlayableCharacter.MissingStatus.Status;
 
 }

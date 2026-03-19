@@ -131,9 +131,9 @@ internal class ModEntry : SimpleMod
     private static List<Type> ZariRareCardTypes = 
     [
         typeof(ShiningScales),
-        typeof(Outlast),
+        typeof(Peerless),
         typeof(Opportunistic),
-        typeof(Replace),
+        typeof(DraconicPact),
         typeof(Scorn),
         typeof(GoldHoard)
     ];
@@ -183,7 +183,8 @@ internal class ModEntry : SimpleMod
     [
         typeof(ZariCombatDialogue),
         typeof(ZariEventDialogue),
-        typeof(ZariCutsceneDialogue)
+        typeof(ZariCutsceneDialogue),
+        typeof(ZariGarrusDialogue)
     ];
 
 

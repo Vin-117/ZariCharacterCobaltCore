@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class Replace : Card, IRegisterable, IHasCustomCardTraits
+public class DraconicPact : Card, IRegisterable, IHasCustomCardTraits
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -21,7 +21,7 @@ public class Replace : Card, IRegisterable, IHasCustomCardTraits
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Replace", "name"]).Localize,
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "DraconicPact", "name"]).Localize,
             Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/placeholder_art.png")).Sprite,
         });
     }

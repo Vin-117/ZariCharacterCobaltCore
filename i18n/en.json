@@ -5,7 +5,7 @@
     },
     "status": {
         "ZariUndyingStatus": {
-            "name": "Outlast",
+            "name": "Peerless",
             "desc": "Gain {0} <c=status>SHIELD</c> every turn."
         },
         "ZariOpportunisticStatus": {
@@ -68,8 +68,8 @@
         "Browse": {
             "name": "Browse"
         },
-        "Replace": {
-            "name": "Immolate"
+        "DraconicPact": {
+            "name": "Draconic Pact"
         },
         "Regenerate": {
             "name": "Regenerate"
@@ -101,8 +101,8 @@
         "Moult": {
             "name": "Moult",
         },
-        "Outlast": {
-            "name": "Outlast",
+        "Peerless": {
+            "name": "Peerless",
         },
         "Opportunistic": {
             "name": "Opportunist",
