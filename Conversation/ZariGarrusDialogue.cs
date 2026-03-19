@@ -69,6 +69,24 @@ internal class ZariGarrusDialogue : IRegisterable
                 }
             },
 
+            //Dialogue for when the player ship gets hit but takes no damage
+            {
+                "ZariGarrus_Dialogue_WeGotShotButTookNoDMG_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari ],
+                    enemyShotJustHit = true,
+                    maxDamageDealtToPlayerThisTurn = 0,
+                    oncePerCombatTags = ["Zari_WeGotShotButTookNoDMG_Tag"],
+                    oncePerCombat = true,
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "Not a scuff, per usual."),
+                        new(AmGarrus, "annoyed", "That's not a reason to get arrogant.")
+                    ]
+                }
+            },
+
             {
                 "Zari_Dialogue_UnburdenGarrus_0", new()
                 {
