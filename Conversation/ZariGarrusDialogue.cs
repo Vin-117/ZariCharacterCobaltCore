@@ -22,30 +22,30 @@ internal class ZariGarrusDialogue : IRegisterable
                 {
                     type = NodeType.@event,
                     lookup = [ "zone_first" ],
-                    once = false,
+                    once = true,
                     allPresent = [ AmZari, AmGarrus ],
                     bg = "BGRunStartZari",
                     requiredScenes = ["Zari_Intro_0"],
                     dialogue =
                     [
                         new(AmGarrus, "pda", "Missile storage?"),
-                        new(AmCat, "Fully loaded."),
+                        new(AmCat, "Fully loaded.", flipped: true),
                         new(AmGarrus, "pda", "Good. FTL canisters?"),
-                        new(AmCat, "Cooled and ready to job."),
+                        new(AmCat, "Cooled and ready to jump.", flipped: true),
                         new(AmGarrus, "pda", "Excellent. That is all for the manifest check."),
                         new(AmGarrus, "pdapressured", "Except...what's this?"),
                         new(AmGarrus, "pdapressured", "Seven tons of gold coins?"),
                         new(new BGAction{action = "flash_weak"}),
-                        new(new Wait{secs = 1}),
-                        new(AmGarrus, "observe", "What the hell was that? CAT! Status report!)
-                        new(AmZari, "arrogant", "No need, little bird."),
-                        new(AmZari, "explains", "That bang was a mere announcement of my arrival."),
+                        new(new Wait{secs = 2}),
+                        new(AmGarrus, "observe", "What the hell was that? Status report!"),
+                        new(AmZari, "arrogant", "No need.", flipped: true),
+                        new(AmZari, "arrogant", "That bang was a mere announcement of my arrival.", flipped: true),
                         new(AmGarrus, "pressuredneutral", "A dragon? Who are you?"),
-                        new(AmZari, "explains", "I am Zari."),
-                        new(AmZari, "neutral", "I shall be joining you for your little hero adventure."),
+                        new(AmZari, "explains", "I am Zari.", flipped: true),
+                        new(AmZari, "neutral", "I shall be joining you for your little hero adventure.", flipped: true),
                         new(AmGarrus, "annoyed", "'Hero adventure'?"),
                         new(AmGarrus, "annoyed", "This isn't a game."),
-                        new(AmZari, "arrogant", "Both blind and a bird? What a curious little thing you are."),
+                        new(AmZari, "arrogant", "Both blind and a bird? What a curious little thing you are.", flipped: true),
                         new(AmGarrus, "doubtful", "I can see we're already getting along well.")
                     ]
                 }
@@ -113,7 +113,7 @@ internal class ZariGarrusDialogue : IRegisterable
                     allPresent = [ AmZari, AmGarrus ],
                     dialogue =
                     [
-                        new(AmGarrus, "observe", "Clever move. I'll give you that.")
+                        new(AmGarrus, "observe", "Clever move. I'll give you that."),
                         new(AmZari, "arrogant", "Jealous, little bird?")
                     ]
                 }
@@ -149,7 +149,7 @@ internal class ZariGarrusDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmGarrus, "annoyed", "Who's decision was it to let Zari bring more garbage onto the ship?")
+                        new(AmGarrus, "annoyed", "Who's decision was it to let Zari bring more garbage onto the ship?"),
                         new(AmZari, "greedycrystal", "Jealous?")
                     ]
                 }

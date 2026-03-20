@@ -521,7 +521,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmDizzy, "explains", "No damage.")
+                        new(AmDizzy, "explains", "No damage."),
                         new(AmZari, "explains", "Indeed.")
                     ]
                 }
@@ -537,7 +537,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmIsaac, "shy", "Huh...we're pretty hard to kill.")
+                        new(AmIsaac, "shy", "Huh...we're pretty hard to kill."),
                         new(AmZari, "explains", "After a thousand attempts, you get used to it.")
                     ]
                 }
@@ -1010,7 +1010,7 @@ internal class ZariCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmPeri, "squint", "Zari, I'm going to need you to clear some of this gold.")
+                        new(AmPeri, "squint", "Zari, I'm going to need you to clear some of this gold."),
                         new(AmZari, "arrogant", "Make me.")
                     ]
                 }
@@ -1028,7 +1028,7 @@ internal class ZariCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmRiggs, "squint", "Where did all this gold come from?")
+                        new(AmRiggs, "squint", "Where did all this gold come from?"),
                         new(AmZari, "arrogant", "Nowhere.")
                     ]
                 }
@@ -1046,7 +1046,7 @@ internal class ZariCombatDialogue : IRegisterable
                     maxTurnsThisCombat = 1,
                     dialogue =
                     [
-                        new(AmDizzy, "intense", "I didn't think you had THAT much wealth...")
+                        new(AmDizzy, "intense", "I didn't think you had THAT much wealth..."),
                         new(AmZari, "arrogant", "Impressed?")
                     ]
                 }
@@ -1175,7 +1175,7 @@ internal class ZariCombatDialogue : IRegisterable
                 }
             },
              {
-                "Zari_Dialogue_WeGainedChesspiece_0", new()
+                "ZariDizzy_Dialogue_WeGainedChesspiece_0", new()
                 {
                     type = NodeType.combat,
                     oncePerRun = true,
@@ -2109,7 +2109,7 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari, AmDrake ],
                     dialogue =
                     [
-                        new(AmDrake, "squint", "You think you're so smart, don't you.")
+                        new(AmDrake, "squint", "You think you're so smart, don't you."),
                         new(AmZari, "explains", "Simple wisdom, my dear niece.")
                     ]
                 }
@@ -2124,7 +2124,7 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari, AmDizzy ],
                     dialogue =
                     [
-                        new(AmDizzy, "intense", "How did you do that?")
+                        new(AmDizzy, "intense", "How did you do that?"),
                         new(AmZari, "explains", "Live a thousand years and you learn some things.")
                     ]
                 }
@@ -2139,7 +2139,7 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari, AmBooks ],
                     dialogue =
                     [
-                        new(AmBooks, "paws", "Wow! Was that a magic trick?")
+                        new(AmBooks, "paws", "Wow! Was that a magic trick?"),
                         new(AmZari, "explains", "Of sorts.")
                     ]
                 }
