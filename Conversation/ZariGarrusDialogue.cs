@@ -74,7 +74,7 @@ internal class ZariGarrusDialogue : IRegisterable
                 "ZariGarrus_Dialogue_WeGotShotButTookNoDMG_0", new()
                 {
                     type = NodeType.combat,
-                    allPresent = [ AmZari ],
+                    allPresent = [ AmZari, AmGarrus ],
                     enemyShotJustHit = true,
                     maxDamageDealtToPlayerThisTurn = 0,
                     oncePerCombatTags = ["Zari_WeGotShotButTookNoDMG_Tag"],
@@ -167,6 +167,21 @@ internal class ZariGarrusDialogue : IRegisterable
                     [
                         new(AmZari, "explains", "This pact has only your best interests at heart."),
                         new(AmGarrus, "doubtful", "Uh huh."),
+                    ]
+                }
+            },
+            {
+                "Garrus_Dialogue_ZariMissing", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmGarrus ],
+                    priority = true,
+                    oncePerRun = true,
+                    oncePerCombatTags = ["ZariWentMissing"],
+                    lastTurnPlayerStatuses = [MissingZari],
+                    dialogue =
+                    [
+                        new(AmGarrus, "observe", "...Zari?")
                     ]
                 }
             }

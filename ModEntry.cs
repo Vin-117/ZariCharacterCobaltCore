@@ -184,7 +184,8 @@ internal class ModEntry : SimpleMod
         typeof(ZariCombatDialogue),
         typeof(ZariEventDialogue),
         typeof(ZariCutsceneDialogue),
-        typeof(ZariGarrusDialogue)
+        typeof(ZariGarrusDialogue),
+        typeof(ZariTeraDialogue)
     ];
 
 
