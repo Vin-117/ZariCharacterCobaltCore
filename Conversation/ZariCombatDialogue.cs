@@ -1913,6 +1913,126 @@ internal class ZariCombatDialogue : IRegisterable
                     ]
                 }
             },
+            {
+                "ZariPeri_Dialogue_Pact_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariPact" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmPeri ],
+                    dialogue =
+                    [
+                        new(AmPeri, "squint", "This is an unfair deal."),
+                        new(AmZari, "arrogant", "What else were you expecting?")
+                    ]
+                }
+            },
+            {
+                "ZariDizzy_Dialogue_Pact_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariPact" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmDizzy ],
+                    dialogue =
+                    [
+                        new(AmDizzy, "intense", "...Wait, what did that fine print say?"),
+                        new(AmZari, "arrogant", "Nothing you need to worry about.")
+                    ]
+                }
+            },
+            {
+                "ZariRiggs_Dialogue_Pact_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariPact" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmRiggs ],
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Thank you for your signature."),
+                        new(AmRiggs, "As long as there's free boba!"),
+                    ]
+                }
+            },
+            {
+                "ZariIsaac_Dialogue_Pact_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariPact" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmIsaac ],
+                    dialogue =
+                    [
+                        new(AmIsaac, "squint", "I don't like what this contract is saying..."),
+                        new(AmZari, "arrogant", "It is a perfectly fair deal, I assure you.")
+                    ]
+                }
+            },
+            {
+                "ZariDrake_Dialogue_Pact_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariPact" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmDrake ],
+                    dialogue =
+                    [
+                        new(AmDrake, "squint", "I'm not stupid enough to sign this."),
+                        new(AmZari, "arrogant", "Really? What about this signature you gave me twenty years ago?")
+                    ]
+                }
+            },
+            {
+                "ZariMax_Dialogue_Pact_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariPact" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmMax ],
+                    dialogue =
+                    [
+                        new(AmZari, "worried", "...Why are you signing without reading?"),
+                        new(AmMax, "Reading the terms and conditions takes too long.")
+                    ]
+                }
+            },
+            {
+                "ZariBooks_Dialogue_Pact_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariPact" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmBooks ],
+                    dialogue =
+                    [
+                        new(AmBooks, "blush", "Silly Auntie, I've already signed this!"),
+                        new(AmZari, "pondering", "Ah. I suppose you have.")
+                    ]
+                }
+            },
+            {
+                "ZariCat_Dialogue_Pact_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariPact" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmCat ],
+                    dialogue =
+                    [
+                        new(AmCat, "squint", "I can't physically sign this."),
+                        new(AmZari, "explains", "I do accept e-signatures!")
+                    ]
+                }
+            },
 
             {
                 "Zari_Dialogue_Undying_0", new()
@@ -1924,7 +2044,7 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari ],
                     dialogue =
                     [
-                        new(AmZari, "explains", "Slaying a dragon is harder than it looks, you know.")
+                        new(AmZari, "crystal", "What a brilliant diamond...")
                     ]
                 }
             },
@@ -1938,7 +2058,7 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari ],
                     dialogue =
                     [
-                        new(AmZari, "greedy", "I wager a ruby they leave not a single scuff.")
+                        new(AmZari, "crystal", "Beautiful, is it not?")
                     ]
                 }
             },
@@ -1952,7 +2072,7 @@ internal class ZariCombatDialogue : IRegisterable
                     allPresent = [ AmZari ],
                     dialogue =
                     [
-                        new(AmZari, "arrogant", "Were they trying to slay me? I had not noticed.")
+                        new(AmZari, "greedycrystal", "A fine addition to my collection.")
                     ]
                 }
             },

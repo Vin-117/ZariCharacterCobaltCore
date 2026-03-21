@@ -86,7 +86,8 @@ public class DraconicPact : Card, IRegisterable, IHasCustomCardTraits
                         {
                             targetPlayer = true,
                             statusAmount = 1,
-                            status = Status.shield
+                            status = Status.shield,
+                            dialogueSelector = ".ZariPact"
                         }
                     };
                 }
@@ -107,14 +108,9 @@ public class DraconicPact : Card, IRegisterable, IHasCustomCardTraits
                         new AStatus
                         {
                             targetPlayer = true,
-                            statusAmount = 1,
-                            status = Status.maxShield
-                        },
-                        new AStatus
-                        {
-                            targetPlayer = true,
-                            statusAmount = 2,
-                            status = Status.shield
+                            statusAmount = 3,
+                            status = Status.shield,
+                            dialogueSelector = ".ZariPact"
                         },
                     };
                 }
@@ -134,8 +130,9 @@ public class DraconicPact : Card, IRegisterable, IHasCustomCardTraits
                         },
                         new ADrawCard
                         {
-                            count = 1
-                        },
+                            count = 1,
+                            dialogueSelector = ".ZariPact"
+                        }
                     };
                 }
             default:

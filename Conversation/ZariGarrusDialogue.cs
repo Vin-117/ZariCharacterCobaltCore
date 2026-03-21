@@ -153,6 +153,22 @@ internal class ZariGarrusDialogue : IRegisterable
                         new(AmZari, "greedycrystal", "Jealous?")
                     ]
                 }
+            },
+
+            {
+                "ZariGarrus_Dialogue_Pact_0", new()
+                {
+                    type = NodeType.combat,
+                    lookup = [ "ZariPact" ],
+                    oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
+                    oncePerRun = true,
+                    allPresent = [ AmZari, AmGarrus ],
+                    dialogue =
+                    [
+                        new(AmZari, "explains", "This pact has only your best interests at heart."),
+                        new(AmGarrus, "doubtful", "Uh huh."),
+                    ]
+                }
             }
 
         });
