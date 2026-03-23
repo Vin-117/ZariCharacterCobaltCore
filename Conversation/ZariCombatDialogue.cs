@@ -2225,7 +2225,7 @@ internal class ZariCombatDialogue : IRegisterable
                     type = NodeType.combat,
                     lookup = [ "ZariAvarice" ],
                     oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
-                    oncePerCombat = true,
+                    oncePerRun = true,
                     allPresent = [ AmZari, AmDrake ],
                     dialogue =
                     [
@@ -2240,7 +2240,7 @@ internal class ZariCombatDialogue : IRegisterable
                     type = NodeType.combat,
                     lookup = [ "ZariAvarice" ],
                     oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
-                    oncePerCombat = true,
+                    oncePerRun = true,
                     allPresent = [ AmZari, AmDizzy ],
                     dialogue =
                     [
@@ -2255,7 +2255,7 @@ internal class ZariCombatDialogue : IRegisterable
                     type = NodeType.combat,
                     lookup = [ "ZariAvarice" ],
                     oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
-                    oncePerCombat = true,
+                    oncePerRun = true,
                     allPresent = [ AmZari, AmBooks ],
                     dialogue =
                     [
@@ -2270,7 +2270,7 @@ internal class ZariCombatDialogue : IRegisterable
                     type = NodeType.combat,
                     lookup = [ "ZariAvarice" ],
                     oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
-                    oncePerCombat = true,
+                    oncePerRun = true,
                     allPresent = [ AmZari, AmIsaac ],
                     dialogue =
                     [
@@ -2285,7 +2285,7 @@ internal class ZariCombatDialogue : IRegisterable
                     type = NodeType.combat,
                     lookup = [ "ZariAvarice" ],
                     oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
-                    oncePerCombat = true,
+                    oncePerRun = true,
                     allPresent = [ AmZari, AmMax ],
                     dialogue =
                     [
@@ -2300,12 +2300,12 @@ internal class ZariCombatDialogue : IRegisterable
                     type = NodeType.combat,
                     lookup = [ "ZariAvarice" ],
                     oncePerCombatTags = ["ZariCardSpecificDialogueCrewOnce"],
-                    oncePerCombat = true,
+                    oncePerRun = true,
                     allPresent = [ AmZari, AmPeri ],
                     dialogue =
                     [
                         new(AmPeri, "squint", "What other tricks are you hiding?"),
-                        new(AmZari, "arrogant", "I prefer to show rather than tell.")
+                        new(AmZari, "arrogant", "I would rather show than tell.")
                     ]
                 }
             },

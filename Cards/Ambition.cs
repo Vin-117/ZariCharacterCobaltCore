@@ -52,7 +52,7 @@ public class Ambition : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        unplayable = false
+                        unplayable = true
                     };
                 }
             default:
