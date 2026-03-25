@@ -18,6 +18,57 @@ internal class ZariTeraDialogue : IRegisterable
         {
 
             {
+                "ZariMeetsTera_Intro_0", new()
+                {
+                    type = NodeType.@event,
+                    lookup = [ "zone_first" ],
+                    once = true,
+                    allPresent = [ AmZari, AmTera ],
+                    bg = "BGRunStartZari",
+                    requiredScenes = ["Zari_Intro_0"],
+                    dialogue =
+                    [
+
+                        new(AmTera, "Hey CAT."),
+                        new(AmCat, "peace", "Hey Tera!", flipped: true),
+                        new(AmCat, "Up early today?", flipped: true),
+                        new(AmTera, "Yeah."),
+                        new(AmTera, "taxes", "Just wanted to get some things filed before we started."),
+                        new(AmTera, "taxes", "Even a time loop doesn't stop tax season."),
+                        new(AmCat, "Sounds good. Just be ready, we'll be starting soon.", flipped: true),
+                        new(new Wait{secs = 1.5}),
+                        new(new BGAction{action = "flash_weak"}),
+                        new(new Wait{secs = 1}),
+                        new(AmTera, "scared", "W-what?"),
+                        new(AmTera, "scared", "Why is the ship flooded with gold?"),
+                        new(AmZari, "pondering", "Hmm.", flipped: true),
+                        new(AmZari, "pondering", "CAT? It seems the coins spilled out again.", flipped: true),
+                        new(AmZari, "annoyed", "Bother. I knew that chest was overfilled.", flipped: true),
+                        new(AmTera, "scared", "A d-dragon? You're a dragon?!"),
+                        new(AmTera, "lookawaynervous", "Did you steal all this gold?"),
+                        new(AmZari, "annoyed", "Steal?", flipped: true),
+                        new(AmZari, "annoyed", "Word of advice, little bird.", flipped: true),
+                        new(AmZari, "annoyed", "If you want to keep those feathers of yours, question not the legitimacy of my wealth.", flipped: true),
+                        new(AmTera, "sad", "Aaah! Don't hurt me!"),
+                        new(AmTera, "sad", "I don't want to be set on fire!"),
+                        new(AmZari, "arrogant", "Burn you to death? How old fashioned.", flipped: true),
+                        new(AmZari, "arrogant", "Sending things out the airlock is in style now, is it not?", flipped: true),
+                        new(AmTera, "lookawaynervous", "I..."),
+                        new(new Wait{secs = 2}),
+                        new(AmZari, "pondering", "Goodness me, you truly WERE terrified, were you not?", flipped: true),
+                        new(AmZari, "explains", "I was only half joking.", flipped: true),
+                        new(AmTera, "lookawaynervous", "Only ‘half’ joking? You sound just like Drake."),
+                        new(AmZari, "Ah! Have you met my niece?", flipped: true),
+                        new(AmZari, "She keeps insisting on that silly little nickname. Her proper name is Eunice.", flipped: true),
+                        new(AmTera, "squint", "You're her aunt?"),
+                        new(AmZari, "explains", "Indeed.", flipped: true),
+                        new(AmTera, "squint", "...Tell me more.")
+
+                    ]
+                }
+            },
+
+            {
                 "ZariTera_Dialogue_Pact_0", new()
                 {
                     type = NodeType.combat,

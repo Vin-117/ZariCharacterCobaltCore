@@ -51,7 +51,7 @@ public class Peruse : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 0,
                         description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Peruse", "descB"]))
                     };
                 }
@@ -108,23 +108,15 @@ public class Peruse : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AStatus
-                        {
-                            status = Status.shield,
-                            statusAmount = 2,
-                            targetPlayer = true
-                        },
                         new ACardSelect
                         {
                             browseAction = new ADiscardTargetSimple(),
                             browseSource = CardBrowse.Source.DrawPile,
                             filterUUID = uuid
                         },
-                        new ACardSelect
+                        new ADrawCard
                         {
-                            browseAction = new ADiscardTargetSimple(),
-                            browseSource = CardBrowse.Source.DrawPile,
-                            filterUUID = uuid
+                            count = 1
                         }
                     };
                 }
