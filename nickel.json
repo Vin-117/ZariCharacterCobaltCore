@@ -11,5 +11,8 @@
       "UniqueName": "Shockah.Kokoro",
       "Version": "1.12.1"
     }
-  ]
+  ],
+  "UpdateChecks": {
+		"NexusMods": { "ID": 85 }
+	}
 }

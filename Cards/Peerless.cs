@@ -35,6 +35,7 @@ public class Peerless : Card, IRegisterable
                     return new CardData
                     {
                         cost = 2,
+                        artTint = "ffffff",
                         exhaust = true
                     };
                 }
@@ -43,6 +44,7 @@ public class Peerless : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
+                        artTint = "ffffff",
                         exhaust = true,
                     };
                 }
@@ -51,6 +53,7 @@ public class Peerless : Card, IRegisterable
                     return new CardData
                     {
                         cost = 2,
+                        artTint = "ffffff",
                         exhaust = false
                     };
                 }
