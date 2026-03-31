@@ -30,7 +30,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue = 
                     [ 
-                        new(AmZari, "pondering", "I believe the next attack will not land.") 
+                        new(AmZari, "pondering", "The next attack may not land.") 
                     ]
                 }
             },
@@ -72,7 +72,7 @@ internal class ZariCombatDialogue : IRegisterable
                     oncePerCombat = true,
                     dialogue =
                     [
-                        new(AmZari, "pondering", "I believe the next attack will not land.")
+                        new(AmZari, "pondering", "The next attack will not land.")
                     ]
                 }
             },
