@@ -35,6 +35,7 @@ static class CommonDefinitions
     internal const string AmVoid = "void";
     internal const string AmShopkeeper = "nerd";
     internal const string AmBrimford = "walrus";
+    internal const string AmPirateDrake = "pirate";
 
     internal readonly static string AmJohnson = "Shockah.Johnson::Johnson";
     internal readonly static string JohnsonDeck = "Shockah.Johnson.JohnsonDeck";

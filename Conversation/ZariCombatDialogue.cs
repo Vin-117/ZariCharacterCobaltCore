@@ -559,6 +559,79 @@ internal class ZariCombatDialogue : IRegisterable
                 }
             },
 
+            //Dialogue for when Drake is fighting Zari
+            {
+                "Zari_Dialogue_FightingDrake_0", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmPirateDrake ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    nonePresent = [ AmDrake ],
+                    dialogue =
+                    [
+                        new(AmPirateDrake, "Spare some change, Aunt?"),
+                        new(AmZari, "arrogant", "No."),
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_FightingDrake_1", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmPirateDrake ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    nonePresent = [ AmDrake ],
+                    dialogue =
+                    [
+                        new(AmPirateDrake, "sly", "Written your will yet, Aunt?"),
+                        new(AmZari, "annoyed", "I am hardly a thousand years old, you know."),
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_FightingDrake_2", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmPirateDrake ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    nonePresent = [ AmDrake ],
+                    dialogue =
+                    [
+                        new(AmPirateDrake, "sly", "Sorry Aunt. I'll be taking that gold."),
+                        new(AmZari, "annoyed", "Don't count your coins before you pillage, Eunice."),
+                    ]
+                }
+            },
+            {
+                "Zari_Dialogue_FightingDrake_3", new()
+                {
+                    type = NodeType.combat,
+                    allPresent = [ AmZari, AmPirateDrake ],
+                    oncePerRun = true,
+                    turnStart = true,
+                    maxTurnsThisCombat = 1,
+                    nonePresent = [ AmDrake ],
+                    dialogue =
+                    [
+                        new(AmZari, "arrogant", "Hello my most despised niece."),
+                        new(AmPirateDrake, "squint", "I forgot how snobbish you were."),
+                    ]
+                }
+            },
+
+            //Modify one of enemy Drake's lines so that she doesn't say it whilst Zari is onboard
+            {
+                "Pirate_1_1", new()
+                {
+                    nonePresent = [ AmZari ]
+                }
+            },
 
 
             //Dialogue for when the players ship takes reduced damage due to armor

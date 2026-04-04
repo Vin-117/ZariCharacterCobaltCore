@@ -23,7 +23,7 @@ public class Peruse : Card, IRegisterable
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Peruse", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Browse.png")).Sprite,
+            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Peruse.png")).Sprite,
         });
     }
 
@@ -51,7 +51,7 @@ public class Peruse : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0,
+                        cost = 1,
                         description = string.Format(ModEntry.Instance.Localizations.Localize(["card", "Peruse", "descB"]))
                     };
                 }
@@ -76,12 +76,18 @@ public class Peruse : Card, IRegisterable
                             statusAmount = 1,
                             targetPlayer = true
                         },
-                        new ACardSelect
+                        new ADiscardDrawSelect
+                        {
+                            count = 1
+                        }
+
+
+                        /*new ACardSelect
                         {
                             browseAction = new ADiscardTargetSimple(),
                             browseSource = CardBrowse.Source.DrawPile,
                             filterUUID = uuid
-                        }
+                        }*/
                     };
                 }
             case Upgrade.A:
@@ -95,11 +101,9 @@ public class Peruse : Card, IRegisterable
                             statusAmount = 2,
                             targetPlayer = true
                         },
-                        new ACardSelect
+                        new ADiscardDrawSelect
                         {
-                            browseAction = new ADiscardTargetSimple(),
-                            browseSource = CardBrowse.Source.DrawPile,
-                            filterUUID = uuid
+                            count = 1
                         }
 
                     };
@@ -108,15 +112,16 @@ public class Peruse : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ACardSelect
+
+                        new AStatus
                         {
-                            browseAction = new ADiscardTargetSimple(),
-                            browseSource = CardBrowse.Source.DrawPile,
-                            filterUUID = uuid
+                            status = Status.maxShield,
+                            statusAmount = 1,
+                            targetPlayer = true
                         },
-                        new ADrawCard
+                        new ADiscardDrawSelect
                         {
-                            count = 1
+                            count = 2
                         }
                     };
                 }

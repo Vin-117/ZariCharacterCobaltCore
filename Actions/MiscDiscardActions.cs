@@ -18,10 +18,13 @@ namespace ZariMod.Actions;
 
 
 ///
-/// Function which discards a given selected card
+/// Function which discards a given selected card from hand
 /// 
 public class ADiscardTargetCard : CardAction
 {
+
+    public bool DiscardFromDraw = false;
+
     public override void Begin(G g, State s, Combat c)
     {
         timer = 0.0;
@@ -29,12 +32,28 @@ public class ADiscardTargetCard : CardAction
         if (selectedCard is null) { return; }
         
         Card? card = s.FindCard(selectedCard.uuid);
-        if (card != null && c.hand.Contains(card))
+
+        if (!(DiscardFromDraw))
         {
-            Audio.Play(Event.CardHandling);
-            c.hand.Remove(card);
-            card.OnDiscard(s, c);
-            c.SendCardToDiscard(s, card);
+            if (card != null && c.hand.Contains(card))
+            {
+                Audio.Play(Event.CardHandling);
+                c.hand.Remove(card);
+                card.OnDiscard(s, c);
+                c.SendCardToDiscard(s, card);
+            }
+        }
+        else 
+        {
+
+            if (card != null && s.deck.Contains(card))
+            {
+                Audio.Play(Event.CardHandling);
+                s.deck.Remove(card);
+                card.OnDiscard(s, c);
+                c.SendCardToDiscard(s, card);
+            }
+
         }
     }
 }
@@ -66,18 +85,41 @@ public class ADiscardTargetSimple : CardAction
 /// 
 public class AMultiBrowseListActions : CardAction
 {
+
+    public bool fromDraw = false;
+
     public override void Begin(G g, State s, Combat c)
     {
-        if (ModEntry.Instance.KokoroApi.MultiCardBrowse.GetSelectedCards(this) is not { } selectedCards) 
-        {
-            return;
-        }
 
-        foreach (var card in selectedCards)
+        if (!(fromDraw))
         {
-            var action = new ADiscardTargetCard { };
-            action.selectedCard = card;
-            c.QueueImmediate(action);
+            if (ModEntry.Instance.KokoroApi.MultiCardBrowse.GetSelectedCards(this) is not { } selectedCards)
+            {
+                return;
+            }
+
+            foreach (var card in selectedCards)
+            {
+                var action = new ADiscardTargetCard { };
+                action.selectedCard = card;
+                c.QueueImmediate(action);
+            }
+        }
+        else 
+        {
+
+            if (ModEntry.Instance.KokoroApi.MultiCardBrowse.GetSelectedCards(this) is not { } selectedCards)
+            {
+                return;
+            }
+
+            foreach (var card in selectedCards)
+            {
+                var action = new ADiscardTargetCard { DiscardFromDraw = true };
+                action.selectedCard = card;
+                c.QueueImmediate(action);
+            }
+
         }
     }
 }

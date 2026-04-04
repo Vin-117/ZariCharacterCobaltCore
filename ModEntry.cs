@@ -168,7 +168,8 @@ internal class ModEntry : SimpleMod
     private static List<Type> ZariBossArtifacts = 
     [
         typeof(Temperance),
-        typeof(OpulantWealth)
+        typeof(OpulantWealth),
+        typeof(GemOfGreed)
     ];
     private static IEnumerable<Type> ZariArtifactTypes =
         ZariCommonArtifacts
@@ -351,7 +352,7 @@ internal class ModEntry : SimpleMod
             {
                 isGood = true,
                 affectedByTimestop = false,
-                color = new Color("9fd0ff"),
+                color = new Color("e8df5f"),
                 icon = RegisterSprite(package, "assets/Status/undying.png").Sprite
             },
             Name = AnyLocalizations.Bind(["status", "ZariUndyingStatus", "name"]).Localize,
@@ -444,7 +445,7 @@ internal class ModEntry : SimpleMod
         RegisterAnimation(package, "greedyannoyed", "assets/Animation/GreedyAnnoyed/ZariGreedyAnnoyed", 5);
         RegisterAnimation(package, "pondering", "assets/Animation/Pondering/ZariPondering", 5);
         RegisterAnimation(package, "nap", "assets/Animation/Nap/ZariNap", 5);
-        RegisterAnimation(package, "accusing", "assets/Animation/Accusing/ZariAccusing", 5);
+        //RegisterAnimation(package, "accusing", "assets/Animation/Accusing/ZariAccusing", 5);
         RegisterAnimation(package, "rebuke", "assets/Animation/Rebuke/ZariRebuke", 5);
         RegisterAnimation(package, "worried", "assets/Animation/Worried/ZariWorried", 5);
         RegisterAnimation(package, "chess", "assets/Animation/Chess/ZariChess", 5);

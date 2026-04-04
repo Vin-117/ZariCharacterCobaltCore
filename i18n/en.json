@@ -114,7 +114,7 @@
             "name": "Peruse",
             "desc" : "Gain 1 <c=status>shield</c>. Pick a card in your <c=boldPink>draw pile</c> to discard.",
             "descA" : "Gain 2 <c=status>shield</c>. Pick a card in your <c=boldPink>draw pile</c> to discard.",
-            "descB" : "Pick a card in your <c=boldPink>draw pile</c> to discard. Draw 1."
+            "descB" : "Gain 1 <c=status>shield capacity</c>. Pick 2 cards in your <c=boldPink>draw pile</c> to discard."
         },
 
         "ZariCatEXE": {
@@ -137,6 +137,10 @@
             "name": "EXCESSIVE WEALTH",
             "desc": "Draw <c=card>+2 cards</c> every turn. At the start of combat, add 3 <c=card>Hoards</c> to your draw pile."
         },
+        "GemOfGreed": {
+            "name": "GREEDY GEM",
+            "desc": "Gain 1 extra <c=energy>ENERGY</c> and draw 1 extra card every turn. <c=downside>Disabled if your deck contains less than 25 non-temp cards.</c>"
+        },
         "CrownChessPiece": {
             "name": "CASTLE CHESS PIECE",
             "desc": "Every 6 times you discard a card during your turn without playing it, gain 1 <c=status>EVADE</c>."
@@ -149,10 +153,5 @@
             "name": "GOLDEN HULL FINISH",
             "desc": "Every 3rd time your ship is hit, draw 1 card."
         },
-
-        "Lexicon": {
-            "name": "LEXICON",
-            "desc": "Whenever you gain a <c=card>Ponder</c> during combat, it is given the A or B upgrade, alternating."
-        }
     }
 }

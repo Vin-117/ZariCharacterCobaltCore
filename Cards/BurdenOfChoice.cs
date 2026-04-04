@@ -16,8 +16,8 @@ public class BurdenOfChoice : Card, IRegisterable
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
 
-        NoUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Browse.png"));
-        AUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/BrowseFive.png"));
+        NoUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/BurdenOfChoice.png"));
+        AUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/BurdenOfChoiceFive.png"));
 
 
         helper.Content.Cards.RegisterCard(new CardConfiguration

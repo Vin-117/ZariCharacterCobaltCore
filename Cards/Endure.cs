@@ -10,14 +10,14 @@ namespace ZariMod.Cards;
 public class Endure : Card, IRegisterable
 {
 
-    //private static ISpriteEntry NoUpgradeArt = null!;
-    //private static ISpriteEntry AUpgradeArt = null!;
+    private static ISpriteEntry NoUpgradeArt = null!;
+    private static ISpriteEntry UpgradeArt = null!;
 
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
 
-        //NoUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EndureSimple.png"));
-        //AUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EndureSimpleExtended.png"));
+        NoUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EndureSimple.png"));
+        UpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Endure.png"));
 
 
         helper.Content.Cards.RegisterCard(new CardConfiguration
@@ -44,7 +44,7 @@ public class Endure : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        //art = NoUpgradeArt.Sprite
+                        art = NoUpgradeArt.Sprite
                     };
                 }
             case Upgrade.A:
@@ -52,7 +52,7 @@ public class Endure : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        //art = AUpgradeArt.Sprite
+                        art = UpgradeArt.Sprite
                     };
                 }
             case Upgrade.B:
@@ -60,7 +60,7 @@ public class Endure : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        //art = NoUpgradeArt.Sprite
+                        art = UpgradeArt.Sprite
                     };
                 }
             default:
