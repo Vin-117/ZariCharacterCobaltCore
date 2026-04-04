@@ -102,31 +102,27 @@ public class GemOfGreed : Artifact, IRegisterable
 
         deckSizeCount = exhaustedCardCount + handCount + discardCount + drawCount;
 
-        if (deckSizeCount > 24)
+        if (deckSizeCount > 16)
         {
             Pulse();
             combat.QueueImmediate(new ADrawCard
             {
                 count = 1
             });
+        }
+        if (deckSizeCount > 23)
+        {
+            Pulse();
             combat.QueueImmediate(new AEnergy
             {
                 changeAmount = 1
             });
-            effectEnabled = true;
         }
     }
 
     public override Spr GetSprite()
     {
-        if (effectEnabled)
-        {
-            return base.GetSprite();
-        }
-        else
-        {
-            return DisabledSpr;
-        }
+        return base.GetSprite();
     }
 
 }

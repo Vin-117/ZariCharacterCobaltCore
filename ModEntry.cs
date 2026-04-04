@@ -69,6 +69,7 @@ internal class ModEntry : SimpleMod
     internal IStatusEntry ZariOpportunisticStatus;
     internal IStatusEntry ZariScornStatus;
     internal IStatusEntry ZariMinimumStatus;
+    internal IStatusEntry ZariFullDeckFakeStatus;
 
 
 
@@ -402,6 +403,20 @@ internal class ModEntry : SimpleMod
         });
         _ = new ScornOnDiscardManager();
 
+        ZariFullDeckFakeStatus = helper.Content.Statuses.RegisterStatus("ZariFullDeckFakeStatus", new StatusConfiguration
+        {
+            Definition = new StatusDef
+            {
+                isGood = true,
+                affectedByTimestop = false,
+                color = new Color("3FBFFF"),
+                icon = RegisterSprite(package, "assets/Status/fullDeck.png").Sprite
+            },
+            Name = AnyLocalizations.Bind(["status", "ZariFullDeckFakeStatus", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "ZariFullDeckFakeStatus", "desc"]).Localize
+        });
+        _ = new ZariFullDeckFakeStatusManager();
+
 
 
         ADiscardSelect.ADiscardSelectSpr = RegisterSprite(package, "assets/Actions/chooseDiscard.png").Sprite;
@@ -445,7 +460,6 @@ internal class ModEntry : SimpleMod
         RegisterAnimation(package, "greedyannoyed", "assets/Animation/GreedyAnnoyed/ZariGreedyAnnoyed", 5);
         RegisterAnimation(package, "pondering", "assets/Animation/Pondering/ZariPondering", 5);
         RegisterAnimation(package, "nap", "assets/Animation/Nap/ZariNap", 5);
-        //RegisterAnimation(package, "accusing", "assets/Animation/Accusing/ZariAccusing", 5);
         RegisterAnimation(package, "rebuke", "assets/Animation/Rebuke/ZariRebuke", 5);
         RegisterAnimation(package, "worried", "assets/Animation/Worried/ZariWorried", 5);
         RegisterAnimation(package, "chess", "assets/Animation/Chess/ZariChess", 5);

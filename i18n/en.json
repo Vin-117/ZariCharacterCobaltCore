@@ -20,7 +20,10 @@
             "name": "Scorn",
             "desc": "Every time you discard a card during your turn without playing it, fire a {0} damage shot."
         },
-
+        "ZariFullDeckFakeStatus": {
+            "name": "Deck",
+            "desc": "Every card in your deck. <c=cardtrait>Temporary</c> cards are excluded."
+        },
 
     },
     "action": {
@@ -139,7 +142,7 @@
         },
         "GemOfGreed": {
             "name": "GREEDY GEM",
-            "desc": "Gain 1 extra <c=energy>ENERGY</c> and draw 1 extra card every turn. <c=downside>Disabled if your deck contains less than 25 non-temp cards.</c>"
+            "desc": ["If your deck has at least <c=boldPink>17</c> non-temp cards, draw <c=card>+1 card</c> every turn.", "If your deck has at least <c=boldPink>24</c> non-temp cards, gain <c=energy>+1 ENERGY</c> every turn."]
         },
         "CrownChessPiece": {
             "name": "CASTLE CHESS PIECE",

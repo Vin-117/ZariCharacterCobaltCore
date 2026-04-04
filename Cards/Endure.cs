@@ -11,13 +11,15 @@ public class Endure : Card, IRegisterable
 {
 
     private static ISpriteEntry NoUpgradeArt = null!;
-    private static ISpriteEntry UpgradeArt = null!;
+    private static ISpriteEntry AUpgradeArt = null!;
+    private static ISpriteEntry BUpgradeArt = null!;
 
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
 
         NoUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EndureSimple.png"));
-        UpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Endure.png"));
+        AUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EndureA.png"));
+        BUpgradeArt = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EndureB.png"));
 
 
         helper.Content.Cards.RegisterCard(new CardConfiguration
@@ -31,7 +33,8 @@ public class Endure : Card, IRegisterable
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Endure", "name"]).Localize,
-            Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/Endure.png")).Sprite,
+            //Art = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Card/EndureSimple.png")).Sprite,
+            Art = NoUpgradeArt.Sprite
         });
     }
 
@@ -44,7 +47,7 @@ public class Endure : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        art = NoUpgradeArt.Sprite
+                        //art = NoUpgradeArt.Sprite
                     };
                 }
             case Upgrade.A:
@@ -52,7 +55,7 @@ public class Endure : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        art = UpgradeArt.Sprite
+                        art = AUpgradeArt.Sprite
                     };
                 }
             case Upgrade.B:
@@ -60,7 +63,7 @@ public class Endure : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        art = UpgradeArt.Sprite
+                        art = BUpgradeArt.Sprite
                     };
                 }
             default:
