@@ -113,7 +113,7 @@ internal class ZariGarrusDialogue : IRegisterable
                     allPresent = [ AmZari, AmGarrus ],
                     dialogue =
                     [
-                        new(AmGarrus, "observe", "Clever move. I'll give you that."),
+                        new(AmGarrus, "observe", "Clever. I'll give you that."),
                         new(AmZari, "arrogant", "Jealous, little bird?")
                     ]
                 }
@@ -181,7 +181,7 @@ internal class ZariGarrusDialogue : IRegisterable
                     lastTurnPlayerStatuses = [MissingZari],
                     dialogue =
                     [
-                        new(AmGarrus, "observe", "...Zari?")
+                        new(AmGarrus, "observe", "The huge dragon just disappeared.")
                     ]
                 }
             }

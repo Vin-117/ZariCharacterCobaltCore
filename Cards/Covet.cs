@@ -106,16 +106,17 @@ public class Covet : Card, IRegisterable
                     {
                         new AAttack
                         {
-                            damage = GetDmg(s, 1),
-                            piercing = true
+                            damage = GetDmg(s, 2),
+                            piercing = false
                         },
                         new ADrawCard
                         {
                             count = 2,
                             timer = 1.5
                         },
-                        new ADiscardFlexSelect
+                        new ADiscardSelect
                         {
+                            count = 1
                         }
                     };
                 }

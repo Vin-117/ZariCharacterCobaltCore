@@ -7,7 +7,7 @@ using Nickel;
 
 namespace ZariMod.Cards;
 
-public class ShiningScales : Card, IRegisterable, IHasCustomCardTraits
+public class ShiningScales : Card, IRegisterable//, IHasCustomCardTraits
 {   
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
     {
@@ -26,7 +26,7 @@ public class ShiningScales : Card, IRegisterable, IHasCustomCardTraits
         });
     }
 
-    public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
+    /*public IReadOnlySet<ICardTraitEntry> GetInnateTraits(State state)
     {
         switch (this.upgrade)
         {
@@ -48,7 +48,7 @@ public class ShiningScales : Card, IRegisterable, IHasCustomCardTraits
                 }
         }
 
-    }
+    }*/
 
 
     public override CardData GetData(State state)
@@ -75,7 +75,9 @@ public class ShiningScales : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 3
+                        cost = 3,
+                        exhaust = true,
+                        retain = true
                     };
                 }
             default:

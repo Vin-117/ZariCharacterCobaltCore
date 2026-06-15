@@ -17,7 +17,7 @@ public class Unburden : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.ZariDeck.Deck,
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -48,7 +48,7 @@ public class Unburden : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 2
                     };
                 }
             default:
@@ -100,7 +100,7 @@ public class Unburden : Card, IRegisterable
                         new AStatus
                         {
                             status = Status.tempShield,
-                            statusAmount = 4,
+                            statusAmount = 3,
                             targetPlayer = true,
                             dialogueSelector = ".ZariUnburden"
                         },
@@ -121,11 +121,17 @@ public class Unburden : Card, IRegisterable
                         },
                         new AStatus
                         {
-                            status = Status.tempShield,
+                            status = Status.maxShield,
                             statusAmount = 1,
+                            targetPlayer = true
+                        },
+                        new AStatus
+                        {
+                            status = Status.tempShield,
+                            statusAmount = 2,
                             targetPlayer = true,
                             dialogueSelector = ".ZariUnburden"
-                        }
+                        },
                     };
                 }
             default:

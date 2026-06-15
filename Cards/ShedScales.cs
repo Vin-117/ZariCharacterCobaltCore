@@ -34,21 +34,21 @@ public class ShedScales : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 1,
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 1
+                        cost = 0
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 2,
+                        cost = 1,
                         retain = true
                     };
                 }

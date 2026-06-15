@@ -37,7 +37,7 @@ public class DraconicPact : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 2,
                         exhaust = true
                     };
                 }
@@ -53,7 +53,7 @@ public class DraconicPact : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 1,
+                        cost = 2,
                         exhaust = true
                     };
                 }
@@ -108,7 +108,7 @@ public class DraconicPact : Card, IRegisterable, IHasCustomCardTraits
                         new AStatus
                         {
                             targetPlayer = true,
-                            statusAmount = 3,
+                            statusAmount = 1,
                             status = Status.shield,
                             dialogueSelector = ".ZariPact"
                         },
@@ -121,7 +121,7 @@ public class DraconicPact : Card, IRegisterable, IHasCustomCardTraits
                         new AHurt
                         {
                             targetPlayer = true,
-                            hurtAmount = 2
+                            hurtAmount = 1
                         },
                         new AHullMax
                         {

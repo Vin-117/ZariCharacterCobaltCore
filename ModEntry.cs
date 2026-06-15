@@ -110,7 +110,7 @@ internal class ModEntry : SimpleMod
     [
         typeof(BurdenOfChoice),
         typeof(ToughScales),
-        typeof(Unburden),
+        typeof(Browse),
         typeof(Endure),
         typeof(Covet),
         typeof(Amass),
@@ -126,7 +126,7 @@ internal class ModEntry : SimpleMod
         typeof(Ambition),
         typeof(ShedScales),
         typeof(Moult),
-        typeof(Browse),
+        typeof(Unburden),
         typeof(Seek)
     ];
     private static List<Type> ZariRareCardTypes = 

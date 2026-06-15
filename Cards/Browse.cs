@@ -27,7 +27,7 @@ public class Browse : Card, IRegisterable
             Meta = new CardMeta
             {
                 deck = ModEntry.Instance.ZariDeck.Deck,
-                rarity = Rarity.uncommon,
+                rarity = Rarity.common,
                 dontOffer = false,
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
@@ -53,7 +53,7 @@ public class Browse : Card, IRegisterable
                     return new CardData
                     {
                         cost = 0,
-                        art = AUpgradeArt.Sprite
+                        art = NoUpgradeArt.Sprite
                     };
                 }
             case Upgrade.B:
@@ -94,20 +94,13 @@ public class Browse : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new AStatus
-                        {
-                            status = Status.drawNextTurn,
-                            statusAmount = 1,
-                            targetPlayer = true
-                        },
                         new ADrawCard
                         {
                             count = 1,
                             timer = 1
                         },
-                        new ADiscardSelect
+                        new ADiscardFlexSelect
                         {
-                            count = 1
                         },
                     };
                 }
