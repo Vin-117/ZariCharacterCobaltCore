@@ -8,7 +8,7 @@ using Nickel;
 namespace ZariMod.External;
 
 /**
-ver.0.21
+ver.0.22
 
 To get DialogueMachine and the custom dialogue stuff working:
 - edit the namespace of this file to at least match your project namespace
@@ -1189,6 +1189,12 @@ public class LocalDB
             if (editMode)
             {
                 to.all[sn.Key] = InjectALineIn(sn.Value, to.all[sn.Key], sn.Key, locale);
+                if (sn.Key == "Soggins_Infinite")
+                {
+                    StoryNode thing = to.all[sn.Key];
+                    Inst.Logger.LogInformation(thing.ToString());
+                }
+
                 continue;
             }
 
@@ -1270,7 +1276,7 @@ public class LocalDB
                 }
             }
             // CombineFields(ref result, newStory);
-            result = NodeZipper(result, newStory);
+            result = NodeZipper(result, NodeCopier(newStory, "lines"));
             return result;
         }
         catch (Exception err)
@@ -1475,12 +1481,12 @@ public class LocalDB
             result.lastTurnPlayerStatusNames = kiddo.lastTurnPlayerStatusNames ?? man.lastTurnPlayerStatusNames;
             if (appendLists)
             {
-                if (!excludeFields.Contains("dialogue")) result.dialogue = [.. man.dialogue ?? [], .. child.dialogue ?? []];
-                if (!excludeFields.Contains("edit")) result.edit = [.. man.edit ?? [], .. child.edit ?? []];
-                if (!excludeFields.Contains("hasArtifactTypes")) result.hasArtifactTypes = [.. man.hasArtifactTypes ?? [], .. child.hasArtifactTypes ?? []];
-                if (!excludeFields.Contains("doesNotHaveArtifactTypes")) result.doesNotHaveArtifactTypes = [.. man.doesNotHaveArtifactTypes ?? [], .. child.doesNotHaveArtifactTypes ?? []];
-                if (!excludeFields.Contains("lastTurnEnemyStatusNames")) result.lastTurnEnemyStatusNames = [.. man.lastTurnEnemyStatusNames ?? [], .. child.lastTurnEnemyStatusNames ?? []];
-                if (!excludeFields.Contains("lastTurnPlayerStatusNames")) result.lastTurnPlayerStatusNames = [.. man.lastTurnPlayerStatusNames ?? [], .. child.lastTurnPlayerStatusNames ?? []];
+                if (!excludeFields.Contains("dialogue")) result.dialogue = man.dialogue is null && child.dialogue is null ? null : [.. man.dialogue ?? [], .. child.dialogue ?? []];
+                if (!excludeFields.Contains("edit")) result.edit = man.edit is null && child.edit is null ? null : [.. man.edit ?? [], .. child.edit ?? []];
+                if (!excludeFields.Contains("hasArtifactTypes")) result.hasArtifactTypes = man.hasArtifactTypes is null && child.hasArtifactTypes is null ? null : [.. man.hasArtifactTypes ?? [], .. child.hasArtifactTypes ?? []];
+                if (!excludeFields.Contains("doesNotHaveArtifactTypes")) result.doesNotHaveArtifactTypes = man.doesNotHaveArtifactTypes is null && child.doesNotHaveArtifactTypes is null ? null : [.. man.doesNotHaveArtifactTypes ?? [], .. child.doesNotHaveArtifactTypes ?? []];
+                if (!excludeFields.Contains("lastTurnEnemyStatusNames")) result.lastTurnEnemyStatusNames = man.lastTurnEnemyStatusNames is null && child.lastTurnEnemyStatusNames is null ? null : [.. man.lastTurnEnemyStatusNames ?? [], .. child.lastTurnEnemyStatusNames ?? []];
+                if (!excludeFields.Contains("lastTurnPlayerStatusNames")) result.lastTurnPlayerStatusNames = man.lastTurnPlayerStatusNames is null && child.lastTurnPlayerStatusNames is null ? null : [.. man.lastTurnPlayerStatusNames ?? [], .. child.lastTurnPlayerStatusNames ?? []];
             }
         }
         return result ?? new();
@@ -1592,25 +1598,25 @@ public class LocalDB
         if (appendLists)
         {
             dontAppendFields ??= [];
-            if (!(dontAppendFields.Contains("allPresent") || excludeFields.Contains("allPresent"))) result.allPresent = [.. man.allPresent ?? [], .. kiddo.allPresent ?? []];
-            if (!(dontAppendFields.Contains("anyDrones") || excludeFields.Contains("anyDrones"))) result.anyDrones = [.. man.anyDrones ?? [], .. kiddo.anyDrones ?? []];
-            if (!(dontAppendFields.Contains("anyDronesFriendly") || excludeFields.Contains("anyDronesFriendly"))) result.anyDronesFriendly = [.. man.anyDronesFriendly ?? [], .. kiddo.anyDronesFriendly ?? []];
-            if (!(dontAppendFields.Contains("anyDronesHostile") || excludeFields.Contains("anyDronesHostile"))) result.anyDronesHostile = [.. man.anyDronesHostile ?? [], .. kiddo.anyDronesHostile ?? []];
-            if (!(dontAppendFields.Contains("bgSetup") || excludeFields.Contains("bgSetup"))) result.bgSetup = [.. man.bgSetup ?? [], .. kiddo.bgSetup ?? []];
-            if (!(dontAppendFields.Contains("doesNotHaveArtifacts") || excludeFields.Contains("doesNotHaveArtifacts"))) result.doesNotHaveArtifacts = [.. man.doesNotHaveArtifacts ?? [], .. kiddo.doesNotHaveArtifacts ?? []];
+            if (!(dontAppendFields.Contains("allPresent") || excludeFields.Contains("allPresent"))) result.allPresent = man.allPresent is null && kiddo.allPresent is null ? null : [.. man.allPresent ?? [], .. kiddo.allPresent ?? []];
+            if (!(dontAppendFields.Contains("anyDrones") || excludeFields.Contains("anyDrones"))) result.anyDrones = man.anyDrones is null && kiddo.anyDrones is null ? null : [.. man.anyDrones ?? [], .. kiddo.anyDrones ?? []];
+            if (!(dontAppendFields.Contains("anyDronesFriendly") || excludeFields.Contains("anyDronesFriendly"))) result.anyDronesFriendly = man.anyDronesFriendly is null && kiddo.anyDronesFriendly is null ? null : [.. man.anyDronesFriendly ?? [], .. kiddo.anyDronesFriendly ?? []];
+            if (!(dontAppendFields.Contains("anyDronesHostile") || excludeFields.Contains("anyDronesHostile"))) result.anyDronesHostile = man.anyDronesHostile is null && kiddo.anyDronesHostile is null ? null : [.. man.anyDronesHostile ?? [], .. kiddo.anyDronesHostile ?? []];
+            if (!(dontAppendFields.Contains("bgSetup") || excludeFields.Contains("bgSetup"))) result.bgSetup = man.bgSetup is null && kiddo.bgSetup is null ? null : [.. man.bgSetup ?? [], .. kiddo.bgSetup ?? []];
+            if (!(dontAppendFields.Contains("doesNotHaveArtifacts") || excludeFields.Contains("doesNotHaveArtifacts"))) result.doesNotHaveArtifacts = man.doesNotHaveArtifacts is null && kiddo.doesNotHaveArtifacts is null ? null : [.. man.doesNotHaveArtifacts ?? [], .. kiddo.doesNotHaveArtifacts ?? []];
             if (!(dontAppendFields.Contains("excludedScenes") || excludeFields.Contains("excludedScenes"))) result.excludedScenes = [.. man.excludedScenes ?? [], .. kiddo.excludedScenes ?? []];
-            if (!(dontAppendFields.Contains("hasArtifacts") || excludeFields.Contains("hasArtifacts"))) result.hasArtifacts = [.. man.hasArtifacts ?? [], .. kiddo.hasArtifacts ?? []];
-            if (!(dontAppendFields.Contains("lastTurnEnemyStatuses") || excludeFields.Contains("lastTurnEnemyStatuses"))) result.lastTurnEnemyStatuses = [.. man.lastTurnEnemyStatuses ?? [], .. kiddo.lastTurnEnemyStatuses ?? []];
-            if (!(dontAppendFields.Contains("lastTurnPlayerStatuses") || excludeFields.Contains("lastTurnPlayerStatuses"))) result.lastTurnPlayerStatuses = [.. man.lastTurnPlayerStatuses ?? [], .. kiddo.lastTurnPlayerStatuses ?? []];
+            if (!(dontAppendFields.Contains("hasArtifacts") || excludeFields.Contains("hasArtifacts"))) result.hasArtifacts = man.hasArtifacts is null && kiddo.hasArtifacts is null ? null : [.. man.hasArtifacts ?? [], .. kiddo.hasArtifacts ?? []];
+            if (!(dontAppendFields.Contains("lastTurnEnemyStatuses") || excludeFields.Contains("lastTurnEnemyStatuses"))) result.lastTurnEnemyStatuses = man.lastTurnEnemyStatuses is null && kiddo.lastTurnEnemyStatuses is null ? null : [.. man.lastTurnEnemyStatuses ?? [], .. kiddo.lastTurnEnemyStatuses ?? []];
+            if (!(dontAppendFields.Contains("lastTurnPlayerStatuses") || excludeFields.Contains("lastTurnPlayerStatuses"))) result.lastTurnPlayerStatuses = man.lastTurnPlayerStatuses is null && kiddo.lastTurnPlayerStatuses is null ? null : [.. man.lastTurnPlayerStatuses ?? [], .. kiddo.lastTurnPlayerStatuses ?? []];
             if (!(dontAppendFields.Contains("lines") || excludeFields.Contains("lines"))) result.lines = [.. man.lines ?? [], .. kiddo.lines ?? []];
-            if (!(dontAppendFields.Contains("lookup") || excludeFields.Contains("lookup"))) result.lookup = [.. man.lookup ?? [], .. kiddo.lookup ?? []];
-            if (!(dontAppendFields.Contains("nonePresent") || excludeFields.Contains("nonePresent"))) result.nonePresent = [.. man.nonePresent ?? [], .. kiddo.nonePresent ?? []];
-            if (!(dontAppendFields.Contains("oncePerCombatTags") || excludeFields.Contains("oncePerCombatTags"))) result.oncePerCombatTags = [.. man.oncePerCombatTags ?? [], .. kiddo.oncePerCombatTags ?? []];
-            if (!(dontAppendFields.Contains("oncePerRunTags") || excludeFields.Contains("oncePerRunTags"))) result.oncePerRunTags = [.. man.oncePerRunTags ?? [], .. kiddo.oncePerRunTags ?? []];
-            if (!(dontAppendFields.Contains("requireCharsLocked") || excludeFields.Contains("requireCharsLocked"))) result.requireCharsLocked = [.. man.requireCharsLocked ?? [], .. kiddo.requireCharsLocked ?? []];
-            if (!(dontAppendFields.Contains("requireCharsUnlocked") || excludeFields.Contains("requireCharsUnlocked"))) result.requireCharsUnlocked = [.. man.requireCharsUnlocked ?? [], .. kiddo.requireCharsUnlocked ?? []];
+            if (!(dontAppendFields.Contains("lookup") || excludeFields.Contains("lookup"))) result.lookup = man.lookup is null && kiddo.lookup is null ? null : [.. man.lookup ?? [], .. kiddo.lookup ?? []];
+            if (!(dontAppendFields.Contains("nonePresent") || excludeFields.Contains("nonePresent"))) result.nonePresent = man.nonePresent is null && kiddo.nonePresent is null ? null : [.. man.nonePresent ?? [], .. kiddo.nonePresent ?? []];
+            if (!(dontAppendFields.Contains("oncePerCombatTags") || excludeFields.Contains("oncePerCombatTags"))) result.oncePerCombatTags = man.oncePerCombatTags is null && kiddo.oncePerCombatTags is null ? null : [.. man.oncePerCombatTags ?? [], .. kiddo.oncePerCombatTags ?? []];
+            if (!(dontAppendFields.Contains("oncePerRunTags") || excludeFields.Contains("oncePerRunTags"))) result.oncePerRunTags = man.oncePerRunTags is null && kiddo.oncePerRunTags is null ? null : [.. man.oncePerRunTags ?? [], .. kiddo.oncePerRunTags ?? []];
+            if (!(dontAppendFields.Contains("requireCharsLocked") || excludeFields.Contains("requireCharsLocked"))) result.requireCharsLocked = man.requireCharsLocked is null && kiddo.requireCharsLocked is null ? null : [.. man.requireCharsLocked ?? [], .. kiddo.requireCharsLocked ?? []];
+            if (!(dontAppendFields.Contains("requireCharsUnlocked") || excludeFields.Contains("requireCharsUnlocked"))) result.requireCharsUnlocked = man.requireCharsUnlocked is null && kiddo.requireCharsUnlocked is null ? null : [.. man.requireCharsUnlocked ?? [], .. kiddo.requireCharsUnlocked ?? []];
             if (!(dontAppendFields.Contains("requiredScenes") || excludeFields.Contains("requiredScenes"))) result.requiredScenes = [.. man.requiredScenes ?? [], .. kiddo.requiredScenes ?? []];
-            if (!(dontAppendFields.Contains("zones") || excludeFields.Contains("zones"))) result.zones = [.. man.zones ?? [], .. kiddo.zones ?? []];
+            if (!(dontAppendFields.Contains("zones") || excludeFields.Contains("zones"))) result.zones = man.zones is null && kiddo.zones is null ? null : [.. man.zones ?? [], .. kiddo.zones ?? []];
         }
 
         return result;

@@ -41,15 +41,15 @@ public class ShedScales : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 0
+                        cost = 1,
+                        retain = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 1,
-                        retain = true
+                        cost = 2
                     };
                 }
             default:
@@ -86,7 +86,7 @@ public class ShedScales : Card, IRegisterable
                         },
                         new AStatus
                         {
-                            status = Status.tempShield,
+                            status = Status.shield,
                             targetPlayer = true,
                             statusAmount = GetMoultTotal(s),
                             xHint = 1
@@ -105,12 +105,12 @@ public class ShedScales : Card, IRegisterable
                         },
                         new AStatus
                         {
-                            status = Status.tempShield,
+                            status = Status.shield,
                             targetPlayer = true,
                             statusAmount = GetMoultTotal(s),
                             xHint = 1
                         },
-                        new ADiscard(),
+                        new ADiscard()
                     };
                 }
             case Upgrade.B:
@@ -125,12 +125,20 @@ public class ShedScales : Card, IRegisterable
                         },
                         new AStatus
                         {
-                            status = Status.tempShield,
+                            status = Status.shield,
+                            targetPlayer = true,
+                            statusAmount = GetMoultTotal(s),
+                            xHint = 1
+                        },
+                        new AStatus
+                        {
+                            status = Status.drawNextTurn,
                             targetPlayer = true,
                             statusAmount = GetMoultTotal(s),
                             xHint = 1
                         },
                         new ADiscard(),
+
                     };
                 }
             default:

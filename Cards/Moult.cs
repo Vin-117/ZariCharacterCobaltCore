@@ -97,7 +97,7 @@ public class Moult : Card, IRegisterable
                         },
                         new AStatus
                         {
-                            status = Status.shield,
+                            status = Status.tempShield,
                             statusAmount = 1,
                             targetPlayer = true
                         },
