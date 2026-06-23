@@ -35,6 +35,7 @@ public class ShedScales : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
+                        infinite = true
                     };
                 }
             case Upgrade.A:
@@ -42,14 +43,15 @@ public class ShedScales : Card, IRegisterable
                     return new CardData
                     {
                         cost = 1,
-                        retain = true
+                        infinite = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 0,
+                        infinite = true
                     };
                 }
             default:
@@ -62,55 +64,44 @@ public class ShedScales : Card, IRegisterable
     public override List<CardAction> GetActions(State s, Combat c)
     {
 
-        int GetMoultTotal(State s)
-        {
-            int num = 0;
-            if (s.route is Combat combat)
-            {
-                num = combat.hand.Count - 1;
-            }
-            return num;
-        }
-
         switch (this.upgrade)
         {
             case Upgrade.None:
                 {
                     return new List<CardAction>
                     {
-
-                        new AVariableHint
-                        {
-                            hand = true,
-                            handAmount = GetMoultTotal(s)
-                        },
                         new AStatus
                         {
-                            status = Status.shield,
+                            status = Status.tempShield,
                             targetPlayer = true,
-                            statusAmount = GetMoultTotal(s),
-                            xHint = 1
+                            statusAmount = 2
                         },
-                        new ADiscard(),
+                        new ADiscardSelect
+                        {
+                            count = 1
+                        },
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new AVariableHint
+                        new AStatus
                         {
-                            hand = true,
-                            handAmount = GetMoultTotal(s)
+                            status = Status.tempShield,
+                            targetPlayer = true,
+                            statusAmount = 2
                         },
                         new AStatus
                         {
-                            status = Status.shield,
+                            status = Status.drawNextTurn,
                             targetPlayer = true,
-                            statusAmount = GetMoultTotal(s),
-                            xHint = 1
+                            statusAmount = 1
                         },
-                        new ADiscard()
+                        new ADiscardSelect
+                        {
+                            count = 1
+                        },
                     };
                 }
             case Upgrade.B:
@@ -118,26 +109,16 @@ public class ShedScales : Card, IRegisterable
                     return new List<CardAction>
                     {
 
-                        new AVariableHint
-                        {
-                            hand = true,
-                            handAmount = GetMoultTotal(s)
-                        },
                         new AStatus
                         {
                             status = Status.shield,
                             targetPlayer = true,
-                            statusAmount = GetMoultTotal(s),
-                            xHint = 1
+                            statusAmount = 1
                         },
-                        new AStatus
+                        new ADiscardSelect
                         {
-                            status = Status.drawNextTurn,
-                            targetPlayer = true,
-                            statusAmount = GetMoultTotal(s),
-                            xHint = 1
+                            count = 2
                         },
-                        new ADiscard(),
 
                     };
                 }

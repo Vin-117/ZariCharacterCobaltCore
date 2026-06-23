@@ -69,6 +69,29 @@ internal class ZariTeraDialogue : IRegisterable
             },
 
             {
+                "ZariMeetsTeraANDDrake_Intro_0", new()
+                {
+                    type = NodeType.@event,
+                    lookup = [ "zone_first" ],
+                    once = true,
+                    allPresent = [ AmZari, AmTera, AmDrake ],
+                    bg = "BGRunStartZari",
+                    requiredScenes = ["ZariMeetsTera_Intro_0"],
+                    dialogue =
+                    [
+                        new(AmTera, "taxes", "Wait...is this Drake?"),
+                        new(AmZari, "explains", "Indeed! Flip to the next page for me.", flipped: true),
+                        new(AmTera, "happytaxes", "Aww! She's so cute."),
+                        new(AmDrake, "mad", "Auntie Zari?! What the hell are you showing him?!"),
+                        new(AmZari, "arrogant", "Why hello there Eunice.", flipped: true),
+                        new(AmZari, "explains", "I was just showing some pictures of your troubled youth.", flipped: true),
+                        new(AmTera, "happytaxes", "Drake, I didn't know you ate crayons."),
+                        new(AmDrake, "mad", "I am going to kill both of you.")
+                    ]
+                }
+            },
+
+            {
                 "ZariTera_Dialogue_Pact_0", new()
                 {
                     type = NodeType.combat,

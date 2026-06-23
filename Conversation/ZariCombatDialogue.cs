@@ -572,7 +572,7 @@ internal class ZariCombatDialogue : IRegisterable
                     dialogue =
                     [
                         new(AmPirateDrake, "Spare some change, Aunt?"),
-                        new(AmZari, "arrogant", "No."),
+                        new(AmZari, "annoyed", "No."),
                     ]
                 }
             },
