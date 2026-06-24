@@ -99,6 +99,10 @@ public class Opportunistic : Card, IRegisterable
                             status = ModEntry.Instance.ZariMinimumStatus.Status,
                             statusAmount = 1,
                             targetPlayer = true
+                        },
+                        new ADrawCard
+                        {
+                            count = 2
                         }
                     };
                 }

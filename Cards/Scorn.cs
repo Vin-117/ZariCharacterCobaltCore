@@ -74,8 +74,9 @@ public class Scorn : Card, IRegisterable, IHasCustomCardTraits
                 {
                     return new CardData
                     {
-                        cost = 4,
-                        exhaust = true
+                        cost = 3,
+                        exhaust = true,
+                        retain = true
                     };
                 }
             default:
@@ -122,7 +123,7 @@ public class Scorn : Card, IRegisterable, IHasCustomCardTraits
                         new AStatus
                         {
                             status = ModEntry.Instance.ZariScornStatus.Status,
-                            statusAmount = 2,
+                            statusAmount = 1,
                             targetPlayer = true,
                             dialogueSelector = ".ZariScorn"
                         },

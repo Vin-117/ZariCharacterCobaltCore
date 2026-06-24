@@ -34,21 +34,23 @@ public class Unburden : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 1
                     };
                 }
             case Upgrade.A:
                 {
                     return new CardData
                     {
-                        cost = 2
+                        cost = 1,
+                        retain = true
                     };
                 }
             case Upgrade.B:
                 {
                     return new CardData
                     {
-                        cost = 2
+                        unplayable = true,
+                        cost = 0
                     };
                 }
             default:
@@ -66,72 +68,65 @@ public class Unburden : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect
+                        new ADiscardSelect
                         {
-                        },
-                        new AStatus
-                        {
-                            status = Status.evade,
-                            statusAmount = 1,
-                            targetPlayer = true
-                        },
-                        new AStatus
-                        {
-                            status = Status.tempShield,
-                            statusAmount = 2,
-                            targetPlayer = true,
+                            count = 1,
                             dialogueSelector = ".ZariUnburden"
                         },
+                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
+                        (
+                            new AStatus
+                            {
+                                status = Status.evade,
+                                statusAmount = 1,
+                                targetPlayer = true,
+                                dialogueSelector = ".ZariUnburden"
+                            }
+                        ).AsCardAction
                     };
                 }
             case Upgrade.A:
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect
+                        new ADiscardSelect
                         {
-                        },
-                        new AStatus
-                        {
-                            status = Status.evade,
-                            statusAmount = 1,
-                            targetPlayer = true
-                        },
-                        new AStatus
-                        {
-                            status = Status.tempShield,
-                            statusAmount = 3,
-                            targetPlayer = true,
+                            count = 1,
                             dialogueSelector = ".ZariUnburden"
                         },
+                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
+                        (
+                            new AStatus
+                            {
+                                status = Status.evade,
+                                statusAmount = 1,
+                                targetPlayer = true,
+                                dialogueSelector = ".ZariUnburden"
+                            }
+                        ).AsCardAction
                     };
                 }
             case Upgrade.B:
                 {
                     return new List<CardAction>
                     {
-                        new ADiscardFlexSelect
-                        {
-                        },
-                        new AStatus
-                        {
-                            status = Status.evade,
-                            statusAmount = 1,
-                            targetPlayer = true
-                        },
-                        new AStatus
-                        {
-                            status = Status.maxShield,
-                            statusAmount = 1,
-                            targetPlayer = true
-                        },
-                        new AStatus
-                        {
-                            status = Status.tempShield,
-                            statusAmount = 2,
-                            targetPlayer = true,
-                            dialogueSelector = ".ZariUnburden"
-                        },
+
+                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
+                        (
+                            new ADiscardFlexSelect
+                            {
+                            }
+                        ).AsCardAction,
+                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
+                        (
+                            new AStatus
+                            {
+                                status = Status.evade,
+                                statusAmount = 1,
+                                targetPlayer = true,
+                                dialogueSelector = ".ZariUnburden"
+                            }
+                        ).AsCardAction
                     };
                 }
             default:

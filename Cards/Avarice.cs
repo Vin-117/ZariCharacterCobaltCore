@@ -51,7 +51,9 @@ public class Avarice : Card, IRegisterable
                 {
                     return new CardData
                     {
-                        unplayable = true
+                        unplayable = false,
+                        cost = 1,
+                        buoyant = true
                     };
                 }
             default:
@@ -97,17 +99,18 @@ public class Avarice : Card, IRegisterable
                 {
                     return new List<CardAction>
                     {
+
+                        new AStatus
+                        {
+                            status = Status.drawNextTurn,
+                            statusAmount = 2,
+                            targetPlayer = true
+                        },
                         ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
                         (
                             new ADrawCard
                             {
-                                count = 2
-                            }
-                        ).AsCardAction,
-                        ModEntry.Instance.KokoroApi.OnDiscard.MakeAction
-                        (
-                            new ADiscardFlexSelect
-                            {
+                                count = 2,
                                 dialogueSelector = ".ZariAvarice"
                             }
                         ).AsCardAction
